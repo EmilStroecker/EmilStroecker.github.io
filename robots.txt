@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://emilstroecker.github.io/al-folio/sitemap.xml
+Sitemap: https://emilstroecker.github.io/sitemap.xml
