@@ -1,189 +1,231 @@
 cv:
-  name: Albert Einstein
-  label: Scientist
-  email: einstein@example.com
-  location: Princeton, NJ
+  name: Emil Stroecker
+  label: Cognitive Neuroscience Researcher
+  email: es4485@columbia.edu
+  location: New York City, NY, USA
   image: ""
-  summary: A German-born theoretical physicist, widely ranked among the greatest and most influential scientists of all time
+  summary: >
+    MSc student in Cognitive Neuroscience (Maastricht University) and thesis research intern at the Kriegeskorte Visual
+    Inference Lab (Columbia University, Zuckerman Institute). Research interests include computational models of visual
+    perception, psychophysics, and neural decoding.
 
   social_networks:
-    - network: X
-      username: AlbertEinstein
     - network: GitHub
-      username: example
+      username: EmilStroecker
     - network: LinkedIn
-      username: example
-
-  address:
-    street: 2712 Broadway St
-    city: San Francisco
-    region: California
-    postalCode: CA 94115
-    countryCode: US
+      username: # add your LinkedIn username
+    - network: ORCID
+      username: # add your ORCID ID
 
   sections:
     Education:
-      - institution: University of Zurich
-        location: Zurich, Switzerland
-        url: https://www.uzh.ch/
-        area: Physics
-        studyType: PhD
-        start_date: 1900
-        end_date: 1905
-        score: ""
-        courses: "Theory of Relativity"
+      - institution: Maastricht University
+        location: Maastricht, Netherlands
+        url: https://www.maastrichtuniversity.nl/
+        area: Cognitive Neuroscience
+        studyType: Research MSc
+        start_date: 2024-09
+        end_date: 2026-08
+        score: "8.8/10.0 (US: 4.0/4.0)"
         highlights:
-          - Description 1.
-          - Description 2.
+          - "Selective 2-year programme with research focus, featuring 10-month MSc thesis research"
+          - "Selected coursework: Statistics I–III, Applied Statistics I & II, Signal Analysis, MATLAB Advanced Programming,
+            Python Programming, Advanced fMRI, EEG & MEG, Brain Connectivity & Connectomics, Sensorimotor Processing,
+            Functional Neuroanatomy"
 
-      - institution: Eidgenössische Technische Hochschule
-        location: Zurich, Switzerland
-        area: Physics
-        studyType: Federal teaching diploma
-        start_date: 1896
-        end_date: 1900
+      - institution: Kyoto University
+        location: Kyoto, Japan
+        url: https://www.kyoto-u.ac.jp/en
+        area: International Exchange Programme
+        studyType: Exchange
+        start_date: 2023-09
+        end_date: 2024-02
+        score: "4.0/4.0 (US)"
         highlights:
-          - Description 1.
-          - Description 2.
+          - "Recipient of JASSO scholarship (¥400,000 ≈ $2,500 USD)"
+
+      - institution: Maastricht University
+        location: Maastricht, Netherlands
+        url: https://www.maastrichtuniversity.nl/
+        area: Psychology
+        studyType: BSc — Summa Cum Laude, Top 1%
+        start_date: 2021-09
+        end_date: 2024-08
+        score: "9.1/10.0 (US: 4.0/4.0)"
+        highlights:
+          - "Empirical programme with focus on research methods, statistics, cognitive psychology, and neuroscience"
 
     Experience:
-      - company: Institute for Advanced Study, Princeton University
-        position: Professor of Theoretical Physics
-        location: Princeton University, NJ
-        start_date: 1933
-        end_date: 1955
-        summary: Teaching at Palmer Physical Laboratory (now 302 Frist Campus Center). While not a professor at Princeton, I associated with the physics professors and continued to give lectures on campus.
+      - company: Columbia University, Zuckerman Institute
+        position: MSc Thesis Research Intern — Kriegeskorte Visual Inference Lab
+        location: New York City, USA
+        url: https://kriegeskortelab.zuckermaninstitute.columbia.edu/
+        start_date: 2025-11
+        end_date: 2026-08
         highlights:
-          - Relativity
-          - Description 2.
+          - "Project lead: researching neural network models of the ventral stream and their bias toward geometrical depth
+            interpretations in the Ames Window Illusion"
+          - "Comparing contemporary depth estimation networks (Metric3D, DSINE, MoGe)"
+          - "Running psychophysics experiments (PsychoPy/PsychoJS) for human benchmarking"
+          - "Creating online visual perception games for large-scale data collection"
+          - "Experimental documentation used as foundation for AI psychophysics benchmark tool (illugen)"
+          - "First author on 2-page extended abstract accepted to CCN 2026"
 
-      - company: California Institute of Technology
-        position: Visiting Professor
-        location: Pasadena, California, US
-        start_date: 1933
-        end_date: 1933
+      - company: Maastricht University — Developmental Cognitive Neuroscience Group
+        position: Research Assistant
+        location: Maastricht, Netherlands
+        start_date: 2025-09
+        end_date: 2025-11
         highlights:
-          - Description 1.
-          - Description 2.
+          - "Refactored and debugged a psychophysics experiment in PsychoPy for EEG compatibility and improved task paradigm"
 
-      - company: Kaiser Wilhelm Institute for Physics
-        position: Director
-        location: Berlin, Germany
-        start_date: 1917
-        end_date: 1933
-
-      - company: Karl-Ferdinand University
-        position: Professor of Theoretical Physics
-        location: Prague, Czechoslovakia
-        start_date: 1911
-        end_date: 1917
-
-      - company: University of Zurich
-        position: Associate Professor of Theoretical Physics
-        location: Zurich, Switzerland
-        start_date: 1909
-        end_date: 1911
-
-    Volunteer:
-      - company: People's Climate March
-        position: Lead Organizer
-        location: Zurich, Switzerland
-        start_date: 2014-04-01
-        end_date: 2015-07-01
-        summary: Lead organizer for the New York City branch of the People's Climate March, the largest climate march in history.
+      - company: Maastricht University — Independent Research with Rainer Goebel
+        position: fMRI Decoder Research
+        location: Maastricht, Netherlands
+        start_date: 2025-09
+        end_date: 2025-12
         highlights:
-          - "Awarded 'Climate Hero' award by Greenpeace for my efforts organizing the march."
-          - "Men of the year 2014 by Time magazine"
+          - "Decoded representations of viewed and imagined letters in V1 from fMRI voxel patterns"
+          - "Implemented GCN, CNN, and FCNN in PyTorch as proof-of-concept for comparing decoding architectures"
+
+      - company: Sokendai, National Institute for Physiological Sciences
+        position: Research Intern — Ryo Sasaki's Multisensory Integration Systems Lab
+        location: Okazaki, Japan
+        url: https://sites.google.com/view/saccade-and-space/home
+        start_date: 2025-07
+        end_date: 2025-07
+        highlights:
+          - "Comprehensive training on major practical aspects of macaque experiments"
+          - "Observed monkey experiments full-time for two weeks, witnessing full procedures for behavioural training &
+            neural recordings for saccade tasks & spatial navigation tasks"
+
+      - company: Maastricht University — MaRBLe Honours Programme
+        position: BSc Honours Thesis under Vincent van de Ven
+        location: Maastricht, Netherlands
+        start_date: 2023-11
+        end_date: 2024-07
+        highlights:
+          - "Fully self-directed project: experimental design, experiment creation (PsychoPy/PsychoJS), recruiting,
+            administration to 40 participants, analysis"
+          - "Examined effect of structural association of tones on tone sequence recognition"
+          - "Project graded outstanding (10/10); poster presented at MaRBLe Symposium 2024"
+
+      - company: University Hospital Cologne
+        position: Research Intern — TrainParC-Advanced
+        location: Cologne, Germany
+        start_date: 2023-07
+        end_date: 2023-09
+        highlights:
+          - "Conducted neuropsychological & motor assessments (MMST, BDI-II, MoCA, FOG-Q, etc.) with Parkinson's patients"
+          - "Developed paper-to-digital data entry pipeline in Excel, significantly reducing workflow time"
+          - "Contributions acknowledged in resulting Springer Nature publication (Trials, 2025)"
+
+    Service:
+      - company: 9th Annual Conference on Cognitive Computational Neuroscience (CCN2026)
+        position: Workflow Lead, Technical Program Committee
+        location: New York City, USA
+        start_date: 2025-10
+        end_date: 2026-08
+        highlights:
+          - "Managing submission process for 600+ submissions on OpenReview"
+          - "Documenting conference policies and procedures, shaping future iterations of the venue"
+
+      - company: Columbia University
+        position: Research Mentor — BUMP Biology
+        location: New York City, USA
+        start_date: 2026-01
+        end_date: 2026-12
+        highlights:
+          - "Advising undergraduate student on first steps in neuroscientific research, applying for programmes, and
+            shaping academic goals"
+
+      - company: In-Mind Magazine
+        position: Editorial Assistant
+        location: Remote
+        url: https://in-mind.org
+        start_date: 2026-05
+        highlights:
+          - "Spearheaded development of editorial guidelines for incoming peer-reviewed submissions"
+          - "Screening submissions for compliance with guidelines"
+
+      - company: Maastricht University
+        position: Teaching Assistant — BSc Courses
+        location: Maastricht, Netherlands
+        start_date: 2024-11
+        end_date: 2025-07
+        highlights:
+          - "Instructed tutorial group meetings for 60+ students"
+          - "Courses: Functional Neuroanatomy, Consciousness, Statistics, Psychodiagnostics"
+
+      - company: Maastricht Student Journal of Psychology and Neuroscience (MSJPN)
+        position: Reviewer
+        location: Maastricht, Netherlands
+        start_date: 2025-02
 
     Awards:
-      - title: Nobel Prize in Physics
-        authors:
-          - "Royal Swedish Academy of Sciences"
-        date: 1921-11-01
-        awarder: Royal Swedish Academy of Sciences
-        url: https://www.nobelprize.org/prizes/physics/1921/einstein/biographical/
-        summary: The Nobel Prizes are five separate prizes that, according to Alfred Nobel's will of 1895, are awarded to 'those who, during the preceding year, have conferred the greatest benefit to humankind.'
+      - title: Summa Cum Laude, BSc Psychology — Top 1% of class
+        date: 2024-08
+        awarder: Maastricht University
 
-      - title: Max Planck Medal
-        authors:
-          - "German Physical Society"
-        date: 2029
-        awarder: German Physical Society
-        summary: Awarded for outstanding scientific achievement
+      - title: JASSO Scholarship — ¥400,000 (≈ $2,500 USD)
+        date: 2023-10
+        awarder: Japanese Student Services Organization
 
-    Publications:
-      - title: Zur Elektrodynamik bewegter Körper
-        authors:
-          - Albert Einstein
-        publisher: Annalen der Physik
-        releaseDate: 1905-06-30
-        url: https://en.wikisource.org/wiki/Translation:On_the_Electrodynamics_of_Moving_Bodies
-        summary: It concerned an interpretation of the Michelson–Morley experiment and the properties of light and time. Special relativity incorporates the principle that the speed of light is the same for all inertial observers regardless of the state of motion of the source.
+      - title: Honours Programme, MaRBLe — empirical thesis research (top 20%)
+        date: 2023-11
+        awarder: Maastricht University
 
-      - title: Über einen die Erzeugung und Verwandlung des Lichtes betreffenden heuristischen Gesichtspunkt
-        authors:
-          - Albert Einstein
-        publisher: Annalen der Physik
-        releaseDate: 1905-03-18
-        url: https://de.wikisource.org/wiki/Über_einen_die_Erzeugung_und_Verwandlung_des_Lichtes_betreffenden_heuristischen_Gesichtspunkt
-        summary: In the second paper, he applied the quantum theory to light to explain the photoelectric effect. In particular, he used the idea of light quanta (photons) to explain experimental results, but stressed the importance of the experimental results. The importance of his work on the photoelectric effect earned him the Nobel Prize in Physics in 1921.
+      - title: Honours Programme, Honours+ — extracurricular research (top 5%)
+        date: 2022-11
+        awarder: Maastricht University
 
-      - title: Die Grundlage der allgemeinen Relativitätstheorie
-        authors:
-          - Albert Einstein
-        publisher: Annalen der Physik
-        releaseDate: 1916-03-20
-        url: https://de.wikisource.org/wiki/Die_Grundlage_der_allgemeinen_Relativitätstheorie
-        summary: The publication of the theory of general relativity made him internationally famous. He was professor of physics at the universities of Zurich (1909–1911) and Prague (1911–1912), before he returned to ETH Zurich (1912–1914).
+      - title: FPN Honours Programme — extracurricular courses (top 5%)
+        date: 2022-09
+        awarder: Maastricht University, Faculty of Psychology and Neuroscience
+
+      - title: PREMIUM Honours Programme — business consultant for Atos
+        date: 2025-01
+        awarder: Maastricht University
 
     Skills:
-      - name: Physics
-        level: Master
-        icon: fa-solid fa-hashtag
-        keywords: "Quantum Mechanics, Quantum Computing, Quantum Information, Quantum Cryptography, Quantum Communication, Quantum Teleportation"
+      - name: Programming
+        level: Advanced
+        icon: fa-solid fa-code
+        keywords: "Python, Bash, MATLAB, R, JavaScript, SQL, HTML/CSS"
+
+      - name: ML & Data
+        level: Advanced
+        icon: fa-solid fa-brain
+        keywords: "PyTorch, NumPy, Pandas, Scikit-learn, Matplotlib"
+
+      - name: Neuroscience Tools
+        level: Advanced
+        icon: fa-solid fa-microscope
+        keywords: "PsychoPy, fMRI (real-time, neurofeedback), EEG, NIBS (TMS, tDCS), electrode recording, Blender, LaTeX"
+
+      - name: Other
+        level: Advanced
+        icon: fa-solid fa-chart-bar
+        keywords: "Psychophysics, statistical inference, scientific writing, OpenReview"
 
     Languages:
       - name: German
-        summary: "Native speaker"
+        summary: "Native"
 
       - name: English
-        summary: "Fluent"
+        summary: "Professional (TOEFL iBT 118/120, CEFR C2)"
 
-    Interests:
-      - name: Physics
-        icon: fa-solid fa-tag
-        keywords: "Quantum Mechanics, Quantum Computing, Quantum Information, Quantum Cryptography, Quantum Communication, Quantum Teleportation"
+      - name: Japanese
+        summary: "Intermediate"
+
+      - name: Dutch / French / Spanish
+        summary: "Elementary"
 
     Certificates:
-      - name: Machine Learning
-        date: 2018-01-01
-        issuer: Stanford University
-        icon: fa-solid fa-location-dot
+      - name: Columbia University ZI fMRI Certification (Level 2)
+        issuer: Columbia University Zuckerman Institute
+        icon: fa-solid fa-certificate
 
-      - name: Quantum Computing
-        date: 2018-01-01
-        issuer: Stanford University
-        icon: fa-solid fa-tag
-
-      - name: Quantum Information
-        date: 2018-01-01
-        issuer: Stanford University
-        icon: fa-solid fa-envelope
-
-    Projects:
-      - name: Quantum Computing
-        summary: Quantum computing is the use of quantum-mechanical phenomena such as superposition and entanglement to perform computation. Computers that perform quantum computations are known as quantum computers.
-        highlights:
-          - Quantum Teleportation
-          - Quantum Cryptography
-        start_date: 2018-01-01
-        end_date: 2018-01-01
-
-    References:
-      - name: Professor John Doe
-        icon: fa-solid fa-laptop
-        reference: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam condimentum, diam quis convallis euismod, arcu mi ullamcorper lorem, a vestibulum nunc magna at sem. Sed in risus ac felis varius blandit.
-
-      - name: Professor Jane Smith
-        icon: fa-solid fa-thumbtack
-        reference: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam condimentum, diam quis convallis euismod, arcu mi ullamcorper lorem, a vestibulum nunc magna at sem. Sed in risus ac felis varius blandit.
+      - name: TOEFL iBT 118/120 (CEFR C2)
+        issuer: Educational Testing Service
+        icon: fa-solid fa-language

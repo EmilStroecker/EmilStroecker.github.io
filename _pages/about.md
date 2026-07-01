@@ -2,33 +2,36 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
+subtitle: >
+  MSc Thesis Research Intern · <a href="https://kriegeskortelab.zuckermaninstitute.columbia.edu/" target="_blank">Kriegeskorte Visual Inference Lab</a> · Columbia University, Zuckerman Institute
 
 profile:
   align: right
   image: prof_pic.jpg
-  image_circular: false # crops the image to make it circular
+  image_circular: false
   more_info: >
-    <p>555 your office number</p>
-    <p>123 your address street</p>
-    <p>Your City, State 12345</p>
+    <p>Zuckerman Institute</p>
+    <p>Columbia University</p>
+    <p>New York City, NY, USA</p>
 
-selected_papers: true # includes a list of papers marked as "selected={true}"
-social: true # includes social icons at the bottom of the page
+selected_papers: true
+social: true
 
 announcements:
-  enabled: true # includes a list of news items
-  scrollable: true # adds a vertical scroll bar if there are more than 3 news items
-  limit: 5 # leave blank to include all the news in the `_news` folder
+  enabled: true
+  scrollable: true
+  limit: 5
 
 latest_posts:
-  enabled: true
-  scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
-  limit: 3 # leave blank to include all the blog posts
+  enabled: false
+  scrollable: true
+  limit: 3
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](https://www.reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+I am a Research MSc student in Cognitive Neuroscience at Maastricht University, currently completing my thesis as a research intern at [Nikolaus Kriegeskorte's Visual Inference Lab](https://kriegeskortelab.zuckermaninstitute.columbia.edu/) at Columbia University's Zuckerman Institute.
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+My research focuses on **neural network models of the ventral visual stream** and how they process depth — specifically, their bias toward geometrical interpretations of depth cues as revealed by the Ames Window Illusion. I compare contemporary depth estimation networks (Metric3D, DSINE, MoGe), run psychophysics experiments (PsychoPy/PsychoJS) to benchmark human perception, and develop online visual perception games for large-scale data collection. I am also a first author on a 2-page extended abstract accepted to the [Conference on Cognitive Computational Neuroscience 2026](https://2026.ccneuro.org/).
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+Previously, I have worked as a Research Assistant in the Developmental Cognitive Neuroscience Group at Maastricht University, conducted an independent project decoding fMRI representations of viewed and imagined letters using GCN, CNN, and FCNN architectures in PyTorch, and interned at the [Multisensory Integration Systems Lab](https://sites.google.com/view/saccade-and-space/home) (Ryo Sasaki, NIPS Sokendai) in Japan, where I observed primate neurophysiology experiments. I also serve as Workflow Lead for the Technical Program Committee of [CCN 2026](https://2026.ccneuro.org/) and as a Research Mentor in Columbia's BUMP Biology programme.
+
+Beyond research, I write neuroscience articles for general audiences at [BrainMatters](https://brainmatters.nl) and serve as an Editorial Assistant at [In-Mind Magazine](https://in-mind.org).
