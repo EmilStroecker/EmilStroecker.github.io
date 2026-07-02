@@ -1,8 +1,8 @@
 ---
 layout: page
 title: Illusory Depth Estimation
-description: Do depth estimation networks share humans' geometric biases? An investigation using the Ames Window Illusion.
-img: assets/img/profile.png
+description: Do depth estimation networks share humans' geometric biases?
+img: /images/Ames_preview.png
 importance: 1
 ---
 
@@ -15,6 +15,10 @@ geometric prior in the human visual system: we strongly expect windows (and rect
 rectangular, and our depth perception is shaped accordingly.
 
 This project asks: do modern neural networks trained for depth estimation exhibit the same geometric biases?
+
+<div style="text-align:center; margin: 1.5rem 0;">
+  <img src="/images/Ames_demo.gif" alt="Rotating Ames Window stimulus" style="max-width:100%; border-radius:8px;">
+</div>
 
 ## Research Questions
 
@@ -34,7 +38,7 @@ This work is conducted as part of my MSc thesis at the
 [Kriegeskorte Visual Inference Lab](https://kriegeskortelab.zuckermaninstitute.columbia.edu/),
 Columbia University, Zuckerman Institute.
 
-## Publication
+## Conference Abstract
 
 Stroecker, E., Cheng, F., &amp; Kriegeskorte, N. (2026, August). *Measuring Depth Inversion in the Ames Window
 Illusion* [Extended abstract, accepted]. 9th Annual Conference on Cognitive Computational Neuroscience, NYC, USA.
