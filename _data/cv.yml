@@ -1,6 +1,6 @@
 cv:
   name: Emil Stroecker
-  label: Cognitive Neuroscience Researcher
+  label: MSc, Cognitive Neuroscience
   email: es4485@columbia.edu
   location: New York City, NY, USA
   image: ""
@@ -9,17 +9,16 @@ cv:
     - network: GitHub
       username: EmilStroecker
     - network: LinkedIn
-      username: # add your LinkedIn username
+      username: estroeck
     - network: ORCID
-      username: # add your ORCID ID
+      username: 0009-0008-8753-7279
 
   sections:
     Education:
       - institution: Maastricht University
         location: Maastricht, Netherlands
         url: https://www.maastrichtuniversity.nl/
-        area: Cognitive Neuroscience
-        studyType: Research MSc
+        studyType: Master of Science in Cognitive Neuroscience
         start_date: 2024-09
         end_date: 2026-08
         score: "8.8/10.0 (US: 4.0/4.0)"
@@ -32,8 +31,7 @@ cv:
       - institution: Kyoto University
         location: Kyoto, Japan
         url: https://www.kyoto-u.ac.jp/en
-        area: International Exchange Programme
-        studyType: Exchange
+        studyType: Kyoto University International Exchange Programme (KUINEP)
         start_date: 2023-09
         end_date: 2024-02
         score: "4.0/4.0 (US)"
@@ -43,29 +41,22 @@ cv:
       - institution: Maastricht University
         location: Maastricht, Netherlands
         url: https://www.maastrichtuniversity.nl/
-        area: Psychology
-        studyType: BSc — Summa Cum Laude, Top 1%
+        studyType: Bachelor of Science in Psychology
         start_date: 2021-09
         end_date: 2024-08
-        score: "9.1/10.0 (US: 4.0/4.0)"
+        score: Summa Cum Laude, Top 1%
         highlights:
           - "Empirical programme with focus on research methods, statistics, cognitive psychology, and neuroscience"
 
     Experience:
       - company: Columbia University, Zuckerman Institute
-        position: MSc Thesis Research Intern — Kriegeskorte Visual Inference Lab
+        position: Research Intern @ Kriegeskorte Visual Inference Lab
         location: New York City, USA
         url: https://kriegeskortelab.zuckermaninstitute.columbia.edu/
         start_date: 2025-11
         end_date: 2026-08
         highlights:
-          - "Project lead: researching neural network models of the ventral stream and their bias toward geometrical depth
-            interpretations in the Ames Window Illusion"
-          - "Comparing contemporary depth estimation networks (Metric3D, DSINE, MoGe)"
-          - "Running psychophysics experiments (PsychoPy/PsychoJS) for human benchmarking"
-          - "Creating online visual perception games for large-scale data collection"
-          - "Experimental documentation used as foundation for AI psychophysics benchmark tool (illugen)"
-          - "First author on 2-page extended abstract accepted to CCN 2026"
+
 
       - company: Maastricht University — Developmental Cognitive Neuroscience Group
         position: Research Assistant
@@ -73,38 +64,30 @@ cv:
         start_date: 2025-09
         end_date: 2025-11
         highlights:
-          - "Refactored and debugged a psychophysics experiment in PsychoPy for EEG compatibility and improved task paradigm"
-
-      - company: Maastricht University — Independent Research with Rainer Goebel
-        position: fMRI Decoder Research
+    
+      - company: Maastricht University
+        position: Independent Research on fMRI Decoders
         location: Maastricht, Netherlands
         start_date: 2025-09
-        end_date: 2025-12
+        end_date: 2026-08
         highlights:
-          - "Decoded representations of viewed and imagined letters in V1 from fMRI voxel patterns"
-          - "Implemented GCN, CNN, and FCNN in PyTorch as proof-of-concept for comparing decoding architectures"
 
       - company: Sokendai, National Institute for Physiological Sciences
-        position: Research Intern — Ryo Sasaki's Multisensory Integration Systems Lab
+        position: Research Intern @ Ryo Sasaki's Multisensory Integration Systems Lab
         location: Okazaki, Japan
-        url: https://sites.google.com/view/saccade-and-space/home
+        url: https://www.nips.ac.jp/eng/research/group/post-67/
         start_date: 2025-07
         end_date: 2025-07
         highlights:
           - "Comprehensive training on major practical aspects of macaque experiments"
-          - "Observed monkey experiments full-time for two weeks, witnessing full procedures for behavioural training &
-            neural recordings for saccade tasks & spatial navigation tasks"
 
-      - company: Maastricht University — MaRBLe Honours Programme
-        position: BSc Honours Thesis under Vincent van de Ven
+      - company: Maastricht University
+        position: Honours Thesis Research (MaRBLe)
         location: Maastricht, Netherlands
         start_date: 2023-11
         end_date: 2024-07
         highlights:
-          - "Fully self-directed project: experimental design, experiment creation (PsychoPy/PsychoJS), recruiting,
-            administration to 40 participants, analysis"
-          - "Examined effect of structural association of tones on tone sequence recognition"
-          - "Project graded outstanding (10/10); poster presented at MaRBLe Symposium 2024"
+          - "Fully self-directed project, graded outstanding (10/10)"
 
       - company: University Hospital Cologne
         position: Research Intern — TrainParC-Advanced
@@ -112,8 +95,6 @@ cv:
         start_date: 2023-07
         end_date: 2023-09
         highlights:
-          - "Conducted neuropsychological & motor assessments (MMST, BDI-II, MoCA, FOG-Q, etc.) with Parkinson's patients"
-          - "Developed paper-to-digital data entry pipeline in Excel, significantly reducing workflow time"
           - "Contributions acknowledged in resulting Springer Nature publication (Trials, 2025)"
 
     Service:
@@ -121,16 +102,16 @@ cv:
         details: "Managing 600+ submissions on OpenReview; documenting conference policies (2025–2026)"
 
       - label: "Research Mentor — Columbia BUMP Biology"
-        details: "Advising undergraduate student on neuroscientific research, programme applications, and academic goals (2026)"
+        details: #"Advising undergraduate student on neuroscientific research, programme applications, and academic goals (2026)"
 
       - label: "Editorial Assistant — In-Mind Magazine"
-        details: "Developing editorial guidelines for peer-reviewed submissions; screening for compliance (2026–present)"
+        details: #"Developing editorial guidelines for peer-reviewed submissions; screening for compliance (2026–present)"
 
       - label: "Teaching Assistant — Maastricht University"
         details: "Functional Neuroanatomy, Consciousness, Statistics, Psychodiagnostics; 60+ students (2024–2025)"
 
-      - label: "Peer Reviewer — Maastricht Student Journal of Psychology and Neuroscience"
-        details: "2025–present"
+      #- label: "Peer Reviewer — Maastricht Student Journal of Psychology and Neuroscience"
+      #  details: "2025–present"
 
     Awards:
       - title: Summa Cum Laude, BSc Psychology — Top 1% of class
@@ -141,40 +122,40 @@ cv:
         date: 2023-10
         awarder: Japanese Student Services Organization
 
-      - title: Honours Programme, MaRBLe — empirical thesis research (top 20%)
+      - title: Thesis Research Honours Programme (MaRBLe, top 20%)
         date: 2023-11
         awarder: Maastricht University
 
-      - title: Honours Programme, Honours+ — extracurricular research (top 5%)
+      - title: Honours+ Programme — extracurricular research (top 5%)
         date: 2022-11
         awarder: Maastricht University
 
-      - title: FPN Honours Programme — extracurricular courses (top 5%)
+      - title: FPN Honours Programme — extracurricular courswork (top 5%)
         date: 2022-09
-        awarder: Maastricht University, Faculty of Psychology and Neuroscience
+        awarder: Maastricht University
 
-      - title: PREMIUM Honours Programme — business consultant for Atos
+      - title: PREMIUM Honours Programme
         date: 2025-01
         awarder: Maastricht University
 
     Skills:
       - name: Programming
-        level: Advanced
+        level: 
         icon: fa-solid fa-code
         keywords: "Python, Bash, MATLAB, R, JavaScript, SQL, HTML/CSS"
 
       - name: ML & Data
-        level: Advanced
+        level: 
         icon: fa-solid fa-brain
         keywords: "PyTorch, NumPy, Pandas, Scikit-learn, Matplotlib"
 
       - name: Neuroscience Tools
-        level: Advanced
+        level: 
         icon: fa-solid fa-microscope
         keywords: "PsychoPy, fMRI (real-time, neurofeedback), EEG, NIBS (TMS, tDCS), electrode recording, Blender, LaTeX"
 
       - name: Other
-        level: Advanced
+        level: 
         icon: fa-solid fa-chart-bar
         keywords: "Psychophysics, statistical inference, scientific writing, OpenReview"
 
@@ -192,10 +173,10 @@ cv:
         summary: "Elementary"
 
     Certificates:
-      - name: Columbia University ZI fMRI Certification (Level 2)
-        issuer: Columbia University Zuckerman Institute
-        icon: fa-solid fa-certificate
-
       - name: TOEFL iBT 118/120 (CEFR C2)
-        issuer: Educational Testing Service
+        issuer: ETS
         icon: fa-solid fa-language
+
+      - name: Columbia University ZI fMRI Certification (Level 2)
+        issuer: Columbia University, Zuckerman Institute
+        icon: fa-solid fa-certificate

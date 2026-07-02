@@ -1,0 +1,108 @@
+{% assign month_abbrs = "Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec" | split: ',' %}
+
+<ul class="card-text font-weight-light list-group list-group-flush">
+  {% for entry in entries %}
+    <li class="list-group-item">
+      <div class="row">
+        <div class="col-xs-3 col-sm-3 col-md-3 text-center date-column">
+          {% capture raw_start %}{% if entry.start_date %}{{ entry.start_date }}{% elsif entry.startDate %}{{ entry.startDate }}{% endif %}{% endcapture %}
+          {% capture raw_end %}{% if entry.end_date %}{{ entry.end_date }}{% elsif entry.endDate %}{{ entry.endDate }}{% endif %}{% endcapture %}
+
+          {% assign raw_start = raw_start | strip %}
+          {% assign raw_end = raw_end | strip %}
+
+          {% if raw_start != '' %}
+            {% assign sp = raw_start | split: '-' %}
+            {% assign sy = sp[0] %}
+            {% assign sm_idx = sp[1] | plus: 0 | minus: 1 %}
+            {% if sm_idx >= 0 and sp.size >= 2 %}
+              {% assign sm = month_abbrs[sm_idx] %}
+              {% assign fmt_start = sm | append: ' ' | append: sy %}
+            {% else %}
+              {% assign fmt_start = sy %}
+            {% endif %}
+
+            {% if raw_end != '' %}
+              {% assign ep = raw_end | split: '-' %}
+              {% assign ey = ep[0] %}
+              {% assign em_idx = ep[1] | plus: 0 | minus: 1 %}
+              {% if em_idx >= 0 and ep.size >= 2 %}
+                {% assign em = month_abbrs[em_idx] %}
+                {% assign fmt_end = em | append: ' ' | append: ey %}
+              {% else %}
+                {% assign fmt_end = ey %}
+              {% endif %}
+            {% else %}
+              {% assign fmt_end = 'Present' %}
+            {% endif %}
+
+            {% assign date = fmt_start | append: ' &ndash; ' | append: fmt_end %}
+          {% else %}
+            {% assign date = null %}
+          {% endif %}
+
+          <table class="table-cv">
+            <tbody>
+              <tr>
+                <td>
+                  {% if date %}
+                    <span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 90px; white-space: normal; font-size: 0.68rem; line-height: 1.4;">{{ date }}</span>
+                  {% endif %}
+                </td>
+              </tr>
+              {% capture location %}{% if entry.location %}{{ entry.location }}{% endif %}{% endcapture %}
+              {% if location != '' %}
+                <tr>
+                  <td>
+                    <p class="location">
+                      <i class="fa-solid fa-location-dot iconlocation"></i>
+                      {{ location }}
+                    </p>
+                  </td>
+                </tr>
+              {% endif %}
+            </tbody>
+          </table>
+        </div>
+        <div class="col-xs-9 col-sm-9 col-md-9 mt-2 mt-md-0">
+          {% capture study_type %}{% if entry.studyType %}{{ entry.studyType }}{% elsif entry.degree %}{{ entry.degree }}{% endif %}{% endcapture %}
+
+          {% if entry.url %}
+            <h6 class="title font-weight-bold ml-1 ml-md-4">
+              <a href="{{ entry.url }}">{{ study_type }}</a>
+            </h6>
+          {% elsif study_type != '' %}
+            <h6 class="title font-weight-bold ml-1 ml-md-4">{{ study_type }}</h6>
+          {% endif %}
+
+          {% if entry.institution %}
+            <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem">{{ entry.institution }}</h6>
+          {% endif %}
+
+          {% if entry.area %}
+            <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem; font-style: italic">{{ entry.area }}</h6>
+          {% endif %}
+
+          {% if entry.courses or entry.highlights %}
+            <ul class="items">
+              {% for item in entry.courses %}
+                <li>
+                  <span class="item">{{ item }}</span>
+                </li>
+              {% endfor %}
+              {% for item in entry.highlights %}
+                <li>
+                  <span class="item">{{ item | markdownify | remove: '<p>' | remove: '</p>' }}</span>
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+
+          {% if entry.score %}
+            <p class="ml-1 ml-md-4" style="font-size: 0.85rem; color: #666; margin-top: 0.25rem;">{{ entry.score }}</p>
+          {% endif %}
+        </div>
+      </div>
+    </li>
+  {% endfor %}
+</ul>
