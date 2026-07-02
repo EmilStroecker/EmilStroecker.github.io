@@ -4,7 +4,7 @@ title: about
 permalink: /
 subtitle: >
   Research Master Student in Cognitive Neuroscience @ Maastricht University<br>
-  Research Intern @ <a href="https://kriegeskortelab.zuckermaninstitute.columbia.edu/" target="_blank">Kriegeskorte Visual Inference Lab</a> &middot; Columbia University, Zuckerman Institute
+  Research Intern @ <a href="https://kriegeskortelab.zuckermaninstitute.columbia.edu/" target="_blank">Niko Kriegeskorte's Visual Inference Lab</a> &middot; Columbia University, Zuckerman Institute
 
 profile:
   align: right
@@ -33,10 +33,10 @@ latest_posts:
   <strong>&#x1F6A7; This website is a work in progress.</strong> Some sections may be incomplete or missing.
 </div>
 
-I am a Research MSc student in Cognitive Neuroscience at Maastricht University, currently completing my thesis as a research intern at [Nikolaus Kriegeskorte's Visual Inference Lab](https://kriegeskortelab.zuckermaninstitute.columbia.edu/) at Columbia University's Zuckerman Institute.
+I am a research masters student in Cognitive Neuroscience at Maastricht University, currently completing my thesis as a research intern at [Niko Kriegeskorte's Visual Inference Lab](https://kriegeskortelab.zuckermaninstitute.columbia.edu/) at Columbia University's Zuckerman Institute.
 
-My research focuses on **neural network models of the ventral visual stream** and how they process depth -- specifically, their bias toward geometrical interpretations of depth cues as revealed by the Ames Window Illusion. I compare contemporary depth estimation networks (Metric3D, DSINE, MoGe), run psychophysics experiments (PsychoPy/PsychoJS) to benchmark human perception, and develop online visual perception games for large-scale data collection. I am also a first author on a 2-page extended abstract accepted to the [Conference on Cognitive Computational Neuroscience 2026](https://2026.ccneuro.org/).
+My current research focuses on **depth estimation in neural network models** -- specifically, their bias toward geometrical interpretations of depth cues as revealed by the [Ames Window Illusion](https://www.mos.org/video/optical-illusion-tricks-your-brain-ames-window). I compare contemporary depth estimation networks (Metric3D, DSINE, MoGe) while benchmarking on psychophysics data based on online experiments for large-scale data collection. I will present the project as first author via a 2-page extended abstract accepted to [CCN 2026](https://2026.ccneuro.org/).
 
-Previously, I have worked as a Research Assistant in the Developmental Cognitive Neuroscience Group at Maastricht University, conducted an independent project decoding fMRI representations of viewed and imagined letters using GCN, CNN, and FCNN architectures in PyTorch, and interned at the [Multisensory Integration Systems Lab](https://sites.google.com/view/saccade-and-space/home) (Ryo Sasaki, NIPS Sokendai) in Japan, where I observed primate neurophysiology experiments. I also serve as Workflow Lead for the Technical Program Committee of [CCN 2026](https://2026.ccneuro.org/) and as a Research Mentor in Columbia's BUMP Biology programme.
+After finishing my bachelor in Psychology at Maastricht University, I have been working on an fMRI decoding project in PyTorch together with Rainer Goebel involving letter imagery, which developed into proof-of-concept BCI study that I am independently pursuing.
 
-Beyond research, I write neuroscience articles for general audiences at [BrainMatters](https://brainmatters.nl) and serve as an Editorial Assistant at [In-Mind Magazine](https://in-mind.org).
+I also serve in the [Technical Program Committee of CCN 2026](https://2026.ccneuro.org/ccn-organizers/) and as a Research Mentor in Columbia's [BUMP Biology](https://www.bumpbiology.org/) programme. Beyond research, I write neuroscience articles for general audiences at [BrainMatters](https://brainmatters.nl) and serve as an Editorial Assistant at [In-Mind Magazine](https://in-mind.org).

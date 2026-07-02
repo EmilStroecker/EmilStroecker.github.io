@@ -1,6 +1,6 @@
 cv:
   name: Emil Stroecker
-  label: MSc, Cognitive Neuroscience
+  degree: MSc, Cognitive Neuroscience
   email: es4485@columbia.edu
   location: New York City, NY, USA
   image: ""
@@ -17,7 +17,7 @@ cv:
     Education:
       - institution: Maastricht University
         location: Maastricht, Netherlands
-        url: https://www.maastrichtuniversity.nl/
+        url: 
         studyType: Master of Science in Cognitive Neuroscience
         start_date: 2024-09
         end_date: 2026-08
@@ -31,7 +31,7 @@ cv:
       - institution: Kyoto University
         location: Kyoto, Japan
         url: https://www.kyoto-u.ac.jp/en
-        studyType: Kyoto University International Exchange Programme (KUINEP)
+        studyType: Kyoto University International Education Programme (KUINEP)
         start_date: 2023-09
         end_date: 2024-02
         score: "4.0/4.0 (US)"
@@ -50,9 +50,9 @@ cv:
 
     Experience:
       - company: Columbia University, Zuckerman Institute
-        position: Research Intern @ Kriegeskorte Visual Inference Lab
+        position: Research Intern @ [Niko Kriegeskorte's Visual Inference Lab](https://kriegeskortelab.zuckermaninstitute.columbia.edu/)
         location: New York City, USA
-        url: https://kriegeskortelab.zuckermaninstitute.columbia.edu/
+        url: 
         start_date: 2025-11
         end_date: 2026-08
         highlights:
@@ -82,7 +82,7 @@ cv:
           - "Comprehensive training on major practical aspects of macaque experiments"
 
       - company: Maastricht University
-        position: Honours Thesis Research (MaRBLe)
+        position: Honours Thesis Research ([MaRBLe](https://excellence-edlab.maastrichtuniversity.nl/marble))
         location: Maastricht, Netherlands
         start_date: 2023-11
         end_date: 2024-07
@@ -95,10 +95,10 @@ cv:
         start_date: 2023-07
         end_date: 2023-09
         highlights:
-          - "Contributions acknowledged in resulting Springer Nature publication (Trials, 2025)"
+          - "Contributions acknowledged in resulting Springer Nature publication ([Trials, 2025](https://doi.org/10.1186/s13063-025-09330-7))"
 
     Service:
-      - label: "Workflow Lead, Technical Program Committee — CCN2026"
+      - label: "Member, Technical Program Committee — CCN 2026"
         details: "Managing 600+ submissions on OpenReview; documenting conference policies (2025–2026)"
 
       - label: "Research Mentor — Columbia BUMP Biology"
@@ -113,7 +113,7 @@ cv:
       #- label: "Peer Reviewer — Maastricht Student Journal of Psychology and Neuroscience"
       #  details: "2025–present"
 
-    Awards:
+    Honours & Awards:
       - title: Summa Cum Laude, BSc Psychology — Top 1% of class
         date: 2024-08
         awarder: Maastricht University

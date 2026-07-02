@@ -5,5 +5,5 @@ inline: true
 related_posts: false
 ---
 
-New article out on [BrainMatters](https://brainmatters.nl): *Beauty and the Brain* -- the neuroscience of aesthetic experience.
+New article out on BrainMatters: [*Beauty and the Brain*](https://www.brainmatters.nl/en/beauty-and-the-brain/) -- the neuroscience of attractiveness.
 
