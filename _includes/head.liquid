@@ -91,8 +91,20 @@
   /* Links: no underline by default, color on hover */
   a {
     text-decoration: none;
+    color: var(--global-theme-color);
   }
   a:hover {
+    text-decoration: underline;
+    color: var(--global-hover-color);
+  }
+
+  /* Ensure inline elements inside links inherit the link color */
+  a em, a strong, a code {
+    color: inherit;
+  }
+
+  /* News section: underline links so they are visible as plain text */
+  .news td a {
     text-decoration: underline;
   }
 
