@@ -1,10 +1,99 @@
 <!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> Emil Stroecker </title> <meta name="author" content="Emil Stroecker"> <meta name="description" content="MSc Cognitive Neuroscience student and research intern at the Kriegeskorte Visual Inference Lab, Columbia University. "> <meta name="keywords" content="jekyll, jekyll-theme, academic-website, portfolio-website"> <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; media-src 'self' https:; frame-src 'self' https:; connect-src 'self' https:;"> <style>
   :root {
     --max-content-width: 930px;
+
+    /* Custom theme overrides */
+    --global-theme-color: #3d7ab5;
+    --global-hover-color: #3d7ab5;
+    --global-hover-text-color: #ffffff;
+    --global-highlight-color: #2d5f8a;
+
+    /* Slightly softer black for body text */
+    --global-text-color: #1a1a2e;
   }
-</style> <link rel="stylesheet" href="/assets/css/tailwind.css?v=50c64c15cbb9fd1ce6056fdb8bcb4b62"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css" integrity="sha256-MVopmdyC2tYTiJ8wlktf0uh0v4NgT+vNdyVFepi7Q0c=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css" integrity="sha256-SzrCOBJbGVFMahewkgjwnApaV2+av1DwMAA+/QGLyZw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/scholar-icons@1.0.3/css/scholar-icons.css" integrity="sha256-VY3hHVj/hNX3fYG6wtbA6TcKJQl7+FthzGSyIB64klY=" crossorigin="anonymous"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?v=591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%E2%9A%9B%EF%B8%8F&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?v=f0b101217084a90093badfe99ff9a7d1"> <link rel="canonical" href="https://emilstroecker.github.io/"> <script src="/assets/js/theme.js?v=7af685e2ba20b37fef545c97b8064050"></script> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?v=5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark"> <script>
+
+  html[data-theme="dark"] {
+    --global-theme-color: #6aabde;
+    --global-hover-color: #6aabde;
+    --global-highlight-color: #4a8fcc;
+  }
+
+  /* Typography */
+  body {
+    font-family: 'Inter', 'Roboto', sans-serif;
+    letter-spacing: -0.01em;
+    line-height: 1.7;
+  }
+
+  /* Navbar: cleaner, slightly lighter weight */
+  .navbar {
+    border-bottom: 1px solid rgba(0,0,0,0.07);
+    box-shadow: none !important;
+  }
+
+  .navbar-brand {
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  .nav-item .nav-link {
+    font-weight: 400;
+    font-size: 0.92rem;
+    letter-spacing: 0.01em;
+  }
+
+  /* Profile image: enforce circular */
+  .profile img {
+    border-radius: 50% !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+  }
+
+  /* About page: softer heading */
+  h1.post-title {
+    font-weight: 600;
+    letter-spacing: -0.03em;
+  }
+
+  /* Cards: lighter border, more breathing room */
+  .card {
+    border: 1px solid rgba(0,0,0,0.08) !important;
+    border-radius: 10px !important;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.05) !important;
+  }
+
+  /* CV section badges: use theme color */
+  .badge.danger-color-dark {
+    background-color: var(--global-theme-color) !important;
+    font-weight: 500;
+    font-size: 0.7rem;
+  }
+
+  /* News items: cleaner separator */
+  .news table td {
+    border-top: 1px solid rgba(0,0,0,0.06);
+  }
+
+  /* Footer: slightly lighter */
+  .footer {
+    font-size: 0.82rem;
+  }
+
+  /* Links: no underline by default, color on hover */
+  a {
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* Social icons: slightly larger spacing */
+  .contact-icons a {
+    margin: 0 6px;
+    font-size: 1.4rem;
+  }
+</style> <link rel="stylesheet" href="/assets/css/tailwind.css?v=50c64c15cbb9fd1ce6056fdb8bcb4b62"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css" integrity="sha256-MVopmdyC2tYTiJ8wlktf0uh0v4NgT+vNdyVFepi7Q0c=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css" integrity="sha256-SzrCOBJbGVFMahewkgjwnApaV2+av1DwMAA+/QGLyZw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/scholar-icons@1.0.3/css/scholar-icons.css" integrity="sha256-VY3hHVj/hNX3fYG6wtbA6TcKJQl7+FthzGSyIB64klY=" crossorigin="anonymous"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Roboto+Slab:wght@300;400;500;700&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?v=591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%E2%9A%9B%EF%B8%8F&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?v=f0b101217084a90093badfe99ff9a7d1"> <link rel="canonical" href="https://emilstroecker.github.io/"> <script src="/assets/js/theme.js?v=7af685e2ba20b37fef545c97b8064050"></script> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?v=5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark"> <script>
     initTheme();
-  </script> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <button class="navbar-toggler collapsed navbar-toggler-main" type="button" data-nav-toggle="navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse navbar-collapse-main" id="navbarNav"> <ul class="navbar-nav navbar-menu-list flex-nowrap"> <li class="nav-item active"> <a class="nav-link" href="/">about <span class="sr-only">(current)</span> </a> </li> <li class="nav-item "> <a class="nav-link" href="/blog/">blog </a> </li> <li class="nav-item "> <a class="nav-link" href="/publications/">publications </a> </li> <li class="nav-item "> <a class="nav-link" href="/projects/">projects </a> </li> <li class="nav-item "> <a class="nav-link" href="/repositories/">repositories </a> </li> <li class="nav-item "> <a class="nav-link" href="/cv/">CV </a> </li> <li class="nav-item "> <a class="nav-link" href="/teaching/">teaching </a> </li> <li class="nav-item "> <a class="nav-link" href="/people/">people </a> </li> <li class="nav-item dropdown "> <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-nav-dropdown-toggle="true" aria-haspopup="true" aria-expanded="false">submenus </a> <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown"> <a class="dropdown-item " href="/books/">bookshelf</a> <div class="dropdown-divider"></div> <a class="dropdown-item " href="/blog/">blog</a> </div> </li> <li class="nav-item"> <button id="search-toggle" type="button" title="Search" aria-label="Open search"> <span class="nav-link">ctrl k <i class="fa-solid fa-magnifying-glass"></i></span> </button> </li> <li class="toggle-container"> <button id="light-toggle" type="button" title="Change theme" aria-label="Change color theme"> <i class="fa-half-sun-moon" id="light-toggle-system"></i> <i class="fa-solid fa-moon" id="light-toggle-dark"></i> <i class="fa-solid fa-sun" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title"> <span class="font-weight-bold">Emil</span> Stroecker </h1> <p class="desc">MSc Thesis Research Intern · <a href="https://kriegeskortelab.zuckermaninstitute.columbia.edu/" target="_blank" rel="external nofollow noopener">Kriegeskorte Visual Inference Lab</a> · Columbia University, Zuckerman Institute </p> </header> <article> <div class="profile float-right"> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/prof_pic-480.webp 480w,/assets/img/prof_pic-800.webp 800w,/assets/img/prof_pic-1400.webp 1400w," type="image/webp" sizes="(min-width: 930px) 270.0px, (min-width: 576px) 30vw, 95vw"> <img src="/assets/img/prof_pic.jpg?v=974957d202f671e4fa6700c04e68deae" class="img-fluid z-depth-1 rounded" width="100%" height="auto" alt="prof_pic.jpg" loading="eager" onerror="this.onerror=null; document.querySelectorAll('.responsive-img-srcset').forEach(function (n) { n.remove(); });"> </source></picture> </figure> <div class="more-info"> <p>Zuckerman Institute</p> <p>Columbia University</p> <p>New York City, NY, USA</p> </div> </div> <div class="clearfix"> <p>I am a Research MSc student in Cognitive Neuroscience at Maastricht University, currently completing my thesis as a research intern at <a href="https://kriegeskortelab.zuckermaninstitute.columbia.edu/" rel="external nofollow noopener" target="_blank">Nikolaus Kriegeskorte’s Visual Inference Lab</a> at Columbia University’s Zuckerman Institute.</p> <p>My research focuses on <strong>neural network models of the ventral visual stream</strong> and how they process depth — specifically, their bias toward geometrical interpretations of depth cues as revealed by the Ames Window Illusion. I compare contemporary depth estimation networks (Metric3D, DSINE, MoGe), run psychophysics experiments (PsychoPy/PsychoJS) to benchmark human perception, and develop online visual perception games for large-scale data collection. I am also a first author on a 2-page extended abstract accepted to the <a href="https://2026.ccneuro.org/" rel="external nofollow noopener" target="_blank">Conference on Cognitive Computational Neuroscience 2026</a>.</p> <p>Previously, I have worked as a Research Assistant in the Developmental Cognitive Neuroscience Group at Maastricht University, conducted an independent project decoding fMRI representations of viewed and imagined letters using GCN, CNN, and FCNN architectures in PyTorch, and interned at the <a href="https://sites.google.com/view/saccade-and-space/home" rel="external nofollow noopener" target="_blank">Multisensory Integration Systems Lab</a> (Ryo Sasaki, NIPS Sokendai) in Japan, where I observed primate neurophysiology experiments. I also serve as Workflow Lead for the Technical Program Committee of <a href="https://2026.ccneuro.org/" rel="external nofollow noopener" target="_blank">CCN 2026</a> and as a Research Mentor in Columbia’s BUMP Biology programme.</p> <p>Beyond research, I write neuroscience articles for general audiences at <a href="https://brainmatters.nl" rel="external nofollow noopener" target="_blank">BrainMatters</a> and serve as an Editorial Assistant at <a href="https://in-mind.org" rel="external nofollow noopener" target="_blank">In-Mind Magazine</a>.</p> </div> <h2> <a href="/news/" style="color: inherit">news</a> </h2> <div class="news"> <div class="table-responsive"> <table class="table table-sm table-borderless"> <tr> <th scope="row" style="width: 20%">Jun 22, 2026</th> <td> New article out on <a href="https://brainmatters.nl" rel="external nofollow noopener" target="_blank">BrainMatters</a>: <em>Beauty and the Brain</em> — the neuroscience of aesthetic experience. </td> </tr> <tr> <th scope="row" style="width: 20%">May 01, 2026</th> <td> Excited to join <a href="https://in-mind.org" rel="external nofollow noopener" target="_blank">In-Mind Magazine</a> as an Editorial Assistant, working on editorial guidelines for peer-reviewed submissions. </td> </tr> <tr> <th scope="row" style="width: 20%">Mar 01, 2026</th> <td> Our extended abstract <em>Measuring Depth Inversion in the Ames Window Illusion</em> has been accepted to the <a href="https://2026.ccneuro.org/" rel="external nofollow noopener" target="_blank">9th Annual Conference on Cognitive Computational Neuroscience (CCN 2026)</a>, NYC. </td> </tr> </table> </div> </div> <h2> <a href="/publications/" style="color: inherit">selected publications</a> </h2> <div class="publications"> <ol class="bibliography"><li> <div class="row"> <div class="col col-sm-2 abbr"> <abbr class="badge rounded w-100">CCN</abbr> </div> <div id="stroecker2026ames" class="col-sm-8"> <div class="title">Measuring Depth Inversion in the Ames Window Illusion</div> <div class="author"> <em>Emil Stroecker</em>, Feifei Cheng, and Nikolaus Kriegeskorte </div> <div class="periodical"> <em>In 9th Annual Conference on Cognitive Computational Neuroscience</em>, Aug 2026 </div> <div class="periodical"> Extended abstract, accepted </div> <div class="links"> <a class="abstract btn btn-sm z-depth-0" role="button">Abs</a> <a class="bibtex btn btn-sm z-depth-0" role="button">Bib</a> </div> <div class="abstract hidden"> <p>We measure depth inversion responses to the Ames Window Illusion in human observers and compare these to the responses of contemporary depth estimation neural networks (Metric3D, DSINE, MoGe), probing whether these models exhibit human-like geometrical biases in their interpretation of depth cues.</p> </div> <div class="bibtex hidden"> <figure class="highlight"><pre><code class="language-bibtex" data-lang="bibtex"><span class="nc">@inproceedings</span><span class="p">{</span><span class="nl">stroecker2026ames</span><span class="p">,</span>
+  </script> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <button class="navbar-toggler collapsed navbar-toggler-main" type="button" data-nav-toggle="navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse navbar-collapse-main" id="navbarNav"> <ul class="navbar-nav navbar-menu-list flex-nowrap"> <li class="nav-item active"> <a class="nav-link" href="/">about <span class="sr-only">(current)</span> </a> </li> <li class="nav-item "> <a class="nav-link" href="/publications/">publications </a> </li> <li class="nav-item "> <a class="nav-link" href="/projects/">projects </a> </li> <li class="nav-item "> <a class="nav-link" href="/repositories/">repositories </a> </li> <li class="nav-item "> <a class="nav-link" href="/cv/">CV </a> </li> <li class="nav-item"> <button id="search-toggle" type="button" title="Search" aria-label="Open search"> <span class="nav-link">ctrl k <i class="fa-solid fa-magnifying-glass"></i></span> </button> </li> <li class="toggle-container"> <button id="light-toggle" type="button" title="Change theme" aria-label="Change color theme"> <i class="fa-half-sun-moon" id="light-toggle-system"></i> <i class="fa-solid fa-moon" id="light-toggle-dark"></i> <i class="fa-solid fa-sun" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title"> <span class="font-weight-bold">Emil</span> Stroecker </h1> <p class="desc">MSc Thesis Research Intern · <a href="https://kriegeskortelab.zuckermaninstitute.columbia.edu/" target="_blank" rel="external nofollow noopener">Kriegeskorte Visual Inference Lab</a> · Columbia University, Zuckerman Institute </p> </header> <article> <div class="profile float-right"> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/prof_pic-480.webp 480w,/assets/img/prof_pic-800.webp 800w,/assets/img/prof_pic-1400.webp 1400w," type="image/webp" sizes="(min-width: 930px) 270.0px, (min-width: 576px) 30vw, 95vw"> <img src="/assets/img/prof_pic.jpg?v=974957d202f671e4fa6700c04e68deae" class="img-fluid z-depth-1 rounded-circle" width="100%" height="auto" alt="prof_pic.jpg" loading="eager" onerror="this.onerror=null; document.querySelectorAll('.responsive-img-srcset').forEach(function (n) { n.remove(); });"> </source></picture> </figure> <div class="more-info"> <p>Zuckerman Institute</p> <p>Columbia University</p> <p>New York City, NY, USA</p> </div> </div> <div class="clearfix"> <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:8px;padding:12px 18px;margin-bottom:24px;font-size:0.92rem;color:#856404;"> 🚧 <strong>This website is a work in progress.</strong> Some sections may be incomplete or missing. </div> <p>I am a Research MSc student in Cognitive Neuroscience at Maastricht University, currently completing my thesis as a research intern at <a href="https://kriegeskortelab.zuckermaninstitute.columbia.edu/" rel="external nofollow noopener" target="_blank">Nikolaus Kriegeskorte’s Visual Inference Lab</a> at Columbia University’s Zuckerman Institute.</p> <p>My research focuses on <strong>neural network models of the ventral visual stream</strong> and how they process depth — specifically, their bias toward geometrical interpretations of depth cues as revealed by the Ames Window Illusion. I compare contemporary depth estimation networks (Metric3D, DSINE, MoGe), run psychophysics experiments (PsychoPy/PsychoJS) to benchmark human perception, and develop online visual perception games for large-scale data collection. I am also a first author on a 2-page extended abstract accepted to the <a href="https://2026.ccneuro.org/" rel="external nofollow noopener" target="_blank">Conference on Cognitive Computational Neuroscience 2026</a>.</p> <p>Previously, I have worked as a Research Assistant in the Developmental Cognitive Neuroscience Group at Maastricht University, conducted an independent project decoding fMRI representations of viewed and imagined letters using GCN, CNN, and FCNN architectures in PyTorch, and interned at the <a href="https://sites.google.com/view/saccade-and-space/home" rel="external nofollow noopener" target="_blank">Multisensory Integration Systems Lab</a> (Ryo Sasaki, NIPS Sokendai) in Japan, where I observed primate neurophysiology experiments. I also serve as Workflow Lead for the Technical Program Committee of <a href="https://2026.ccneuro.org/" rel="external nofollow noopener" target="_blank">CCN 2026</a> and as a Research Mentor in Columbia’s BUMP Biology programme.</p> <p>Beyond research, I write neuroscience articles for general audiences at <a href="https://brainmatters.nl" rel="external nofollow noopener" target="_blank">BrainMatters</a> and serve as an Editorial Assistant at <a href="https://in-mind.org" rel="external nofollow noopener" target="_blank">In-Mind Magazine</a>.</p> </div> <h2> <a href="/news/" style="color: inherit">news</a> </h2> <div class="news"> <div class="table-responsive"> <table class="table table-sm table-borderless"> <tr> <th scope="row" style="width: 20%">Jun 22, 2026</th> <td> New article out on <a href="https://brainmatters.nl" rel="external nofollow noopener" target="_blank">BrainMatters</a>: <em>Beauty and the Brain</em> — the neuroscience of aesthetic experience. </td> </tr> <tr> <th scope="row" style="width: 20%">May 01, 2026</th> <td> Excited to join <a href="https://in-mind.org" rel="external nofollow noopener" target="_blank">In-Mind Magazine</a> as an Editorial Assistant, working on editorial guidelines for peer-reviewed submissions. </td> </tr> <tr> <th scope="row" style="width: 20%">Mar 01, 2026</th> <td> Our extended abstract <em>Measuring Depth Inversion in the Ames Window Illusion</em> has been accepted to the <a href="https://2026.ccneuro.org/" rel="external nofollow noopener" target="_blank">9th Annual Conference on Cognitive Computational Neuroscience (CCN 2026)</a>, NYC. </td> </tr> </table> </div> </div> <h2> <a href="/publications/" style="color: inherit">selected publications</a> </h2> <div class="publications"> <ol class="bibliography"><li> <div class="row"> <div class="col col-sm-2 abbr"> <abbr class="badge rounded w-100">CCN</abbr> </div> <div id="stroecker2026ames" class="col-sm-8"> <div class="title">Measuring Depth Inversion in the Ames Window Illusion</div> <div class="author"> <em>Emil Stroecker</em>, Feifei Cheng, and Nikolaus Kriegeskorte </div> <div class="periodical"> <em>In 9th Annual Conference on Cognitive Computational Neuroscience</em>, Aug 2026 </div> <div class="periodical"> Extended abstract, accepted </div> <div class="links"> <a class="abstract btn btn-sm z-depth-0" role="button">Abs</a> <a class="bibtex btn btn-sm z-depth-0" role="button">Bib</a> </div> <div class="abstract hidden"> <p>We measure depth inversion responses to the Ames Window Illusion in human observers and compare these to the responses of contemporary depth estimation neural networks (Metric3D, DSINE, MoGe), probing whether these models exhibit human-like geometrical biases in their interpretation of depth cues.</p> </div> <div class="bibtex hidden"> <figure class="highlight"><pre><code class="language-bibtex" data-lang="bibtex"><span class="nc">@inproceedings</span><span class="p">{</span><span class="nl">stroecker2026ames</span><span class="p">,</span>
   <span class="na">title</span> <span class="p">=</span> <span class="s">{Measuring Depth Inversion in the {Ames} Window Illusion}</span><span class="p">,</span>
   <span class="na">author</span> <span class="p">=</span> <span class="s">{Stroecker, Emil and Cheng, Feifei and Kriegeskorte, Nikolaus}</span><span class="p">,</span>
   <span class="na">booktitle</span> <span class="p">=</span> <span class="s">{9th Annual Conference on Cognitive Computational Neuroscience}</span><span class="p">,</span>
@@ -30,14 +119,7 @@ ninja.data = [{
     handler: () => {
       window.location.href = "/";
     },
-  },{id: "nav-blog",
-          title: "blog",
-          description: "",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/blog/";
-          },
-        },{id: "nav-publications",
+  },{id: "nav-publications",
           title: "publications",
           description: "publications by categories in reversed chronological order. generated by jekyll-scholar.",
           section: "Navigation",
@@ -60,40 +142,12 @@ ninja.data = [{
           },
         },{id: "nav-cv",
           title: "CV",
-          description: "This is a description of the page. You can modify it in &#39;_pages/cv.md&#39;. You can also change or remove the top pdf download button.",
+          description: "Research MSc student in Cognitive Neuroscience at Maastricht University, currently interning at the Kriegeskorte Visual Inference Lab at Columbia University.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "nav-teaching",
-          title: "teaching",
-          description: "Course materials, schedules, and resources for classes taught.",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/teaching/";
-          },
-        },{id: "nav-people",
-          title: "people",
-          description: "members of the lab or group",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/people/";
-          },
-        },{id: "dropdown-bookshelf",
-              title: "bookshelf",
-              description: "",
-              section: "Dropdown",
-              handler: () => {
-                window.location.href = "/books/";
-              },
-            },{id: "dropdown-blog",
-              title: "blog",
-              description: "",
-              section: "Dropdown",
-              handler: () => {
-                window.location.href = "/blog/";
-              },
-            },{id: "post-a-post-with-plotly-js",
+        },{id: "post-a-post-with-plotly-js",
         
           title: "a post with plotly.js",
         
