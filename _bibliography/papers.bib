@@ -12,12 +12,14 @@
   note        = {Extended abstract, accepted},
   selected    = {true},
   bibtex_show = {true},
-  abstract    = {The Ames Window Illusion is a classic demonstration of how the visual system imposes a strong prior
-    for rectangular shapes, causing a trapezoidal window silhouette to be perceived as a full rectangle oscillating
-    back and forth rather than rotating continuously. We investigate whether contemporary depth estimation neural
-    networks -- trained on large-scale real-world image datasets -- exhibit analogous geometric biases when processing
-    the Ames Window stimulus. We present psychophysical measurements of depth inversion responses in human observers
-    and compare these to the outputs of three state-of-the-art monocular depth networks (Metric3D, DSINE, MoGe).
-    Our results characterise the extent to which these models replicate human-like geometric priors in depth
-    perception, with implications for using such networks as models of the ventral visual stream.}
+  abstract    = {Under the absence of binocular depth information, humans must resolve ambiguous monocular depth cues
+    to determine one likely scene geometry from an infinite set of possible geometries. The brain's ability to
+    heuristically choose the most plausible interpretation of a scene can be studied using synthetic stimuli such as
+    the rotating Ames Window -- a rotating flat object giving humans a false impression of depth. While past work
+    found that deep neural networks (DNNs) share human biases in depth estimation, that finding is confined to
+    naturalistic scenes, rather than ambiguous objects. To determine the strategy DNNs use to process depth in such
+    stimuli, we presented three DNNs with Ames Window stimuli to examine if they are equipped with similar biases to
+    resolve geometric ambiguity. We find no meaningful similarities between models, indicating that a DNN's ability
+    to estimate depth in naturalistic scenes does not imply the ability to make depth judgments in ambiguous and
+    artificial conditions as it would for humans.}
 }
