@@ -101,6 +101,34 @@
     margin: 0 6px;
     font-size: 1.4rem;
   }
+
+  /* CV: remove bullets from list-group entries */
+  .cv ul.list-group,
+  .cv ul.list-group-flush {
+    padding-left: 0;
+    list-style: none;
+  }
+  .cv ul.list-group .list-group-item,
+  .cv ul.list-group-flush .list-group-item {
+    list-style: none;
+    padding: 1rem 0.25rem;
+    border-top: 1px solid rgba(0,0,0,0.07);
+  }
+  .cv ul.list-group .list-group-item:first-child {
+    border-top: none;
+  }
+
+  /* CV: give date column a bit more room and right padding */
+  .cv .date-column {
+    padding-right: 1.25rem;
+  }
+
+  /* CV: tighten the badge font size */
+  .cv .table-cv .badge {
+    font-size: 0.72rem;
+    white-space: normal;
+    word-break: break-word;
+  }
 </style>
 
 <!-- Tailwind-first core styles -->

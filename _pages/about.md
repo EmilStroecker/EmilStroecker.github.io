@@ -3,11 +3,12 @@ layout: about
 title: about
 permalink: /
 subtitle: >
-  MSc Thesis Research Intern &middot; <a href="https://kriegeskortelab.zuckermaninstitute.columbia.edu/" target="_blank">Kriegeskorte Visual Inference Lab</a> &middot; Columbia University, Zuckerman Institute
+  Research Master Student in Cognitive Neuroscience @ Maastricht University<br>
+  Research Intern @ <a href="https://kriegeskortelab.zuckermaninstitute.columbia.edu/" target="_blank">Kriegeskorte Visual Inference Lab</a> &middot; Columbia University, Zuckerman Institute
 
 profile:
   align: right
-  image: prof_pic.jpg
+  image: profile.png
   image_circular: true
   more_info: >
     <p>Zuckerman Institute</p>
