@@ -9,5 +9,13 @@ nav_order: 2
 {% include bib_search.liquid %}
 
 <div class="publications">
-{% bibliography %}
+
+<h2 class="bibliography">Conference Abstracts</h2>
+
+{% bibliography --query @inproceedings %}
+
+<h2 class="bibliography">Web Articles</h2>
+
+{% bibliography --query @misc %}
+
 </div>
