@@ -8,7 +8,7 @@ subtitle: >
 profile:
   align: right
   image: prof_pic.jpg
-  image_circular: false
+  image_circular: true
   more_info: >
     <p>Zuckerman Institute</p>
     <p>Columbia University</p>
@@ -27,6 +27,10 @@ latest_posts:
   scrollable: true
   limit: 3
 ---
+
+<div style="background:#fff3cd;border:1px solid #ffc107;border-radius:8px;padding:12px 18px;margin-bottom:24px;font-size:0.92rem;color:#856404;">
+  🚧 <strong>This website is a work in progress.</strong> Some sections may be incomplete or missing.
+</div>
 
 I am a Research MSc student in Cognitive Neuroscience at Maastricht University, currently completing my thesis as a research intern at [Nikolaus Kriegeskorte's Visual Inference Lab](https://kriegeskortelab.zuckermaninstitute.columbia.edu/) at Columbia University's Zuckerman Institute.
 

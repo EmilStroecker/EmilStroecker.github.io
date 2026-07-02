@@ -121,46 +121,20 @@ cv:
           - "Contributions acknowledged in resulting Springer Nature publication (Trials, 2025)"
 
     Service:
-      - company: 9th Annual Conference on Cognitive Computational Neuroscience (CCN2026)
-        position: Workflow Lead, Technical Program Committee
-        location: New York City, USA
-        start_date: 2025-10
-        end_date: 2026-08
-        highlights:
-          - "Managing submission process for 600+ submissions on OpenReview"
-          - "Documenting conference policies and procedures, shaping future iterations of the venue"
+      - label: "Workflow Lead, Technical Program Committee — CCN2026"
+        details: "Managing 600+ submissions on OpenReview; documenting conference policies (2025–2026)"
 
-      - company: Columbia University
-        position: Research Mentor — BUMP Biology
-        location: New York City, USA
-        start_date: 2026-01
-        end_date: 2026-12
-        highlights:
-          - "Advising undergraduate student on first steps in neuroscientific research, applying for programmes, and
-            shaping academic goals"
+      - label: "Research Mentor — Columbia BUMP Biology"
+        details: "Advising undergraduate student on neuroscientific research, programme applications, and academic goals (2026)"
 
-      - company: In-Mind Magazine
-        position: Editorial Assistant
-        location: Remote
-        url: https://in-mind.org
-        start_date: 2026-05
-        highlights:
-          - "Spearheaded development of editorial guidelines for incoming peer-reviewed submissions"
-          - "Screening submissions for compliance with guidelines"
+      - label: "Editorial Assistant — In-Mind Magazine"
+        details: "Developing editorial guidelines for peer-reviewed submissions; screening for compliance (2026–present)"
 
-      - company: Maastricht University
-        position: Teaching Assistant — BSc Courses
-        location: Maastricht, Netherlands
-        start_date: 2024-11
-        end_date: 2025-07
-        highlights:
-          - "Instructed tutorial group meetings for 60+ students"
-          - "Courses: Functional Neuroanatomy, Consciousness, Statistics, Psychodiagnostics"
+      - label: "Teaching Assistant — Maastricht University"
+        details: "Functional Neuroanatomy, Consciousness, Statistics, Psychodiagnostics; 60+ students (2024–2025)"
 
-      - company: Maastricht Student Journal of Psychology and Neuroscience (MSJPN)
-        position: Reviewer
-        location: Maastricht, Netherlands
-        start_date: 2025-02
+      - label: "Peer Reviewer — Maastricht Student Journal of Psychology and Neuroscience"
+        details: "2025–present"
 
     Awards:
       - title: Summa Cum Laude, BSc Psychology — Top 1% of class
