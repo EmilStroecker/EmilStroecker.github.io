@@ -130,10 +130,10 @@
   }
 
   /* CV entries (experience/education): 2x2 grid so badge aligns with title
-     and location aligns with institution */
+     and location aligns with institution; column auto-sizes to content */
   .cv .cv-entry-grid {
     display: grid;
-    grid-template-columns: 105px 1fr;
+    grid-template-columns: max-content 1fr;
     grid-template-areas: "date title" "loc  body";
     column-gap: 0.75rem;
     align-items: start;
@@ -147,13 +147,13 @@
     grid-area: loc;
     text-align: right;
     padding-right: 0.25rem;
+    white-space: nowrap;
   }
   .cv .cv-title-cell { grid-area: title; }
   .cv .cv-body-cell  { grid-area: body; }
   .cv .cv-date-cell .badge {
     font-size: 0.72rem;
-    white-space: normal;
-    word-break: break-word;
+    white-space: nowrap !important;
     display: inline-block;
   }
   @media (max-width: 575px) {
@@ -162,7 +162,7 @@
       grid-template-areas: "date" "title" "loc" "body";
     }
     .cv .cv-date-cell,
-    .cv .cv-loc-cell { text-align: left; padding-right: 0; }
+    .cv .cv-loc-cell { text-align: left; padding-right: 0; white-space: normal; }
   }
 
   /* CV service/awards sections: right-align date column */
@@ -172,8 +172,7 @@
   }
   .cv .date-column .badge {
     font-size: 0.72rem;
-    white-space: normal;
-    word-break: break-word;
+    white-space: nowrap !important;
   }
 
   /* Publications: darken the year/subsection heading grey */
