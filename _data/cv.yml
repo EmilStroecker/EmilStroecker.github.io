@@ -31,7 +31,7 @@ cv:
       - institution: Kyoto University
         location: Kyoto, Japan
         url: https://www.kyoto-u.ac.jp/en
-        studyType: Kyoto University International Education Programme (KUINEP)
+        studyType: Kyoto University International Education Programme ([KUINEP](https://www.kyoto-u.ac.jp/en/education-campus/education-and-admissions/non-degree-programs/exchange-students))
         start_date: 2023-09
         end_date: 2024-02
         score: "4.0/4.0 (US)"
@@ -40,7 +40,7 @@ cv:
 
       - institution: Maastricht University
         location: Maastricht, Netherlands
-        url: https://www.maastrichtuniversity.nl/
+        url: 
         studyType: Bachelor of Science in Psychology
         start_date: 2021-09
         end_date: 2024-08
@@ -98,16 +98,16 @@ cv:
           - "Contributions acknowledged in resulting Springer Nature publication ([Trials, 2025](https://doi.org/10.1186/s13063-025-09330-7))"
 
     Service:
-      - label: "Member, Technical Program Committee — CCN 2026"
+      - label: "Member, Technical Program Committee @ CCN 2026"
         details: "Managing 600+ submissions on OpenReview; documenting conference policies (2025–2026)"
 
-      - label: "Research Mentor — Columbia BUMP Biology"
-        details: #"Advising undergraduate student on neuroscientific research, programme applications, and academic goals (2026)"
+      - label: "Research Mentor @ Columbia, BUMP Biology"
+        #details: #"Advising undergraduate student on neuroscientific research, programme applications, and academic goals (2026)"
 
-      - label: "Editorial Assistant — In-Mind Magazine"
-        details: #"Developing editorial guidelines for peer-reviewed submissions; screening for compliance (2026–present)"
+      - label: "Editorial Assistant @ In-Mind Magazine"
+        #details: #"Developing editorial guidelines for peer-reviewed submissions; screening for compliance (2026–present)"
 
-      - label: "Teaching Assistant — Maastricht University"
+      - label: "Teaching Assistant @ Maastricht University"
         details: "Functional Neuroanatomy, Consciousness, Statistics, Psychodiagnostics; 60+ students (2024–2025)"
 
       #- label: "Peer Reviewer — Maastricht Student Journal of Psychology and Neuroscience"
