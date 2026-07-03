@@ -31,7 +31,7 @@
           <span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px; white-space: normal; font-size: 0.65rem; line-height: 1.5;">{{ date }}</span>
           {% capture location %}{% if entry.location %}{{ entry.location }}{% endif %}{% endcapture %}
           {% if location != '' %}
-            <p class="location" style="margin-top: 0.4rem; margin-bottom: 0;">
+            <p class="location" style="margin-top: 0.4rem; margin-bottom: 0; text-align: right;">
               <i class="fa-solid fa-location-dot iconlocation"></i>
               {{ location }}
             </p>
