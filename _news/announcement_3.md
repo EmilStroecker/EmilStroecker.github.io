@@ -6,4 +6,4 @@ related_posts: false
 ---
 
 
- Joined [In-Mind Magazine](https://in-mind.org) as an Editorial Assistant!
+ Joined <a href="https://in-mind.org">In-Mind Magazine</a> as an Editorial Assistant!
