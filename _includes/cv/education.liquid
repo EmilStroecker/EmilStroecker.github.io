@@ -1,59 +1,49 @@
 <ul class="card-text font-weight-light list-group list-group-flush">
   {% for entry in entries %}
     <li class="list-group-item">
-      {% capture raw_start %}{% if entry.start_date %}{{ entry.start_date }}{% elsif entry.startDate %}{{ entry.startDate }}{% endif %}{% endcapture %}
-      {% capture raw_end %}{% if entry.end_date %}{{ entry.end_date }}{% elsif entry.endDate %}{{ entry.endDate }}{% endif %}{% endcapture %}
+      <div class="row">
+        <div class="col-xs-2 col-sm-2 col-md-2 text-right date-column">
+          {% capture raw_start %}{% if entry.start_date %}{{ entry.start_date }}{% elsif entry.startDate %}{{ entry.startDate }}{% endif %}{% endcapture %}
+          {% capture raw_end %}{% if entry.end_date %}{{ entry.end_date }}{% elsif entry.endDate %}{{ entry.endDate }}{% endif %}{% endcapture %}
 
-      {% assign raw_start = raw_start | strip %}
-      {% assign raw_end   = raw_end   | strip %}
+          {% assign raw_start = raw_start | strip %}
+          {% assign raw_end   = raw_end   | strip %}
 
-      {% if raw_start != '' %}
-        {% assign sp = raw_start | split: '-' %}
-        {% assign sy = sp[0] %}
-        {% if sp.size >= 2 %}{% assign fmt_start = sp[1] | append: '/' | append: sy %}{% else %}{% assign fmt_start = sy %}{% endif %}
+          {% if raw_start != '' %}
+            {% assign sp = raw_start | split: '-' %}
+            {% assign sy = sp[0] %}
+            {% if sp.size >= 2 %}{% assign fmt_start = sp[1] | append: '/' | append: sy %}{% else %}{% assign fmt_start = sy %}{% endif %}
 
-        {% if raw_end != '' %}
-          {% assign ep = raw_end | split: '-' %}
-          {% assign ey = ep[0] %}
-          {% if ep.size >= 2 %}{% assign fmt_end = ep[1] | append: '/' | append: ey %}{% else %}{% assign fmt_end = ey %}{% endif %}
-        {% else %}
-          {% assign fmt_end = 'Present' %}
-        {% endif %}
+            {% if raw_end != '' %}
+              {% assign ep = raw_end | split: '-' %}
+              {% assign ey = ep[0] %}
+              {% if ep.size >= 2 %}{% assign fmt_end = ep[1] | append: '/' | append: ey %}{% else %}{% assign fmt_end = ey %}{% endif %}
+            {% else %}
+              {% assign fmt_end = 'Present' %}
+            {% endif %}
 
-        {% assign date = fmt_start | append: ' &ndash; ' | append: fmt_end %}
-      {% else %}
-        {% assign date = null %}
-      {% endif %}
+            {% assign date = fmt_start | append: ' &ndash; ' | append: fmt_end %}
+          {% else %}
+            {% assign date = null %}
+          {% endif %}
 
-      {% capture location %}{% if entry.location %}{{ entry.location }}{% endif %}{% endcapture %}
-      {% assign location = location | strip %}
-
-      {% capture study_type %}{% if entry.studyType %}{{ entry.studyType }}{% elsif entry.degree %}{{ entry.degree }}{% endif %}{% endcapture %}
-      {% assign study_type = study_type | strip %}
-
-      <div class="cv-entry-grid">
-        <div class="cv-date-cell">
           {% if date %}
             <span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px; white-space: normal; font-size: 0.65rem; line-height: 1.5;">{{ date }}</span>
           {% endif %}
-        </div>
-
-        <div class="cv-title-cell">
-          {% if study_type != '' %}
-            <h6 class="title font-weight-bold ml-1 ml-md-4">{{ study_type | markdownify | remove: '<p>' | remove: '</p>' }}</h6>
-          {% endif %}
-        </div>
-
-        <div class="cv-loc-cell">
+          {% capture location %}{% if entry.location %}{{ entry.location }}{% endif %}{% endcapture %}
           {% if location != '' %}
-            <p class="location" style="margin-top: 0; margin-bottom: 0; font-size: 0.85rem;">
+            <p class="location" style="margin-top: 0.4rem; margin-bottom: 0;">
               <i class="fa-solid fa-location-dot iconlocation"></i>
               {{ location }}
             </p>
           {% endif %}
         </div>
+        <div class="col-xs-10 col-sm-10 col-md-10 mt-2 mt-md-0" style="padding-left: 1.75rem;">
+          {% capture study_type %}{% if entry.studyType %}{{ entry.studyType }}{% elsif entry.degree %}{{ entry.degree }}{% endif %}{% endcapture %}
+          {% if study_type != '' %}
+            <h6 class="title font-weight-bold ml-1 ml-md-4">{{ study_type | markdownify | remove: '<p>' | remove: '</p>' }}</h6>
+          {% endif %}
 
-        <div class="cv-body-cell">
           {% if entry.institution %}
             <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem">
               {% if entry.url %}<a href="{{ entry.url }}">{{ entry.institution }}</a>{% else %}{{ entry.institution }}{% endif %}
