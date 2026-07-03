@@ -30,7 +30,6 @@ cv:
 
       - institution: Kyoto University
         location: Kyoto, Japan
-        url: https://www.kyoto-u.ac.jp/en
         studyType: Kyoto University International Education Programme ([KUINEP](https://www.kyoto-u.ac.jp/en/education-campus/education-and-admissions/non-degree-programs/exchange-students))
         start_date: 2023-09
         end_date: 2024-02
@@ -58,8 +57,8 @@ cv:
         highlights:
 
 
-      - company: Maastricht University — Developmental Cognitive Neuroscience Group
-        position: Research Assistant
+      - company: Maastricht University  
+        position: Research Assistant @ Developmental Cognitive Neuroscience Group
         location: Maastricht, Netherlands
         start_date: 2025-09
         end_date: 2025-11
@@ -73,9 +72,8 @@ cv:
         highlights:
 
       - company: Sokendai, National Institute for Physiological Sciences
-        position: Research Intern @ Ryo Sasaki's Multisensory Integration Systems Lab
+        position: Research Intern @ [Ryo Sasaki's Multisensory Integration Systems Lab](https://www.nips.ac.jp/eng/research/group/post-67/)
         location: Okazaki, Japan
-        url: https://www.nips.ac.jp/eng/research/group/post-67/
         start_date: 2025-07
         end_date: 2025-07
         highlights:
