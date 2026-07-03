@@ -9,7 +9,7 @@ subtitle: >
 profile:
   align: right
   image: profile.png
-  image_circular: true
+  image_circular: false
   more_info: >
     <p>Zuckerman Institute</p>
     <p>Columbia University</p>
