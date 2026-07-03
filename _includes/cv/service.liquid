@@ -1,0 +1,61 @@
+<ul class="card-text font-weight-light list-group list-group-flush">
+  {% for entry in entries %}
+    <li class="list-group-item">
+      <div class="row">
+        {% capture raw_start %}{% if entry.start_date %}{{ entry.start_date }}{% endif %}{% endcapture %}
+        {% capture raw_end %}{% if entry.end_date %}{{ entry.end_date }}{% endif %}{% endcapture %}
+        {% assign raw_start = raw_start | strip %}
+        {% assign raw_end   = raw_end   | strip %}
+
+        {% if raw_start != '' %}
+          {% assign sp = raw_start | split: '-' %}
+          {% assign sy = sp[0] %}
+          {% if sp.size >= 2 %}{% assign fmt_start = sp[1] | append: '/' | append: sy %}{% else %}{% assign fmt_start = sy %}{% endif %}
+
+          {% if raw_end != '' %}
+            {% assign ep = raw_end | split: '-' %}
+            {% assign ey = ep[0] %}
+            {% if ep.size >= 2 %}{% assign fmt_end = ep[1] | append: '/' | append: ey %}{% else %}{% assign fmt_end = ey %}{% endif %}
+          {% else %}
+            {% assign fmt_end = 'Present' %}
+          {% endif %}
+
+          {% assign date = fmt_start | append: ' &ndash; ' | append: fmt_end %}
+        {% else %}
+          {% assign date = '' %}
+        {% endif %}
+
+        {% if date != '' %}
+          <div class="col-xs-2 col-sm-2 col-md-2 text-center date-column">
+            <table class="table-cv">
+              <tbody>
+                <tr>
+                  <td>
+                    <span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px; white-space: normal; font-size: 0.65rem; line-height: 1.5;">{{ date }}</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="col-xs-10 col-sm-10 col-md-10 mt-2 mt-md-0" style="padding-left: 1.75rem;">
+            {% if entry.label %}
+              <h6 class="title font-weight-bold ml-1 ml-md-4">{{ entry.label | markdownify | remove: '<p>' | remove: '</p>' }}</h6>
+            {% endif %}
+            {% if entry.details %}
+              <p class="ml-1 ml-md-4" style="font-size: 0.9rem; margin-bottom: 0;">{{ entry.details | markdownify | remove: '<p>' | remove: '</p>' }}</p>
+            {% endif %}
+          </div>
+        {% else %}
+          <div class="col-xs-12 col-sm-12 col-md-12">
+            {% if entry.label %}
+              <h6 class="title font-weight-bold ml-1 ml-md-4">{{ entry.label | markdownify | remove: '<p>' | remove: '</p>' }}</h6>
+            {% endif %}
+            {% if entry.details %}
+              <p class="ml-1 ml-md-4" style="font-size: 0.9rem; margin-bottom: 0;">{{ entry.details | markdownify | remove: '<p>' | remove: '</p>' }}</p>
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+    </li>
+  {% endfor %}
+</ul>

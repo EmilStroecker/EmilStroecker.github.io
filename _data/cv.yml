@@ -99,19 +99,21 @@ cv:
 
     Service:
       - label: "Member, Technical Program Committee @ CCN 2026"
-        details: "Managing 600+ submissions on OpenReview; documenting conference policies (2025–2026)"
+        start_date: 2025-10
+        end_date: 2026-08
+        details: "Managing 600+ submissions on OpenReview; documenting conference policies"
 
       - label: "Research Mentor @ Columbia, BUMP Biology"
-        #details: #"Advising undergraduate student on neuroscientific research, programme applications, and academic goals (2026)"
+        start_date: 2026-01
+        end_date: 2026-05
 
       - label: "Editorial Assistant @ In-Mind Magazine"
-        #details: #"Developing editorial guidelines for peer-reviewed submissions; screening for compliance (2026–present)"
+        start_date: 2026-05
 
       - label: "Teaching Assistant @ Maastricht University"
-        details: "Functional Neuroanatomy, Consciousness, Statistics, Psychodiagnostics; 60+ students (2024–2025)"
-
-      #- label: "Peer Reviewer — Maastricht Student Journal of Psychology and Neuroscience"
-      #  details: "2025–present"
+        start_date: 2024-09
+        end_date: 2025-06
+        details: "Functional Neuroanatomy, Consciousness, Statistics, Psychodiagnostics; 60+ students"
 
     Honours & Awards:
       - title: Summa Cum Laude, BSc Psychology — Top 1% of class

@@ -1,5 +1,3 @@
-{% assign month_abbrs = "Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec" | split: ',' %}
-
 <ul class="card-text font-weight-light list-group list-group-flush">
   {% for entry in entries %}
     <li class="list-group-item">
@@ -14,14 +12,12 @@
           {% if raw_start != '' %}
             {% assign sp = raw_start | split: '-' %}
             {% assign sy = sp[0] %}
-            {% assign sm_idx = sp[1] | plus: 0 | minus: 1 %}
-            {% if sp.size >= 2 %}{% assign sm = month_abbrs[sm_idx] %}{% assign fmt_start = sm | append: ' ' | append: sy %}{% else %}{% assign fmt_start = sy %}{% endif %}
+            {% if sp.size >= 2 %}{% assign fmt_start = sp[1] | append: '/' | append: sy %}{% else %}{% assign fmt_start = sy %}{% endif %}
 
             {% if raw_end != '' %}
               {% assign ep = raw_end | split: '-' %}
               {% assign ey = ep[0] %}
-              {% assign em_idx = ep[1] | plus: 0 | minus: 1 %}
-              {% if ep.size >= 2 %}{% assign em = month_abbrs[em_idx] %}{% assign fmt_end = em | append: ' ' | append: ey %}{% else %}{% assign fmt_end = ey %}{% endif %}
+              {% if ep.size >= 2 %}{% assign fmt_end = ep[1] | append: '/' | append: ey %}{% else %}{% assign fmt_end = ey %}{% endif %}
             {% else %}
               {% assign fmt_end = 'Present' %}
             {% endif %}
@@ -55,7 +51,7 @@
         <div class="col-xs-10 col-sm-10 col-md-10 mt-2 mt-md-0" style="padding-left: 1.75rem;">
           {% capture position_title %}{% if entry.position %}{{ entry.position }}{% endif %}{% endcapture %}
           {% if position_title != '' %}
-            <h6 class="title font-weight-bold ml-1 ml-md-4">{{ position_title }}</h6>
+            <h6 class="title font-weight-bold ml-1 ml-md-4">{{ position_title | markdownify | remove: '<p>' | remove: '</p>' }}</h6>
           {% endif %}
 
           {% capture company_name %}{% if entry.name %}{{ entry.name }}{% elsif entry.company %}{{ entry.company }}{% elsif entry.organization %}{{ entry.organization }}{% endif %}{% endcapture %}
