@@ -14,39 +14,28 @@
             {% assign sy = sp[0] %}
             {% if sp.size >= 2 %}{% assign fmt_start = sp[1] | append: '/' | append: sy %}{% else %}{% assign fmt_start = sy %}{% endif %}
 
-            {% if raw_end != '' %}
+            {% if raw_end == '' %}
+              {% assign date = fmt_start | append: ' &ndash; Present' %}
+            {% elsif raw_end == raw_start %}
+              {% assign date = fmt_start %}
+            {% else %}
               {% assign ep = raw_end | split: '-' %}
               {% assign ey = ep[0] %}
               {% if ep.size >= 2 %}{% assign fmt_end = ep[1] | append: '/' | append: ey %}{% else %}{% assign fmt_end = ey %}{% endif %}
-            {% else %}
-              {% assign fmt_end = 'Present' %}
+              {% assign date = fmt_start | append: ' &ndash; ' | append: fmt_end %}
             {% endif %}
-
-            {% assign date = fmt_start | append: ' &ndash; ' | append: fmt_end %}
           {% else %}
             {% assign date = '' %}
           {% endif %}
 
-          <table class="table-cv">
-            <tbody>
-              <tr>
-                <td>
-                  <span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px; white-space: normal; font-size: 0.65rem; line-height: 1.5;">{{ date }}</span>
-                </td>
-              </tr>
-              {% capture location %}{% if entry.location %}{{ entry.location }}{% endif %}{% endcapture %}
-              {% if location != '' %}
-                <tr>
-                  <td>
-                    <p class="location">
-                      <i class="fa-solid fa-location-dot iconlocation"></i>
-                      {{ location }}
-                    </p>
-                  </td>
-                </tr>
-              {% endif %}
-            </tbody>
-          </table>
+          {% capture location %}{% if entry.location %}{{ entry.location }}{% endif %}{% endcapture %}
+          <span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px; white-space: normal; font-size: 0.65rem; line-height: 1.5;">{{ date }}</span>
+          {% if location != '' %}
+            <p class="location" style="margin-top: 0.4rem; margin-bottom: 0;">
+              <i class="fa-solid fa-location-dot iconlocation"></i>
+              {{ location }}
+            </p>
+          {% endif %}
         </div>
         <div class="col-xs-10 col-sm-10 col-md-10 mt-2 mt-md-0" style="padding-left: 1.75rem;">
           {% capture position_title %}{% if entry.position %}{{ entry.position }}{% endif %}{% endcapture %}

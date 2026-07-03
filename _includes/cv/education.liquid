@@ -27,28 +27,16 @@
             {% assign date = null %}
           {% endif %}
 
-          <table class="table-cv">
-            <tbody>
-              <tr>
-                <td>
-                  {% if date %}
-                    <span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px; white-space: normal; font-size: 0.65rem; line-height: 1.5;">{{ date }}</span>
-                  {% endif %}
-                </td>
-              </tr>
-              {% capture location %}{% if entry.location %}{{ entry.location }}{% endif %}{% endcapture %}
-              {% if location != '' %}
-                <tr>
-                  <td>
-                    <p class="location">
-                      <i class="fa-solid fa-location-dot iconlocation"></i>
-                      {{ location }}
-                    </p>
-                  </td>
-                </tr>
-              {% endif %}
-            </tbody>
-          </table>
+          {% if date %}
+            <span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px; white-space: normal; font-size: 0.65rem; line-height: 1.5;">{{ date }}</span>
+          {% endif %}
+          {% capture location %}{% if entry.location %}{{ entry.location }}{% endif %}{% endcapture %}
+          {% if location != '' %}
+            <p class="location" style="margin-top: 0.4rem; margin-bottom: 0;">
+              <i class="fa-solid fa-location-dot iconlocation"></i>
+              {{ location }}
+            </p>
+          {% endif %}
         </div>
         <div class="col-xs-10 col-sm-10 col-md-10 mt-2 mt-md-0" style="padding-left: 1.75rem;">
           {% capture study_type %}{% if entry.studyType %}{{ entry.studyType }}{% elsif entry.degree %}{{ entry.degree }}{% endif %}{% endcapture %}
