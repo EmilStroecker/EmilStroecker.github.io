@@ -37,7 +37,7 @@
             </p>
           {% endif %}
         </div>
-        <div class="col-xs-10 col-sm-10 col-md-10 mt-2 mt-md-0" style="padding-left: 1.75rem;">
+        <div class="col-xs-10 col-sm-10 col-md-10 mt-2 mt-md-0" style="padding-left: 0.5rem;">
           {% capture position_title %}{% if entry.position %}{{ entry.position }}{% endif %}{% endcapture %}
           {% if position_title != '' %}
             <h6 class="title font-weight-bold ml-1 ml-md-4">{{ position_title | markdownify | remove: '<p>' | remove: '</p>' }}</h6>
