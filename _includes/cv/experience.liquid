@@ -1,49 +1,63 @@
 <ul class="card-text font-weight-light list-group list-group-flush">
   {% for entry in entries %}
     <li class="list-group-item">
-      <div class="row">
-        <div class="col-xs-2 col-sm-2 col-md-2 text-center date-column">
-          {% capture raw_start %}{% if entry.start_date %}{{ entry.start_date }}{% elsif entry.startDate %}{{ entry.startDate }}{% endif %}{% endcapture %}
-          {% capture raw_end %}{% if entry.end_date %}{{ entry.end_date }}{% elsif entry.endDate %}{{ entry.endDate }}{% endif %}{% endcapture %}
+      {% capture raw_start %}{% if entry.start_date %}{{ entry.start_date }}{% elsif entry.startDate %}{{ entry.startDate }}{% endif %}{% endcapture %}
+      {% capture raw_end %}{% if entry.end_date %}{{ entry.end_date }}{% elsif entry.endDate %}{{ entry.endDate }}{% endif %}{% endcapture %}
 
-          {% assign raw_start = raw_start | strip %}
-          {% assign raw_end   = raw_end   | strip %}
+      {% assign raw_start = raw_start | strip %}
+      {% assign raw_end   = raw_end   | strip %}
 
-          {% if raw_start != '' %}
-            {% assign sp = raw_start | split: '-' %}
-            {% assign sy = sp[0] %}
-            {% if sp.size >= 2 %}{% assign fmt_start = sp[1] | append: '/' | append: sy %}{% else %}{% assign fmt_start = sy %}{% endif %}
+      {% if raw_start != '' %}
+        {% assign sp = raw_start | split: '-' %}
+        {% assign sy = sp[0] %}
+        {% if sp.size >= 2 %}{% assign fmt_start = sp[1] | append: '/' | append: sy %}{% else %}{% assign fmt_start = sy %}{% endif %}
 
-            {% if raw_end == '' %}
-              {% assign date = fmt_start | append: ' &ndash; Present' %}
-            {% elsif raw_end == raw_start %}
-              {% assign date = fmt_start %}
-            {% else %}
-              {% assign ep = raw_end | split: '-' %}
-              {% assign ey = ep[0] %}
-              {% if ep.size >= 2 %}{% assign fmt_end = ep[1] | append: '/' | append: ey %}{% else %}{% assign fmt_end = ey %}{% endif %}
-              {% assign date = fmt_start | append: ' &ndash; ' | append: fmt_end %}
-            {% endif %}
-          {% else %}
-            {% assign date = '' %}
+        {% if raw_end == '' %}
+          {% assign date = fmt_start | append: ' &ndash; Present' %}
+        {% elsif raw_end == raw_start %}
+          {% assign date = fmt_start %}
+        {% else %}
+          {% assign ep = raw_end | split: '-' %}
+          {% assign ey = ep[0] %}
+          {% if ep.size >= 2 %}{% assign fmt_end = ep[1] | append: '/' | append: ey %}{% else %}{% assign fmt_end = ey %}{% endif %}
+          {% assign date = fmt_start | append: ' &ndash; ' | append: fmt_end %}
+        {% endif %}
+      {% else %}
+        {% assign date = '' %}
+      {% endif %}
+
+      {% capture location %}{% if entry.location %}{{ entry.location }}{% endif %}{% endcapture %}
+      {% assign location = location | strip %}
+
+      {% capture position_title %}{% if entry.position %}{{ entry.position }}{% endif %}{% endcapture %}
+      {% assign position_title = position_title | strip %}
+
+      {% capture company_name %}{% if entry.name %}{{ entry.name }}{% elsif entry.company %}{{ entry.company }}{% elsif entry.organization %}{{ entry.organization }}{% endif %}{% endcapture %}
+      {% assign company_name = company_name | strip %}
+
+      <div class="cv-entry-grid">
+        <div class="cv-date-cell">
+          {% if date != '' %}
+            <span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px; white-space: normal; font-size: 0.65rem; line-height: 1.5;">{{ date }}</span>
           {% endif %}
+        </div>
 
-          {% capture location %}{% if entry.location %}{{ entry.location }}{% endif %}{% endcapture %}
-          <span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px; white-space: normal; font-size: 0.65rem; line-height: 1.5;">{{ date }}</span>
+        <div class="cv-title-cell">
+          {% if position_title != '' %}
+            <h6 class="title font-weight-bold ml-1 ml-md-4">{{ position_title | markdownify | remove: '<p>' | remove: '</p>' }}</h6>
+          {% endif %}
+        </div>
+
+        <div class="cv-loc-cell">
           {% if location != '' %}
-            <p class="location" style="margin-top: 0.4rem; margin-bottom: 0;">
+            <p class="location" style="margin-top: 0; margin-bottom: 0; font-size: 0.85rem;">
               <i class="fa-solid fa-location-dot iconlocation"></i>
               {{ location }}
             </p>
           {% endif %}
         </div>
-        <div class="col-xs-10 col-sm-10 col-md-10 mt-2 mt-md-0" style="padding-left: 1.75rem;">
-          {% capture position_title %}{% if entry.position %}{{ entry.position }}{% endif %}{% endcapture %}
-          {% if position_title != '' %}
-            <h6 class="title font-weight-bold ml-1 ml-md-4">{{ position_title | markdownify | remove: '<p>' | remove: '</p>' }}</h6>
-          {% endif %}
 
-          {% capture company_name %}{% if entry.name %}{{ entry.name }}{% elsif entry.company %}{{ entry.company }}{% elsif entry.organization %}{{ entry.organization }}{% endif %}{% endcapture %}
+        <div class="cv-body-cell">
           {% if company_name != '' %}
             <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem">
               {% if entry.url %}<a href="{{ entry.url }}">{{ company_name }}</a>{% else %}{{ company_name }}{% endif %}
