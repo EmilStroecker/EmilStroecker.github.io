@@ -29,10 +29,6 @@ latest_posts:
   limit: 3
 ---
 
-<div style="background:#fff3cd;border:1px solid #ffc107;border-radius:8px;padding:12px 18px;margin-bottom:24px;font-size:0.92rem;color:#856404;">
-  <strong>&#x1F6A7; This website is a work in progress.</strong> Some sections may be incomplete or missing.
-</div>
-
 I am a research masters student in Cognitive Neuroscience at Maastricht University, currently completing my thesis as a research intern at [Niko Kriegeskorte's Visual Inference Lab](https://kriegeskortelab.zuckermaninstitute.columbia.edu/) of Columbia University's Zuckerman Institute.
 
 My current research focuses on **depth estimation in neural network models** -- specifically, their bias toward geometrical interpretations of depth cues as revealed by the [Ames Window Illusion](https://www.mos.org/video/optical-illusion-tricks-your-brain-ames-window). I compare contemporary depth estimation networks (Metric3D, DSINE, MoGe) while benchmarking on psychophysics data based on online experiments for large-scale data collection. I will present the project as first author via a 2-page extended abstract accepted to [CCN 2026](https://2026.ccneuro.org/).

@@ -139,6 +139,20 @@
     white-space: nowrap !important;
   }
 
+  /* CV mobile: on xs screens columns stack full-width, so switch to left-aligned layout */
+  @media (max-width: 575px) {
+    .cv .date-column {
+      text-align: left !important;
+      padding-right: 15px !important;
+    }
+    .cv .date-column .badge {
+      white-space: normal !important;
+    }
+    .cv .date-column p.location {
+      text-align: left !important;
+    }
+  }
+
   /* Publications: darken the year/subsection heading grey */
   .publications h2.bibliography {
     color: #2c2c2c !important;
