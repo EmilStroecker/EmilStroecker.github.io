@@ -153,9 +153,22 @@
     }
   }
 
-  /* Publications: darken the year/subsection heading grey */
+  /* Publications: subsection heading colour, adapts to dark mode */
   .publications h2.bibliography {
     color: #2c2c2c !important;
+  }
+  html[data-theme="dark"] .publications h2.bibliography {
+    color: #aaaaaa !important;
+  }
+
+  /* CV education: score/grade text adapts to dark mode */
+  .cv-score {
+    font-size: 0.85rem;
+    color: #666;
+    margin-top: 0.25rem;
+  }
+  html[data-theme="dark"] .cv-score {
+    color: #999999 !important;
   }
 </style>
 
