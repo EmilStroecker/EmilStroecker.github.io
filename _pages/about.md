@@ -8,7 +8,7 @@ subtitle: >
 
 profile:
   align: right
-  image: profile.png
+  image: profile.jpg
   image_circular: false
   more_info: >
     <p>Zuckerman Institute</p>

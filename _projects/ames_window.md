@@ -2,14 +2,14 @@
 layout: page
 title: Illusory Depth Estimation
 description: Do depth estimation networks share humans' geometric biases?
-img: /images/Ames_preview.png
+img: /assets/img/Ames_preview.png
 importance: 1
 ---
 
 ## Overview
 
-The **Ames Window Illusion** is a striking perceptual phenomenon in which a trapezoidal silhouette of a window --
-designed to mimic the perspective projection of a rectangle -- is perceived by human observers as a full rectangular
+The **Ames Window Illusion** is a striking perceptual phenomenon in which a trapezoidal silhouette of a window ---
+designed to mimic the perspective projection of a rectangle --- is perceived by human observers as a full rectangular
 window oscillating back and forth, rather than rotating continuously in depth. This illusion reveals a powerful
 geometric prior in the human visual system: we strongly expect windows (and rectangular objects in general) to be
 rectangular, and our depth perception is shaped accordingly.
@@ -17,7 +17,7 @@ rectangular, and our depth perception is shaped accordingly.
 This project asks: do modern neural networks trained for depth estimation exhibit the same geometric biases?
 
 <div style="text-align:center; margin: 1.5rem 0;">
-  <img src="/images/Ames_demo.gif" alt="Rotating Ames Window stimulus" style="max-width:100%; border-radius:8px;">
+  <img src="/assets/img/Ames_demo.gif" alt="Rotating Ames Window stimulus" style="max-width:100%; border-radius:8px;">
 </div>
 
 ## Research Questions
