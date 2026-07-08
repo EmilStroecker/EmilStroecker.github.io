@@ -57,18 +57,18 @@ cv:
         highlights:
 
 
-      - company: Maastricht University  
-        position: Research Assistant @ Developmental Cognitive Neuroscience Group
-        location: Maastricht, Netherlands
-        start_date: 2025-09
-        end_date: 2025-11
-        highlights:
-    
       - company: Maastricht University
         position: Independent Research on fMRI Decoders
         location: Maastricht, Netherlands
         start_date: 2025-09
         end_date: 2026-08
+        highlights:
+
+      - company: Maastricht University
+        position: Research Assistant @ Developmental Cognitive Neuroscience Group
+        location: Maastricht, Netherlands
+        start_date: 2025-09
+        end_date: 2025-11
         highlights:
 
       - company: Sokendai, National Institute for Physiological Sciences
