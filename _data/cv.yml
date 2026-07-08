@@ -55,6 +55,7 @@ cv:
         start_date: 2025-11
         end_date: 2026-08
         highlights:
+          - "Monocular depth estimation during the Ames Window Illusion in humans and machines ([project page](https://emilstroecker.github.io/projects/ames_window/))"
 
 
       - company: Maastricht University
