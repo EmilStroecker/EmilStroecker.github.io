@@ -309,10 +309,12 @@
       margin-left: 0;
       margin-right: 0;
     }
+    /* Fixed-width date column so the right column starts at the same x on
+       every entry, regardless of how wide that row's badge or location is. */
     .cv .date-column {
-      flex: 0 0 auto;
-      width: auto;
-      max-width: 120px;
+      flex: 0 0 150px;
+      width: 150px;
+      max-width: 150px;
       padding-left: 0;
       padding-right: 0;
     }
@@ -327,6 +329,7 @@
     .cv .date-column .location {
       text-align: right;
       margin-top: 0.4rem;
+      white-space: normal;
     }
     .cv .list-group-item > .row > div:last-child {
       flex: 1 1 auto;
