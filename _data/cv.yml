@@ -109,6 +109,11 @@ cv:
       - label: "Editorial Assistant @ [In-Mind Magazine](https://www.in-mind.org/)"
         start_date: 2026-05
 
+      - label: "Writer @ [BrainMatters](https://brainmatters.nl/)"
+        start_date: 2025-04
+        end_date: PRESENT
+        details: Overview of articles [here](https://emilstroecker.github.io/publications/#web-articles)
+
       - label: "Teaching Assistant @ Maastricht University"
         start_date: 2024-09
         end_date: 2025-06
