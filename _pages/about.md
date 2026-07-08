@@ -3,8 +3,8 @@ layout: about
 title: about
 permalink: /
 subtitle: >
-  Research Master Student in Cognitive Neuroscience @ Maastricht University<br>
-  Research Intern @ <a href="https://kriegeskortelab.zuckermaninstitute.columbia.edu/" target="_blank">Niko Kriegeskorte's Visual Inference Lab</a> &middot; Columbia University, Zuckerman Institute
+  <span class="subtitle-line"><span class="subtitle-role">Research Master Student in Cognitive Neuroscience</span> <span class="subtitle-at">@</span> <span class="subtitle-affil">Maastricht University</span></span>
+  <span class="subtitle-line"><span class="subtitle-role">Research Intern</span> <span class="subtitle-at">@</span> <span class="subtitle-affil"><a href="https://kriegeskortelab.zuckermaninstitute.columbia.edu/" target="_blank">Niko Kriegeskorte's Visual Inference Lab</a></span> <span class="subtitle-sep">&middot;</span> Columbia University, Zuckerman Institute</span>
 
 profile:
   align: right
