@@ -1,0 +1,317 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> RetinoType | Emil Stroecker </title> <meta name="author" content="Emil Stroecker"> <meta name="description" content="A population-receptive-field fMRI brain–computer interface for spelling with imagined letters"> <meta name="keywords" content="Emil Stroecker, cognitive neuroscience, visual perception, depth estimation, neural networks, psychophysics, Ames window, Kriegeskorte lab, Columbia University, Maastricht University"> <meta property="og:site_name" content="Emil Stroecker"> <meta property="og:type" content="website"> <meta property="og:title" content="Emil Stroecker | RetinoType"> <meta property="og:url" content="https://emilstroecker.github.io/projects/imspell_bci/"> <meta property="og:description" content="A population-receptive-field fMRI brain–computer interface for spelling with imagined letters"> <meta property="og:image" content="/assets/img/profile.jpg"> <meta property="og:locale" content="en"> <meta name="twitter:card" content="summary"> <meta name="twitter:title" content="RetinoType"> <meta name="twitter:description" content="A population-receptive-field fMRI brain–computer interface for spelling with imagined letters"> <meta name="twitter:image" content="/assets/img/profile.jpg"> <script type="application/ld+json">
+    {
+        "author":
+        {
+            "@type": "Person",
+            "name": "Emil Stroecker"
+        },
+        "url": "https://emilstroecker.github.io/projects/imspell_bci/",
+        "@type": "WebSite",
+        "description": "A population-receptive-field fMRI brain–computer interface for spelling with imagined letters",
+        "headline": "RetinoType",
+        
+        "sameAs": [null,"https://github.com/EmilStroecker","https://www.linkedin.com/in/estroeck","https://orcid.org/0009-0008-8753-7279"],
+        
+        "name": "Emil Stroecker",
+        "@context": "https://schema.org"
+    }
+  </script> <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; media-src 'self' https:; frame-src 'self' https:; connect-src 'self' https:;"> <style>
+  :root {
+    --max-content-width: 930px;
+
+    /* Custom theme overrides */
+    --global-theme-color: #3d7ab5;
+    --global-hover-color: #3d7ab5;
+    --global-hover-text-color: #ffffff;
+    --global-highlight-color: #2d5f8a;
+
+    /* Slightly softer black for body text */
+    --global-text-color: #1a1a2e;
+  }
+
+  html[data-theme="dark"] {
+    --global-theme-color: #6aabde;
+    --global-hover-color: #6aabde;
+    --global-highlight-color: #4a8fcc;
+  }
+
+  /* Typography */
+  body {
+    font-family: 'Inter', 'Roboto', sans-serif;
+    letter-spacing: -0.01em;
+    line-height: 1.7;
+  }
+
+  /* Navbar: cleaner, slightly lighter weight */
+  .navbar {
+    border-bottom: 1px solid rgba(0,0,0,0.07);
+    box-shadow: none !important;
+  }
+
+  .navbar-brand {
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  .nav-item .nav-link {
+    font-weight: 400;
+    font-size: 0.92rem;
+    letter-spacing: 0.01em;
+  }
+
+  /* Profile image: shadow only (circular vs square set by image_circular in about.md) */
+  .profile img {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+  }
+
+  /* About page: softer heading */
+  h1.post-title {
+    font-weight: 600;
+    letter-spacing: -0.03em;
+  }
+
+  /* Cards: lighter border, more breathing room */
+  .card {
+    border: 1px solid rgba(0,0,0,0.08) !important;
+    border-radius: 10px !important;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.05) !important;
+  }
+
+  /* CV section badges: use theme color */
+  .badge.danger-color-dark {
+    background-color: var(--global-theme-color) !important;
+    font-weight: 500;
+    font-size: 0.7rem;
+  }
+
+  /* News items: cleaner separator */
+  .news table td {
+    border-top: 1px solid rgba(0,0,0,0.06);
+  }
+
+  /* Footer: slightly lighter */
+  .footer {
+    font-size: 0.82rem;
+  }
+
+  /* Links: no underline by default, color on hover */
+  a {
+    text-decoration: none;
+    color: var(--global-theme-color);
+  }
+  a:hover {
+    text-decoration: underline;
+    color: var(--global-hover-color);
+  }
+
+  /* Ensure inline elements inside links inherit the link color */
+  a em, a strong, a code {
+    color: inherit;
+  }
+
+  /* News section: underline links so they are visible as plain text */
+  .news td a {
+    text-decoration: underline;
+  }
+
+  /* Social icons: slightly larger spacing */
+  .contact-icons a {
+    margin: 0 6px;
+    font-size: 1.4rem;
+  }
+
+  /* CV: remove bullets from list-group entries */
+  .cv ul.list-group,
+  .cv ul.list-group-flush {
+    padding-left: 0;
+    list-style: none;
+  }
+  .cv ul.list-group .list-group-item,
+  .cv ul.list-group-flush .list-group-item {
+    list-style: none;
+    padding: 1rem 0.25rem;
+    border-top: 1px solid rgba(0,0,0,0.07);
+  }
+  .cv ul.list-group .list-group-item:first-child {
+    border-top: none;
+  }
+
+  /* CV: right-align date column, minimal padding to sit close to content */
+  .cv .date-column {
+    padding-right: 4px;
+    text-align: right !important;
+  }
+  .cv .date-column .badge {
+    font-size: 0.72rem;
+    white-space: nowrap !important;
+  }
+
+  /* CV mobile: on xs screens columns stack full-width, so switch to left-aligned layout */
+  @media (max-width: 575px) {
+    .cv .date-column {
+      text-align: left !important;
+      padding-right: 15px !important;
+    }
+    .cv .date-column .badge {
+      white-space: normal !important;
+    }
+    .cv .date-column p.location {
+      text-align: left !important;
+    }
+  }
+
+  /* Publications: subsection heading colour, adapts to dark mode */
+  .publications h2.bibliography {
+    color: #2c2c2c !important;
+  }
+  html[data-theme="dark"] .publications h2.bibliography {
+    color: #aaaaaa !important;
+  }
+
+  /* CV education: score/grade text adapts to dark mode */
+  .cv-score {
+    font-size: 0.85rem;
+    color: #666;
+    margin-top: 0.25rem;
+  }
+  html[data-theme="dark"] .cv-score {
+    color: #999999 !important;
+  }
+</style> <link rel="stylesheet" href="/assets/css/tailwind.css?v=50c64c15cbb9fd1ce6056fdb8bcb4b62"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css" integrity="sha256-MVopmdyC2tYTiJ8wlktf0uh0v4NgT+vNdyVFepi7Q0c=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css" integrity="sha256-SzrCOBJbGVFMahewkgjwnApaV2+av1DwMAA+/QGLyZw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/scholar-icons@1.0.3/css/scholar-icons.css" integrity="sha256-VY3hHVj/hNX3fYG6wtbA6TcKJQl7+FthzGSyIB64klY=" crossorigin="anonymous"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Roboto+Slab:wght@300;400;500;700&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?v=591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%E2%9A%9B%EF%B8%8F&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?v=f0b101217084a90093badfe99ff9a7d1"> <link rel="canonical" href="https://emilstroecker.github.io/projects/imspell_bci/"> <script src="/assets/js/theme.js?v=7af685e2ba20b37fef545c97b8064050"></script> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?v=5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark"> <script>
+    initTheme();
+  </script> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> <span class="font-weight-bold">Emil</span> Stroecker </a> <button class="navbar-toggler collapsed navbar-toggler-main" type="button" data-nav-toggle="navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse navbar-collapse-main" id="navbarNav"> <ul class="navbar-nav navbar-menu-list flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">about </a> </li> <li class="nav-item "> <a class="nav-link" href="/cv/">CV </a> </li> <li class="nav-item "> <a class="nav-link" href="/publications/">publications </a> </li> <li class="nav-item active"> <a class="nav-link" href="/projects/">projects <span class="sr-only">(current)</span> </a> </li> <li class="nav-item "> <a class="nav-link" href="/repositories/">repositories </a> </li> <li class="nav-item"> <button id="search-toggle" type="button" title="Search" aria-label="Open search"> <span class="nav-link">ctrl k <i class="fa-solid fa-magnifying-glass"></i></span> </button> </li> <li class="toggle-container"> <button id="light-toggle" type="button" title="Change theme" aria-label="Change color theme"> <i class="fa-half-sun-moon" id="light-toggle-system"></i> <i class="fa-solid fa-moon" id="light-toggle-dark"></i> <i class="fa-solid fa-sun" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">RetinoType</h1> <p class="post-description">A population-receptive-field fMRI brain–computer interface for spelling with imagined letters</p> </header> <article> <h2 id="overview">Overview</h2> <p>When you <em>imagine</em> a letter, early visual cortex lights up in almost the same retinotopically-organised pattern as when you actually <em>see</em> it. Using ultra-high-field (7 T) fMRI, <a href="https://doi.org/10.1007/s00429-019-01828-6" rel="external nofollow noopener" target="_blank">Senden et al. (2019)</a> showed that an imagined letter can be reconstructed from the very same <a href="https://doi.org/10.1016/j.neuroimage.2007.09.034" rel="external nofollow noopener" target="_blank">population-receptive-field (pRF)</a> mapping of the visual field that describes perception.</p> <p><strong>RetinoType</strong> asks whether that correspondence can be turned into a <em>content-based</em> brain–computer interface: a speller in which you simply picture the letter you want, and it is read directly out of visual cortex — rather than mapping arbitrary, effortful mental tasks onto letters, as earlier fMRI spellers do.</p> <div style="text-align:center; margin: 1.5rem 0;"> <img src="/assets/img/imspell_pipeline.png" alt="RetinoType pipeline: pRF encoding, alphabet simulation, perception-to-imagery transfer, decoding, and language-model correction" style="max-width:100%; border-radius:8px;"> </div> <h2 id="how-it-works">How it works</h2> <ol> <li> <p><strong>Extract each subject’s pRF map</strong> — the receptive-field location and size of every unit in early visual cortex (V1–V3).</p> </li> <li> <p><strong>Simulate the whole alphabet.</strong> The original experiment only presented four letters (H, T, S, C). But a subject’s pRF map lets us <em>predict</em> the cortical response to any letter that was never shown — encoding each of the 26 letters into a simulated brain response, then reconstructing the visual field back out of it (below).</p> </li> <li> <p><strong>Transfer perception → imagery.</strong> Imagined letters are far weaker and noisier than perceived ones. We estimate the signal-degradation profile that separates seeing a letter from imagining it — calibrated on the letters that <em>were</em> imagined in the scanner (H, T, S, C) — and extrapolate it to the remaining 22, producing as-authentic-as-possible simulated imagery responses.</p> </li> <li> <p><strong>Decode in conversational context.</strong> Because imagery signals are blurry and letters are easily confused, we don’t decode letters in isolation. We fold in a large language model that integrates conversational context and each subject’s letter-confusion matrix, collapsing the space of possibilities onto the most likely intended message.</p> </li> <li> <p><strong>Evaluate on conversations, not characters.</strong> The paradigm is scored not on isolated per-letter accuracy but on how reliably whole simulated questions and answers — spanning common and uncommon phrasings — are recovered.</p> </li> </ol> <h2 id="simulating-cortical-responses-to-every-letter">Simulating cortical responses to every letter</h2> <p>Each letter is rendered as a stimulus, encoded through the subject’s pRF model into a simulated early-visual-cortex response, and then reconstructed back into a visual-field image. Reconstruction requires a cortical-magnification correction — the fovea is vastly over-represented in cortex, so a naive read-out is geometrically distorted until that sampling bias is undone.</p> <div style="text-align:center; margin: 1.5rem 0;"> <img src="/assets/img/imspell_alphabet_sim.png" alt="Per-letter simulation: stimulus, naive back-projection, and distortion-corrected reconstruction for A–Z" style="max-width:100%; border-radius:8px;"> </div> <p>The preview image for this project is made the same way — <em>RETINO / TYPE</em> spelled out entirely in reconstructed, brain-decoded letters.</p> <h2 id="why-it-matters">Why it matters</h2> <p>Conventional BCI spellers make you spell <em>indirectly</em>. Rather than reading out the letter you intend, they map arbitrary or effortful mental tasks onto letters (<a href="https://doi.org/10.1016/j.cub.2012.05.022" rel="external nofollow noopener" target="_blank">Sorger et al., 2012</a>) and narrow the alphabet down over several trials, each ruling out a fraction of the candidates. If every trial keeps, say, a third of the options, isolating one letter out of 26 takes</p> \[26 \cdot 3^{-n} = 1 \quad\Longrightarrow\quad n = \log_3 26 \approx 3\] <p>three trials — and each trial is slow: Sorger et al.’s fMRI speller needed at least <strong>50 seconds to encode a single letter</strong>. Between memorising a code and the trials-per-letter overhead, spelling this way is both effortful and slow.</p> <p>A pRF-based, <em>content-based</em> approach instead aims to produce a uniquely identifiable signal for the intended letter in a <em>single</em> trial — decoding the <em>shape</em> you actually picture. Paired with a language model that exploits conversational context, this promises communication that is both more intuitive and more time-efficient, for healthy and clinical populations alike.</p> <h2 id="toward-a-portable-device">Toward a portable device</h2> <p>fMRI is powerful but immobile and costly. Encouragingly, the same protocol transfers directly to portable optical imaging. Functional near-infrared spectroscopy (fNIRS) — in particular High-Density Diffuse Optical Tomography (HD-DOT; Frijia et al., 2020) and Time-Domain fNIRS (TD-fNIRS; Torricelli et al., 2013) — can now reach deeper cortex at comparatively high spatial resolution (Oveisi et al., 2024). Conceptually, an HD-DOT / TD-fNIRS variant runs the very same encode → reconstruct → decode pipeline. If it holds up, a content-based imagery speller could give people with locked-in syndrome or similar conditions a far more convenient and cost-effective way to communicate.</p> <h2 id="data--methods">Data &amp; methods</h2> <p>The work builds a fully-reproducible pipeline on two independent 7 T datasets. The <a href="https://doi.org/10.1007/s00429-019-01828-6" rel="external nofollow noopener" target="_blank">Senden et al. (2019)</a> data provides, for each of six subjects, retinotopy, letter-<em>perception</em> (letters shown on screen) and letter-<em>imagery</em> (letters pictured from memory) trials — although only four letters (<strong>H, T, S, C</strong>) were ever presented. To this we add the <a href="https://laion-fmri.hebartlab.com/" rel="external nofollow noopener" target="_blank">LAION-fMRI</a> retinotopy dataset, converging on a shared surface-based pRF analysis (DICOM → BIDS conversion, anatomy typing, per-trial event decoding).</p> <p>Two limitations of the scanner data motivate the simulation-first design: only four of the 26 letters were collected, and imagined letters are intrinsically hard to decode — a noisy-channel problem that has cast doubt on their fitness for a BCI. Simulating the full alphabet from each subject’s pRF map, and decoding in conversational context, are precisely the moves that work around those two limits.</p> <p>This work is conducted at the <a href="https://kriegeskortelab.zuckermaninstitute.columbia.edu/" rel="external nofollow noopener" target="_blank">Kriegeskorte Visual Inference Lab</a>, Columbia University, Zuckerman Institute.</p> </article> </div> </div> <script>
+  window.alFolio = {
+    compatBootstrap: false
+  };
+</script> <script src="/assets/js/nav-toggle.js?v=141bd79a73ebc0f0b6ea58e440ae79fc"></script> <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script> <script defer src="/assets/js/masonry.js?v=e49affc7bd2646f6acdad1dbe02c2359" type="text/javascript"></script> <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script> <script src="/assets/al_math/js/mathjax-setup.js"></script> <script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6" crossorigin="anonymous"></script> <script src="/assets/js/tooltips-setup.js?v=fe487e99db6c43751e6e7bdb2d6a0611"></script> <script src="/assets/js/no_defer.js?v=53b1b1a645525975c963ce8bf8bfefcf"></script> <script defer src="/assets/js/common.js?v=87baac90f765f2f3362dcf6aaf312a8a"></script> <script defer src="/assets/js/copy_code.js?v=c8a01c11a92744d44b093fc3bda915df" type="text/javascript"></script> <script defer src="/assets/js/jupyter_new_tab.js?v=896d254890d9b47f0281f63bfccf0dee"></script> <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script> <script async src="https://badge.dimensions.ai/badge.js"></script> <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script> <script defer src="/assets/al_img_tools/js/zoom.js"></script> <script defer src="/assets/js/progress-bar.js?v=499464c5c63ced6cf7ad62509f1e2610" type="text/javascript"></script> <script src="https://cdn.jsdelivr.net/npm/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js" integrity="sha256-uMJJ3EoTyfRBoTbR+lrfu1uRQ87RZG8AR3cVNuQVeFg=" crossorigin="anonymous"></script> <script>
+    addBackToTop();
+  </script> <script type="module" src="/assets/al_search/js/search/ninja-keys.min.js"></script> <ninja-keys hidebreadcrumbs noautoloadmdicons placeholder="Type to start searching"></ninja-keys> <script src="/assets/al_search/js/search-setup.js"></script> <script>
+// get the ninja-keys element
+const ninja = document.querySelector('ninja-keys');
+
+// add the home and posts menu items
+ninja.data = [{
+    id: "nav-about",
+    title: "about",
+    section: "Navigation",
+    handler: () => {
+      window.location.href = "/";
+    },
+  },{id: "nav-cv",
+          title: "CV",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/cv/";
+          },
+        },{id: "nav-publications",
+          title: "publications",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/publications/";
+          },
+        },{id: "nav-projects",
+          title: "projects",
+          description: "Research projects and scientific work.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/projects/";
+          },
+        },{id: "nav-repositories",
+          title: "repositories",
+          description: "My open-source code and research repositories on GitHub.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/repositories/";
+          },
+        },{id: "news-joined-in-mind-magazine-as-an-editorial-assistant",
+          title: 'Joined In-Mind Magazine as an Editorial Assistant!',
+          description: "",
+          section: "News",},{id: "news-our-extended-abstract-measuring-depth-inversion-in-the-ames-window-illusion-has-been-accepted-to-the-9th-annual-conference-on-cognitive-computational-neuroscience-ccn-2026-nyc",
+          title: 'Our extended abstract Measuring Depth Inversion in the Ames Window Illusion has been...',
+          description: "",
+          section: "News",},{id: "news-new-article-out-on-brainmatters-beauty-and-the-brain-the-neuroscience-of-attractiveness",
+          title: 'New article out on BrainMatters: Beauty and the Brain – the neuroscience of...',
+          description: "",
+          section: "News",},{id: "projects-illusory-depth-estimation",
+          title: 'Illusory Depth Estimation',
+          description: "Do depth estimation networks share humans&#39; geometric biases?",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/ames_window/";
+            },},{id: "projects-retinotype",
+          title: 'RetinoType',
+          description: "A population-receptive-field fMRI brain–computer interface for spelling with imagined letters",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/imspell_bci/";
+            },},{
+        id: 'social-cv',
+        title: 'CV',
+        section: 'Socials',
+        handler: () => {
+          window.open("/assets/pdf/Stroecker_Emil_CV.pdf", "_blank");
+        },
+      },{
+        id: 'social-email',
+        title: 'email',
+        section: 'Socials',
+        handler: () => {
+          window.open("mailto:%65%73%34%34%38%35@%63%6F%6C%75%6D%62%69%61.%65%64%75", "_blank");
+        },
+      },{
+        id: 'social-github',
+        title: 'GitHub',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://github.com/EmilStroecker", "_blank");
+        },
+      },{
+        id: 'social-linkedin',
+        title: 'LinkedIn',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://www.linkedin.com/in/estroeck", "_blank");
+        },
+      },{
+        id: 'social-orcid',
+        title: 'ORCID',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://orcid.org/0009-0008-8753-7279", "_blank");
+        },
+      },{
+        id: 'social-rss',
+        title: 'RSS Feed',
+        section: 'Socials',
+        handler: () => {
+          window.open("/feed.xml", "_blank");
+        },
+      },{
+      id: 'light-theme',
+      title: 'Change theme to light',
+      description: 'Change the theme of the site to Light',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("light");
+      },
+    },
+    {
+      id: 'dark-theme',
+      title: 'Change theme to dark',
+      description: 'Change the theme of the site to Dark',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("dark");
+      },
+    },
+    {
+      id: 'system-theme',
+      title: 'Use system default theme',
+      description: 'Change the theme of the site to System Default',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("system");
+      },
+    },];
+
+</script> <script src="/assets/al_search/js/shortcut-key.js"></script> </body> </html>
