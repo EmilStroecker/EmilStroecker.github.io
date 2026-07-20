@@ -2,7 +2,7 @@
 layout: page
 title: RetinoType
 description: A population-receptive-field fMRI brain–computer interface for spelling with imagined letters
-img: /assets/img/imspell_preview.webp
+img: /assets/img/retinotype_preview.webp
 importance: 1
 ---
 
@@ -22,7 +22,7 @@ want, and it is read directly out of visual cortex — rather than mapping
 arbitrary, effortful mental tasks onto letters, as earlier fMRI spellers do.
 
 <div style="text-align:center; margin: 1.5rem 0;">
-  <img src="/assets/img/imspell_pipeline.png" alt="RetinoType pipeline: pRF encoding, alphabet simulation, perception-to-imagery transfer, decoding, and language-model correction" style="max-width:100%; border-radius:8px;">
+  <img src="/assets/img/retinotype_pipeline.png" alt="RetinoType pipeline: pRF encoding, alphabet simulation, perception-to-imagery transfer, decoding, and language-model correction" style="max-width:100%; border-radius:8px;">
 </div>
 
 ## How it works
@@ -61,7 +61,7 @@ the fovea is vastly over-represented in cortex, so a naive read-out is
 geometrically distorted until that sampling bias is undone.
 
 <div style="text-align:center; margin: 1.5rem 0;">
-  <img src="/assets/img/imspell_alphabet_sim.png" alt="Per-letter simulation: stimulus, naive back-projection, and distortion-corrected reconstruction for A–Z" style="max-width:100%; border-radius:8px;">
+  <img src="/assets/img/retinotype_alphabet_sim.png" alt="Per-letter simulation: stimulus, naive back-projection, and distortion-corrected reconstruction for A–Z" style="max-width:100%; border-radius:8px;">
 </div>
 
 The preview image for this project is made the same way — *RETINO&nbsp;/&nbsp;TYPE*
@@ -101,24 +101,3 @@ resolution (Oveisi et&nbsp;al., 2024). Conceptually, an HD-DOT / TD-fNIRS varian
 runs the very same encode → reconstruct → decode pipeline. If it holds up, a
 content-based imagery speller could give people with locked-in syndrome or similar
 conditions a far more convenient and cost-effective way to communicate.
-
-## Data & methods
-
-The work builds a fully-reproducible pipeline on two independent 7&nbsp;T datasets.
-The [Senden&nbsp;et&nbsp;al. (2019)](https://doi.org/10.1007/s00429-019-01828-6)
-data provides, for each of six subjects, retinotopy, letter-*perception* (letters
-shown on screen) and letter-*imagery* (letters pictured from memory) trials —
-although only four letters (**H, T, S, C**) were ever presented. To this we add the
-[LAION-fMRI](https://laion-fmri.hebartlab.com/) retinotopy dataset, converging on a
-shared surface-based pRF analysis (DICOM → BIDS conversion, anatomy typing,
-per-trial event decoding).
-
-Two limitations of the scanner data motivate the simulation-first design: only four
-of the 26 letters were collected, and imagined letters are intrinsically hard to
-decode — a noisy-channel problem that has cast doubt on their fitness for a BCI.
-Simulating the full alphabet from each subject's pRF map, and decoding in
-conversational context, are precisely the moves that work around those two limits.
-
-This work is conducted at the
-[Kriegeskorte Visual Inference Lab](https://kriegeskortelab.zuckermaninstitute.columbia.edu/),
-Columbia University, Zuckerman Institute.
