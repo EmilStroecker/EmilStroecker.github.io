@@ -20,24 +20,30 @@ This project asks: do modern neural networks trained for depth estimation exhibi
   <div class="ames-frame">
     <div class="ames-viewport">
       <figure class="ames-slide is-active" data-name="Window" data-note="Six-pane window &mdash; the classic Ames construction">
-        <picture>
-          <source srcset="{{ '/assets/anim/ames_window_pair.webp' | relative_url }}" type="image/webp">
-          <img src="{{ '/assets/anim/ames_window_pair.gif' | relative_url }}" alt="Trapezoidal six-pane window rotating clockwise. Top panel, frontal view: the shape appears to oscillate back and forth. Bottom panel, raised viewpoint: the same object is seen to rotate continuously." width="422" height="912">
-        </picture>
+        <video width="422" height="912" muted loop playsinline preload="auto"
+               aria-label="Trapezoidal six-pane window rotating clockwise. Top panel, frontal view: the shape appears to oscillate back and forth. Bottom panel, raised viewpoint: the same object is seen to rotate continuously.">
+          <source src="{{ '/assets/anim/ames_window_pair.webm' | relative_url }}" type="video/webm">
+          <source src="{{ '/assets/anim/ames_window_pair.mp4' | relative_url }}" type="video/mp4">
+          <img src="{{ '/assets/anim/ames_window_pair.webp' | relative_url }}" width="422" height="912" alt="Trapezoidal six-pane window rotating clockwise, shown from a frontal viewpoint above and a raised viewpoint below.">
+        </video>
       </figure>
 
       <figure class="ames-slide" data-name="Ring" data-note="Closed contour &mdash; no corners, no rectangularity cue">
-        <picture>
-          <source srcset="{{ '/assets/anim/ames_circle_pair.webp' | relative_url }}" type="image/webp">
-          <img src="{{ '/assets/anim/ames_circle_pair.gif' | relative_url }}" alt="Tapered ring rotating clockwise, shown from a frontal viewpoint above and a raised viewpoint below." width="422" height="912" loading="lazy">
-        </picture>
+        <video width="422" height="912" muted loop playsinline preload="auto"
+               aria-label="Tapered ring rotating clockwise, shown from a frontal viewpoint above and a raised viewpoint below.">
+          <source src="{{ '/assets/anim/ames_circle_pair.webm' | relative_url }}" type="video/webm">
+          <source src="{{ '/assets/anim/ames_circle_pair.mp4' | relative_url }}" type="video/mp4">
+          <img src="{{ '/assets/anim/ames_circle_pair.webp' | relative_url }}" width="422" height="912" alt="Tapered ring rotating clockwise, shown from a frontal viewpoint above and a raised viewpoint below.">
+        </video>
       </figure>
 
       <figure class="ames-slide" data-name="Dots" data-note="Stochastic dot field &mdash; the taper carried by size gradient alone">
-        <picture>
-          <source srcset="{{ '/assets/anim/ames_dots_pair.webp' | relative_url }}" type="image/webp">
-          <img src="{{ '/assets/anim/ames_dots_pair.gif' | relative_url }}" alt="Field of stochastically placed dots rotating clockwise, shown from a frontal viewpoint above and a raised viewpoint below." width="422" height="912" loading="lazy">
-        </picture>
+        <video width="422" height="912" muted loop playsinline preload="auto"
+               aria-label="Field of stochastically placed dots rotating clockwise, shown from a frontal viewpoint above and a raised viewpoint below.">
+          <source src="{{ '/assets/anim/ames_dots_pair.webm' | relative_url }}" type="video/webm">
+          <source src="{{ '/assets/anim/ames_dots_pair.mp4' | relative_url }}" type="video/mp4">
+          <img src="{{ '/assets/anim/ames_dots_pair.webp' | relative_url }}" width="422" height="912" alt="Field of stochastically placed dots rotating clockwise, shown from a frontal viewpoint above and a raised viewpoint below.">
+        </video>
       </figure>
     </div>
   </div>
@@ -79,6 +85,7 @@ This project asks: do modern neural networks trained for depth estimation exhibi
   .ames-slide.is-active {
     display: block;
   }
+  .ames-slide video,
   .ames-slide img {
     display: block;
     width: 100%;
@@ -173,11 +180,42 @@ This project asks: do modern neural networks trained for depth estimation exhibi
       return dot;
     });
 
+    // A refusal is often transient (a page opened in a background tab has
+    // playback suspended), so the controls offered as a fallback are removed
+    // again as soon as the clip does start.
+    slides.forEach(function (slide) {
+      var video = slide.querySelector('video');
+      if (video) {
+        video.addEventListener('playing', function () { video.controls = false; });
+      }
+    });
+
+    function playActive() {
+      var video = slides[index].querySelector('video');
+      if (!video) return;
+      var playing = video.play();
+      // If autoplay is refused for good (iOS Low Power Mode, strict autoplay
+      // settings) expose native controls rather than leave a frozen frame.
+      if (playing && playing.catch) {
+        playing.catch(function () { video.controls = true; });
+      }
+    }
+
     function show(i) {
       index = (i + slides.length) % slides.length;
       slides.forEach(function (slide, j) {
-        slide.classList.toggle('is-active', j === index);
+        var active = j === index;
+        slide.classList.toggle('is-active', active);
+        // Only the visible clip should be decoding: a paused, hidden video
+        // costs nothing, whereas three simultaneously animating clips would
+        // all compete for decode.
+        var video = slide.querySelector('video');
+        if (video && !active) {
+          video.pause();
+          video.currentTime = 0;
+        }
       });
+      playActive();
       dots.forEach(function (dot, j) {
         dot.setAttribute('aria-selected', j === index ? 'true' : 'false');
       });
@@ -207,17 +245,12 @@ This project asks: do modern neural networks trained for depth estimation exhibi
 
     show(0);
 
-    // The non-active slides are lazy so the page only pays for one animation
-    // up front; once it has loaded, fetch the rest in the background so
-    // switching stimulus is instant.
-    function preloadRest() {
-      slides.slice(1).forEach(function (slide) {
-        var img = slide.querySelector('img');
-        if (img) img.loading = 'eager';
-      });
-    }
-    if (document.readyState === 'complete') preloadRest();
-    else window.addEventListener('load', preloadRest);
+    // A page opened in a background tab has playback suspended, and the one
+    // play() above resolves without ever starting; retry when it is actually
+    // on screen so the visitor never lands on a frozen frame.
+    document.addEventListener('visibilitychange', function () {
+      if (!document.hidden) playActive();
+    });
   })();
 </script>
 
