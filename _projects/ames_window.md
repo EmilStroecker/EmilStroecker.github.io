@@ -24,7 +24,6 @@ This project asks: do modern neural networks trained for depth estimation exhibi
                aria-label="Trapezoidal six-pane window rotating clockwise. Top panel, frontal view: the shape appears to oscillate back and forth. Bottom panel, raised viewpoint: the same object is seen to rotate continuously.">
           <source src="{{ '/assets/anim/ames_window_pair.webm' | relative_url }}" type="video/webm">
           <source src="{{ '/assets/anim/ames_window_pair.mp4' | relative_url }}" type="video/mp4">
-          <img src="{{ '/assets/anim/ames_window_pair.webp' | relative_url }}" width="422" height="912" alt="Trapezoidal six-pane window rotating clockwise, shown from a frontal viewpoint above and a raised viewpoint below.">
         </video>
       </figure>
 
@@ -33,7 +32,6 @@ This project asks: do modern neural networks trained for depth estimation exhibi
                aria-label="Tapered ring rotating clockwise, shown from a frontal viewpoint above and a raised viewpoint below.">
           <source src="{{ '/assets/anim/ames_circle_pair.webm' | relative_url }}" type="video/webm">
           <source src="{{ '/assets/anim/ames_circle_pair.mp4' | relative_url }}" type="video/mp4">
-          <img src="{{ '/assets/anim/ames_circle_pair.webp' | relative_url }}" width="422" height="912" alt="Tapered ring rotating clockwise, shown from a frontal viewpoint above and a raised viewpoint below.">
         </video>
       </figure>
 
@@ -42,7 +40,6 @@ This project asks: do modern neural networks trained for depth estimation exhibi
                aria-label="Field of stochastically placed dots rotating clockwise, shown from a frontal viewpoint above and a raised viewpoint below.">
           <source src="{{ '/assets/anim/ames_dots_pair.webm' | relative_url }}" type="video/webm">
           <source src="{{ '/assets/anim/ames_dots_pair.mp4' | relative_url }}" type="video/mp4">
-          <img src="{{ '/assets/anim/ames_dots_pair.webp' | relative_url }}" width="422" height="912" alt="Field of stochastically placed dots rotating clockwise, shown from a frontal viewpoint above and a raised viewpoint below.">
         </video>
       </figure>
     </div>
@@ -85,8 +82,7 @@ This project asks: do modern neural networks trained for depth estimation exhibi
   .ames-slide.is-active {
     display: block;
   }
-  .ames-slide video,
-  .ames-slide img {
+  .ames-slide video {
     display: block;
     width: 100%;
     height: auto;
