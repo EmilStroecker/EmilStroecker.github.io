@@ -20,7 +20,7 @@ This project asks: do modern neural networks trained for depth estimation exhibi
   <div class="ames-frame">
     <div class="ames-viewport">
       <figure class="ames-slide is-active" data-name="Window" data-note="Six-pane window &mdash; the classic Ames construction">
-        <video width="422" height="912" muted loop playsinline preload="auto"
+        <video width="422" height="912" autoplay muted loop playsinline preload="auto"
                aria-label="Trapezoidal six-pane window rotating clockwise. Top panel, frontal view: the shape appears to oscillate back and forth. Bottom panel, raised viewpoint: the same object is seen to rotate continuously.">
           <source src="{{ '/assets/anim/ames_window_pair.webm' | relative_url }}" type="video/webm">
           <source src="{{ '/assets/anim/ames_window_pair.mp4' | relative_url }}" type="video/mp4">
@@ -176,14 +176,16 @@ This project asks: do modern neural networks trained for depth estimation exhibi
       return dot;
     });
 
-    // A refusal is often transient (a page opened in a background tab has
-    // playback suspended), so the controls offered as a fallback are removed
-    // again as soon as the clip does start.
     slides.forEach(function (slide) {
       var video = slide.querySelector('video');
-      if (video) {
-        video.addEventListener('playing', function () { video.controls = false; });
-      }
+      if (!video) return;
+      // A refusal is often transient, so the controls offered as a fallback
+      // are removed again as soon as the clip does start.
+      video.addEventListener('playing', function () { video.controls = false; });
+      // The first play() can land before the element has any data.
+      video.addEventListener('canplay', function () {
+        if (slide.classList.contains('is-active')) playActive();
+      });
     });
 
     function playActive() {
@@ -208,7 +210,9 @@ This project asks: do modern neural networks trained for depth estimation exhibi
         var video = slide.querySelector('video');
         if (video && !active) {
           video.pause();
-          video.currentTime = 0;
+          // Safari has historically thrown on a seek before metadata exists,
+          // and this must not abort the rest of show().
+          try { video.currentTime = 0; } catch (e) {}
         }
       });
       playActive();
@@ -240,6 +244,19 @@ This project asks: do modern neural networks trained for depth estimation exhibi
     }, { passive: true });
 
     show(0);
+
+    // The gallery sits below the fold, so on load the clip is off screen and
+    // browsers decline to start a muted clip that nobody can see. Start it
+    // when it actually scrolls into view. Without this the visitor waits on a
+    // still frame until they happen to press an arrow, whose click counts as
+    // the user gesture that unconditionally permits playback.
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) playActive();
+        });
+      }, { threshold: 0.15 }).observe(gallery);
+    }
 
     // A page opened in a background tab has playback suspended, and the one
     // play() above resolves without ever starting; retry when it is actually
