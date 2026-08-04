@@ -385,7 +385,7 @@
       if (!document.hidden) playActive();
     });
   })();
-</script> <p style="text-align:center; font-size:0.85rem; margin-top:-0.25rem;"> All three stimuli share the same −45° depth slant and left/right taper, so they are directly comparable. Each is the perspective projection of a slanted object onto a flat, rigidly rotating plate. </p> <h2 id="research-questions">Research Questions</h2> <ul> <li>When presented with the Ames Window stimulus, do state-of-the-art monocular depth networks (Metric3D, DSINE, MoGe) produce depth estimates consistent with the illusory percept?</li> <li>How do network responses compare quantitatively to psychophysical measurements of depth inversion in human observers?</li> <li>What do these comparisons reveal about the extent to which contemporary vision models capture human-like shape and depth priors?</li> </ul> <h2 id="methods">Methods</h2> <p>We run a psychophysics experiment (PsychoPy/PsychoJS) measuring depth inversion responses to the rotating Ames Window in human participants. We compare these behavioural signatures against the outputs of three state-of-the-art monocular depth estimation networks on the same stimuli.</p> <p>Participants see a single static frame of a tapered object and report the 3D orientation they perceive by rotating a smaller probe gauge, superimposed at its centre, until the two match in depth. Because a surface and its 180° rotation project identically, responses are scored modulo 180°. The stimuli are sampled from a Sobol sequence over the generating parameters (taper, depth slant, thickness, focal length, texture), so the space of shapes is covered quasi-uniformly rather than on a grid.</p> <h3 id="try-the-task">Try the task</h3> <div class="amx" id="amxDemo" data-base="/assets/img/ames_demo"> <figure class="amx__stage"> <div class="amx__scene" id="amxGaugeWrap" role="slider" tabindex="0" aria-valuemin="-90" aria-valuemax="90" aria-valuenow="0" aria-label="Probe gauge orientation in degrees. Drag horizontally or use the left and right arrow keys."> <img class="amx__probe" id="amxProbe" alt="Stimulus whose 3D orientation you judge" draggable="false"> <img class="amx__gauge" id="amxGauge" alt="Probe gauge you rotate to match the stimulus" draggable="false"> </div> <figcaption class="amx__cap" id="amxGaugeCap">Probe gauge — drag to rotate</figcaption> </figure> <div class="amx__bar" id="amxBar" hidden=""><span class="amx__barfill" id="amxBarFill"></span></div> <p class="amx__status" id="amxStatus" role="status" aria-live="polite">Loading…</p> <div class="amx__controls"> <button type="button" class="amx__btn amx__btn--primary" id="amxAction">Start</button> <span class="amx__progress" id="amxProgress"></span> </div> <noscript> <p class="amx__note">This interactive demo needs JavaScript.</p> </noscript> </div> <p class="amx__note"> A short, untimed excerpt of the task — 24 stimuli, no tutorial, and nothing recorded. The real study runs on Prolific with fullscreen enforcement, a 2 s stimulus preview, a 5 s response window, and several hundred trials per participant. </p> <style>
+</script> <p style="text-align:center; font-size:0.85rem; margin-top:-0.25rem;"> All three stimuli share the same −45° depth slant and left/right taper, so they are directly comparable. Each is the perspective projection of a slanted object onto a flat, rigidly rotating plate. </p> <h2 id="research-questions">Research Questions</h2> <ul> <li>When presented with the Ames Window stimulus, do state-of-the-art monocular depth networks (Metric3D, DSINE, MoGe) produce depth estimates consistent with the illusory percept?</li> <li>How do network responses compare quantitatively to psychophysical measurements of depth inversion in human observers?</li> <li>What do these comparisons reveal about the extent to which contemporary vision models capture human-like shape and depth priors?</li> </ul> <h2 id="methods">Methods</h2> <p>We run a psychophysics experiment (PsychoPy/PsychoJS) measuring depth inversion responses to the rotating Ames Window in human participants. We compare these behavioural signatures against the outputs of three state-of-the-art monocular depth estimation networks on the same stimuli.</p> <p>Participants see a single static frame of a tapered object and report the 3D orientation they perceive by rotating a smaller probe gauge, superimposed at its centre, until the two match in depth. Because a surface and its 180° rotation project identically, responses are scored modulo 180°. The stimuli are sampled from a Sobol sequence over the generating parameters (taper, depth slant, thickness, focal length, texture), so the space of shapes is covered quasi-uniformly rather than on a grid.</p> <h3 id="try-the-task">Try the task</h3> <div class="amx" id="amxDemo" data-base="/assets/img/ames_demo"> <figure class="amx__stage"> <div class="amx__scene" id="amxGaugeWrap" role="slider" tabindex="0" aria-valuemin="-90" aria-valuemax="90" aria-valuenow="0" aria-label="Probe gauge orientation in degrees. Drag horizontally or use the left and right arrow keys."> <img class="amx__probe" id="amxProbe" alt="Stimulus whose 3D orientation you judge" draggable="false"> <img class="amx__gauge" id="amxGauge" alt="Probe gauge you rotate to match the stimulus" draggable="false"> </div> <figcaption class="amx__cap" id="amxGaugeCap">Probe gauge — drag to rotate</figcaption> </figure> <div class="amx__bar" id="amxBar" hidden=""><span class="amx__barfill" id="amxBarFill"></span></div> <p class="amx__status" id="amxStatus" role="status" aria-live="polite">Loading…</p> <div class="amx__controls"> <button type="button" class="amx__btn amx__btn--primary" id="amxAction">Start</button> <span class="amx__progress" id="amxProgress"></span> </div> <noscript> <p class="amx__note">This interactive demo needs JavaScript.</p> </noscript> </div> <style>
   .amx {
     margin: 1.5rem auto 0.5rem;
     max-width: 40rem;
@@ -654,7 +654,7 @@
         barEl.hidden = false;
         actionEl.disabled = false;
         actionEl.textContent = 'Confirm';
-        statusEl.innerHTML = 'Rotate the gauge until it matches the <b>3D orientation</b> you see in the stimulus, then confirm.';
+        statusEl.innerHTML = '<b>Click and drag</b> left or right to rotate the gauge until it matches the <b>3D orientation</b> of the stimulus, then confirm. Arrow keys work too.';
         showTrial();
       });
     }
@@ -690,10 +690,7 @@
         'Mean unsigned error across ' + results.length + ' trials: <b>' +
         mean(results.map(function (r) { return r.error; })).toFixed(1) + '°</b>' +
         '<table class="amx__results"><thead><tr><th>Stimulus</th><th>n</th><th>Mean error</th></tr></thead>' +
-        '<tbody>' + rows + '</tbody></table>' +
-        '<span class="amx__note">A perfect observer scores 0°; responding at random averages 45°. ' +
-        'In the study, systematic departures from 0° &mdash; and how they differ across these shape ' +
-        'families &mdash; are the signature we compare against the depth networks.</span>';
+        '<tbody>' + rows + '</tbody></table>';
     }
 
     function advance() {
@@ -726,7 +723,7 @@
         // Idle preview: first stimulus and a frontal gauge.
         probeEl.src = BASE + '/probe/' + TRIALS[0][0] + '.webp';
         gaugeEl.src = gaugeSrc(TRIALS[0][1], toFrame(0));
-        statusEl.innerHTML = 'Judge the <b>3D orientation</b> of each stimulus by rotating the probe gauge to match it. Drag it, or use the arrow keys.';
+        statusEl.innerHTML = '<b>Click and drag</b> the gauge to rotate it, matching the <b>3D orientation</b> of the stimulus it sits on.';
         progEl.textContent = TRIALS.length + ' trials, about two minutes';
         actionEl.disabled = false;
       })
