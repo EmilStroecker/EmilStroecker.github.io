@@ -385,7 +385,361 @@
       if (!document.hidden) playActive();
     });
   })();
-</script> <p style="text-align:center; font-size:0.85rem; margin-top:-0.25rem;"> All three stimuli share the same −45° depth slant and left/right taper, so they are directly comparable. Each is the perspective projection of a slanted object onto a flat, rigidly rotating plate. </p> <h2 id="research-questions">Research Questions</h2> <ul> <li>When presented with the Ames Window stimulus, do state-of-the-art monocular depth networks (Metric3D, DSINE, MoGe) produce depth estimates consistent with the illusory percept?</li> <li>How do network responses compare quantitatively to psychophysical measurements of depth inversion in human observers?</li> <li>What do these comparisons reveal about the extent to which contemporary vision models capture human-like shape and depth priors?</li> </ul> <h2 id="methods">Methods</h2> <p>We run a psychophysics experiment (PsychoPy/PsychoJS) measuring depth inversion responses to the rotating Ames Window in human participants. We compare these behavioural signatures against the outputs of three state-of-the-art monocular depth estimation networks on the same stimuli.</p> <p>This work is conducted as part of my MSc thesis at the <a href="https://kriegeskortelab.zuckermaninstitute.columbia.edu/" rel="external nofollow noopener" target="_blank">Kriegeskorte Visual Inference Lab</a>, Columbia University, Zuckerman Institute.</p> <h2 id="conference-abstract">Conference Abstract</h2> <p>Stroecker, E., Cheng, F., &amp; Kriegeskorte, N. (2026, August). <em>Measuring Depth Inversion in the Ames Window Illusion</em> [Extended abstract, accepted]. 9th Annual Conference on Cognitive Computational Neuroscience, NYC, USA.</p> </article> </div> </div> <script>
+</script> <p style="text-align:center; font-size:0.85rem; margin-top:-0.25rem;"> All three stimuli share the same −45° depth slant and left/right taper, so they are directly comparable. Each is the perspective projection of a slanted object onto a flat, rigidly rotating plate. </p> <h2 id="research-questions">Research Questions</h2> <ul> <li>When presented with the Ames Window stimulus, do state-of-the-art monocular depth networks (Metric3D, DSINE, MoGe) produce depth estimates consistent with the illusory percept?</li> <li>How do network responses compare quantitatively to psychophysical measurements of depth inversion in human observers?</li> <li>What do these comparisons reveal about the extent to which contemporary vision models capture human-like shape and depth priors?</li> </ul> <h2 id="methods">Methods</h2> <p>We run a psychophysics experiment (PsychoPy/PsychoJS) measuring depth inversion responses to the rotating Ames Window in human participants. We compare these behavioural signatures against the outputs of three state-of-the-art monocular depth estimation networks on the same stimuli.</p> <p>Participants see a single static frame of a tapered object and report the 3D orientation they perceive by rotating a probe gauge until it matches. Because a surface and its 180° rotation project identically, responses are scored modulo 180°. The stimuli are sampled from a Sobol sequence over the generating parameters (taper, depth slant, thickness, focal length, texture), so the space of shapes is covered quasi-uniformly rather than on a grid.</p> <h3 id="try-the-task">Try the task</h3> <div class="amx" id="amxDemo" data-base="/assets/img/ames_demo"> <div class="amx__stage"> <figure class="amx__panel"> <div class="amx__imgwrap"> <img class="amx__img" id="amxProbe" alt="Stimulus whose 3D orientation you judge" draggable="false"> </div> <figcaption class="amx__cap">Stimulus</figcaption> </figure> <figure class="amx__panel"> <div class="amx__imgwrap amx__imgwrap--gauge" id="amxGaugeWrap" role="slider" tabindex="0" aria-valuemin="-90" aria-valuemax="90" aria-valuenow="0" aria-label="Probe gauge orientation in degrees. Drag horizontally or use the left and right arrow keys."> <img class="amx__img" id="amxGauge" alt="Probe gauge you rotate to match the stimulus" draggable="false"> </div> <figcaption class="amx__cap" id="amxGaugeCap">Probe gauge — drag to rotate</figcaption> </figure> </div> <div class="amx__bar" id="amxBar" hidden=""><span class="amx__barfill" id="amxBarFill"></span></div> <p class="amx__status" id="amxStatus" role="status" aria-live="polite">Loading…</p> <div class="amx__controls"> <button type="button" class="amx__btn amx__btn--primary" id="amxAction">Start</button> <span class="amx__progress" id="amxProgress"></span> </div> <noscript> <p class="amx__note">This interactive demo needs JavaScript.</p> </noscript> </div> <p class="amx__note"> A short, untimed excerpt of the task — 24 stimuli, no tutorial, and nothing recorded. The real study runs on Prolific with fullscreen enforcement, a 2 s stimulus preview, a 5 s response window, and several hundred trials per participant. </p> <style>
+  .amx {
+    margin: 1.5rem auto 0.5rem;
+    max-width: 40rem;
+  }
+  .amx__stage {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+  }
+  .amx__panel {
+    flex: 1 1 14rem;
+    min-width: 0;
+    margin: 0;
+  }
+  .amx__imgwrap {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #272727;
+    aspect-ratio: 1 / 1;
+  }
+  /* aspect-ratio is well supported, but keep older engines from collapsing. */
+  @supports not (aspect-ratio: 1 / 1) {
+    .amx__imgwrap { height: 0; padding-bottom: 100%; }
+    .amx__imgwrap .amx__img { position: absolute; inset: 0; }
+  }
+  .amx__imgwrap--gauge {
+    cursor: ew-resize;
+    touch-action: pan-y;
+    outline: none;
+  }
+  .amx__imgwrap--gauge:focus-visible {
+    box-shadow: 0 0 0 3px var(--global-theme-color);
+  }
+  .amx__img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+  .amx__bar {
+    height: 3px;
+    margin-top: 0.75rem;
+    border-radius: 2px;
+    background: rgba(128, 128, 128, 0.25);
+    overflow: hidden;
+  }
+  .amx__bar[hidden] { display: none; }
+  .amx__barfill {
+    display: block;
+    height: 100%;
+    width: 0;
+    background: var(--global-theme-color);
+    transition: width 0.2s ease;
+  }
+  .amx__results {
+    margin: 0.5rem auto 0;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+  }
+  .amx__results th,
+  .amx__results td {
+    padding: 0.2rem 0.75rem;
+    text-align: right;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+  }
+  .amx__results th:first-child,
+  .amx__results td:first-child { text-align: left; }
+  .amx__cap {
+    margin-top: 0.4rem;
+    text-align: center;
+    font-size: 0.82rem;
+    color: var(--global-text-color-light, inherit);
+  }
+  .amx__status {
+    margin: 0.9rem 0 0;
+    text-align: center;
+    font-size: 0.92rem;
+    min-height: 2.8em;
+  }
+  .amx__status b { color: var(--global-theme-color); }
+  .amx__controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+  .amx__btn {
+    padding: 0.4rem 1.1rem;
+    font: inherit;
+    font-size: 0.9rem;
+    border: 1px solid var(--global-theme-color);
+    border-radius: 6px;
+    background: transparent;
+    color: var(--global-theme-color);
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+  .amx__btn:hover:not(:disabled),
+  .amx__btn:focus-visible:not(:disabled) {
+    background: var(--global-theme-color);
+    color: #fff;
+  }
+  .amx__btn:disabled { opacity: 0.45; cursor: default; }
+  .amx__progress {
+    font-size: 0.82rem;
+    color: var(--global-text-color-light, inherit);
+  }
+  .amx__note {
+    max-width: 40rem;
+    margin: 0.6rem auto 0;
+    text-align: center;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: var(--global-text-color-light, inherit);
+  }
+</style> <script>
+  (function () {
+    var root = document.getElementById('amxDemo');
+    if (!root) return;
+
+    var BASE  = root.dataset.base;
+    var STEP  = 5;                        // degrees between gauge positions
+    var N      = 180 / STEP + 1;          // 37 frames spanning the 180 deg arc
+    // Frame i corresponds to orientation -90 + STEP*i degrees.
+    var toDeg   = function (i) { return -90 + STEP * i; };
+    var toFrame = function (deg) { return Math.round((deg + 90) / STEP); };
+
+    // [slug, gaugeShape, trueOrientationDeg, label], loaded from trials.json.
+    var TRIALS = [];
+
+    var probeEl = document.getElementById('amxProbe');
+    var gaugeEl = document.getElementById('amxGauge');
+    var wrapEl  = document.getElementById('amxGaugeWrap');
+    var capEl   = document.getElementById('amxGaugeCap');
+    var statusEl= document.getElementById('amxStatus');
+    var actionEl= document.getElementById('amxAction');
+    var progEl  = document.getElementById('amxProgress');
+    var barEl   = document.getElementById('amxBar');
+    var barFill = document.getElementById('amxBarFill');
+
+    var cache = {};      // gaugeShape -> array of preloaded Image objects
+    var trial = 0;
+    var frame = toFrame(0);
+    var phase = 'idle';  // idle | loading | respond | done
+    var results = [];    // { label, error }
+
+    function gaugeSrc(shape, i) {
+      return BASE + '/gauge/' + shape + '/' + (i < 10 ? '0' + i : i) + '.webp';
+    }
+
+    function preload(shape) {
+      if (cache[shape]) return Promise.resolve(cache[shape]);
+      var imgs = [];
+      var jobs = [];
+      for (var i = 0; i < N; i++) {
+        (function (i) {
+          jobs.push(new Promise(function (resolve) {
+            var im = new Image();
+            im.onload = im.onerror = function () { resolve(); };
+            im.src = gaugeSrc(shape, i);
+            imgs[i] = im;
+          }));
+        })(i);
+      }
+      return Promise.all(jobs).then(function () {
+        cache[shape] = imgs;
+        return imgs;
+      });
+    }
+
+    function renderGauge() {
+      gaugeEl.src = gaugeSrc(TRIALS[trial][1], frame);
+      wrapEl.setAttribute('aria-valuenow', String(toDeg(frame)));
+      if (phase === 'respond') {
+        capEl.textContent = 'Probe gauge — ' + fmt(toDeg(frame));
+      }
+    }
+
+    function fmt(d) {
+      return (d > 0 ? '+' : '') + d + '°';
+    }
+
+    // Orientation is 180-symmetric, so the error wraps into (-90, 90].
+    function foldedError(response, truth) {
+      var d = ((response - truth) % 180 + 180) % 180;
+      if (d > 90) d -= 180;
+      return d;
+    }
+
+    function setFrame(next) {
+      var clamped = Math.max(0, Math.min(N - 1, next));
+      if (clamped === frame) return;
+      frame = clamped;
+      renderGauge();
+    }
+
+    // ---- interaction -------------------------------------------------
+    var dragging = false;
+    var lastX = 0;
+    var accum = 0;
+    var PX_PER_STEP = 9;
+
+    wrapEl.addEventListener('pointerdown', function (e) {
+      if (phase !== 'respond') return;
+      dragging = true;
+      lastX = e.clientX;
+      accum = 0;
+      wrapEl.setPointerCapture(e.pointerId);
+      e.preventDefault();
+    });
+
+    wrapEl.addEventListener('pointermove', function (e) {
+      if (!dragging || phase !== 'respond') return;
+      accum += e.clientX - lastX;
+      lastX = e.clientX;
+      var steps = (accum / PX_PER_STEP) | 0;
+      if (steps !== 0) {
+        accum -= steps * PX_PER_STEP;
+        setFrame(frame + steps);
+      }
+    });
+
+    function endDrag(e) {
+      if (!dragging) return;
+      dragging = false;
+      try { wrapEl.releasePointerCapture(e.pointerId); } catch (err) {}
+    }
+    wrapEl.addEventListener('pointerup', endDrag);
+    wrapEl.addEventListener('pointercancel', endDrag);
+
+    wrapEl.addEventListener('keydown', function (e) {
+      if (phase !== 'respond') return;
+      if (e.key === 'ArrowLeft')  { setFrame(frame - 1); e.preventDefault(); }
+      if (e.key === 'ArrowRight') { setFrame(frame + 1); e.preventDefault(); }
+      if (e.key === 'Enter' || e.key === ' ') { advance(); e.preventDefault(); }
+    });
+
+    // ---- flow --------------------------------------------------------
+    function showTrial() {
+      var t = TRIALS[trial];
+      phase = 'respond';
+      probeEl.src = BASE + '/probe/' + t[0] + '.webp';
+      // A random start orientation keeps responses from anchoring on the
+      // previous trial's setting, as the real experiment does.
+      frame = Math.floor(Math.random() * N);
+      renderGauge();
+      progEl.textContent = 'Trial ' + (trial + 1) + ' of ' + TRIALS.length;
+      barFill.style.width = (100 * trial / TRIALS.length) + '%';
+      // Prefetch the next probe so the run never stalls between trials.
+      if (trial + 1 < TRIALS.length) {
+        new Image().src = BASE + '/probe/' + TRIALS[trial + 1][0] + '.webp';
+      }
+    }
+
+    function begin() {
+      phase = 'loading';
+      actionEl.disabled = true;
+      actionEl.textContent = 'Loading…';
+      statusEl.textContent = 'Loading stimuli…';
+
+      // Both gauge shapes are needed because the trial order is shuffled.
+      Promise.all([preload('circle'), preload('diamond')]).then(function () {
+        trial = 0;
+        results = [];
+        barEl.hidden = false;
+        actionEl.disabled = false;
+        actionEl.textContent = 'Confirm';
+        statusEl.innerHTML = 'Rotate the gauge until it matches the <b>3D orientation</b> you see in the stimulus, then confirm.';
+        showTrial();
+      });
+    }
+
+    function record() {
+      var t = TRIALS[trial];
+      results.push({ label: t[3], error: Math.abs(foldedError(toDeg(frame), t[2])) });
+    }
+
+    function summarise() {
+      phase = 'done';
+      barEl.hidden = true;
+      capEl.textContent = 'Probe gauge';
+      progEl.textContent = '';
+      actionEl.textContent = 'Run again';
+
+      var byLabel = {};
+      var order = [];
+      results.forEach(function (r) {
+        if (!byLabel[r.label]) { byLabel[r.label] = []; order.push(r.label); }
+        byLabel[r.label].push(r.error);
+      });
+      var mean = function (a) {
+        return a.reduce(function (x, y) { return x + y; }, 0) / a.length;
+      };
+
+      var rows = order.map(function (label) {
+        return '<tr><td>' + label + '</td><td>' + byLabel[label].length +
+               '</td><td>' + mean(byLabel[label]).toFixed(1) + '°</td></tr>';
+      }).join('');
+
+      statusEl.innerHTML =
+        'Mean unsigned error across ' + results.length + ' trials: <b>' +
+        mean(results.map(function (r) { return r.error; })).toFixed(1) + '°</b>' +
+        '<table class="amx__results"><thead><tr><th>Stimulus</th><th>n</th><th>Mean error</th></tr></thead>' +
+        '<tbody>' + rows + '</tbody></table>' +
+        '<span class="amx__note">A perfect observer scores 0°; responding at random averages 45°. ' +
+        'In the study, systematic departures from 0° &mdash; and how they differ across these shape ' +
+        'families &mdash; are the signature we compare against the depth networks.</span>';
+    }
+
+    function advance() {
+      if (phase === 'idle' || phase === 'done') { begin(); return; }
+      if (phase !== 'respond') return;
+      record();
+      if (trial + 1 < TRIALS.length) { trial++; showTrial(); }
+      else { summarise(); }
+    }
+
+    actionEl.addEventListener('click', advance);
+
+    // ---- init --------------------------------------------------------
+    function shuffle(a) {
+      for (var i = a.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+      }
+      return a;
+    }
+
+    actionEl.disabled = true;
+    fetch(BASE + '/trials.json')
+      .then(function (r) {
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return r.json();
+      })
+      .then(function (list) {
+        TRIALS = shuffle(list.slice());
+        // Idle preview: first stimulus and a frontal gauge.
+        probeEl.src = BASE + '/probe/' + TRIALS[0][0] + '.webp';
+        gaugeEl.src = gaugeSrc(TRIALS[0][1], toFrame(0));
+        statusEl.innerHTML = 'Judge the <b>3D orientation</b> of each stimulus by rotating the probe gauge to match it. Drag it, or use the arrow keys.';
+        progEl.textContent = TRIALS.length + ' trials, about two minutes';
+        actionEl.disabled = false;
+      })
+      .catch(function () {
+        statusEl.textContent = 'The demo stimuli could not be loaded.';
+        actionEl.hidden = true;
+      });
+  })();
+</script> <p>This work is conducted as part of my MSc thesis at the <a href="https://kriegeskortelab.zuckermaninstitute.columbia.edu/" rel="external nofollow noopener" target="_blank">Kriegeskorte Visual Inference Lab</a>, Columbia University, Zuckerman Institute.</p> <h2 id="conference-abstract">Conference Abstract</h2> <p>Stroecker, E., Cheng, F., &amp; Kriegeskorte, N. (2026, August). <em>Measuring Depth Inversion in the Ames Window Illusion</em> [Extended abstract, accepted]. 9th Annual Conference on Cognitive Computational Neuroscience, NYC, USA.</p> </article> </div> </div> <script>
   window.alFolio = {
     compatBootstrap: false
   };
