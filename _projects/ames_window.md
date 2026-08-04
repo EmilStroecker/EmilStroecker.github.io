@@ -319,12 +319,6 @@ shapes is covered quasi-uniformly rather than on a grid.
   </noscript>
 </div>
 
-<p class="amx__note">
-  A short, untimed excerpt of the task &mdash; 24 stimuli, no tutorial, and nothing recorded. The real study runs on
-  Prolific with fullscreen enforcement, a 2&nbsp;s stimulus preview, a 5&nbsp;s response window, and several hundred
-  trials per participant.
-</p>
-
 <style>
   .amx {
     margin: 1.5rem auto 0.5rem;
@@ -596,7 +590,7 @@ shapes is covered quasi-uniformly rather than on a grid.
         barEl.hidden = false;
         actionEl.disabled = false;
         actionEl.textContent = 'Confirm';
-        statusEl.innerHTML = 'Rotate the gauge until it matches the <b>3D orientation</b> you see in the stimulus, then confirm.';
+        statusEl.innerHTML = '<b>Click and drag</b> left or right to rotate the gauge until it matches the <b>3D orientation</b> of the stimulus, then confirm. Arrow keys work too.';
         showTrial();
       });
     }
@@ -632,10 +626,7 @@ shapes is covered quasi-uniformly rather than on a grid.
         'Mean unsigned error across ' + results.length + ' trials: <b>' +
         mean(results.map(function (r) { return r.error; })).toFixed(1) + '°</b>' +
         '<table class="amx__results"><thead><tr><th>Stimulus</th><th>n</th><th>Mean error</th></tr></thead>' +
-        '<tbody>' + rows + '</tbody></table>' +
-        '<span class="amx__note">A perfect observer scores 0°; responding at random averages 45°. ' +
-        'In the study, systematic departures from 0° &mdash; and how they differ across these shape ' +
-        'families &mdash; are the signature we compare against the depth networks.</span>';
+        '<tbody>' + rows + '</tbody></table>';
     }
 
     function advance() {
@@ -668,7 +659,7 @@ shapes is covered quasi-uniformly rather than on a grid.
         // Idle preview: first stimulus and a frontal gauge.
         probeEl.src = BASE + '/probe/' + TRIALS[0][0] + '.webp';
         gaugeEl.src = gaugeSrc(TRIALS[0][1], toFrame(0));
-        statusEl.innerHTML = 'Judge the <b>3D orientation</b> of each stimulus by rotating the probe gauge to match it. Drag it, or use the arrow keys.';
+        statusEl.innerHTML = '<b>Click and drag</b> the gauge to rotate it, matching the <b>3D orientation</b> of the stimulus it sits on.';
         progEl.textContent = TRIALS.length + ' trials, about two minutes';
         actionEl.disabled = false;
       })
