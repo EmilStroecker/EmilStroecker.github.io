@@ -9,9 +9,9 @@ Probe frames are restricted to multiples of 5 (so the folded true orientation
 lands exactly on the gauge grid) and avoid the experiment's +-4 frame exclusion
 zone around frames 30 and 90.
 
-Source frames are 512x512 (gauge is RGBA with real transparency; probes are
-already baked onto #272727). The demo shows them ~300 CSS px, so everything is
-composited onto the experiment background, downscaled and re-encoded lossy.
+Source frames are 512x512. The gauge is RGBA and stays RGBA: the study draws it
+concentric with the probe at half scale, so its transparency must survive. Probes
+are opaque, already baked onto #272727. Both are downscaled and re-encoded lossy.
 """
 import io
 import json
@@ -25,10 +25,13 @@ SITE = Path("/Users/emil/Docs/Webpage/EmilStroecker.github.io")
 OUT = SITE / "assets/img/ames_demo"
 MANIFEST = Path("/Users/emil/Docs/RMCogNeuro/20252026/VIL Internship/Webpage/manifest.json")
 
-SIZE = 360
+PROBE_SIZE = 360
+# The study draws the gauge concentric with the probe at refSize = probeSize/2,
+# so it only ever needs half the probe's linear resolution (plus headroom for
+# hi-DPI screens).
+GAUGE_SIZE = 260
 QUALITY = 82
 STEP = 5
-BG = (39, 39, 39)          # experiment background #272727
 
 GAUGE_VARIANT = "voronoi_flat"
 # The study pairs a window probe with a circle gauge and circle/dots with a
@@ -45,12 +48,13 @@ def fetch(url):
         return r.read()
 
 
-def save_web(raw, dest):
+def save_web(raw, dest, size, keep_alpha):
+    """keep_alpha: gauge frames are RGBA and are superimposed on the probe, so
+    their transparency must survive. Probes are opaque and already baked onto
+    the experiment background."""
     im = Image.open(io.BytesIO(raw))
-    if im.mode in ("RGBA", "LA"):
-        bg = Image.new("RGBA", im.size, BG + (255,))
-        im = Image.alpha_composite(bg, im.convert("RGBA"))
-    im = im.convert("RGB").resize((SIZE, SIZE), Image.LANCZOS)
+    im = im.convert("RGBA" if keep_alpha else "RGB")
+    im = im.resize((size, size), Image.LANCZOS)
     dest.parent.mkdir(parents=True, exist_ok=True)
     im.save(dest, "WEBP", quality=QUALITY, method=6)
     return dest.stat().st_size
@@ -99,14 +103,16 @@ def main():
         for i in range(n_arc):
             src = (270 + STEP * i) % 360
             total += save_web(fetch(f"{R2}/stimuli/reference/{key}/{src + 1:04d}.webp"),
-                              OUT / "gauge" / shape / f"{i:02d}.webp")
-        print(f"gauge/{shape}: {n_arc} frames")
+                              OUT / "gauge" / shape / f"{i:02d}.webp",
+                              GAUGE_SIZE, keep_alpha=True)
+        print(f"gauge/{shape}: {n_arc} frames (RGBA, {GAUGE_SIZE}px)")
 
     trials = select()
     for t in trials:
         url = f"{R2}/{t['render_path']}/{t['frame'] + 1:04d}.webp"
-        total += save_web(fetch(url), OUT / "probe" / f"{t['slug']}.webp")
-    print(f"probes: {len(trials)}")
+        total += save_web(fetch(url), OUT / "probe" / f"{t['slug']}.webp",
+                          PROBE_SIZE, keep_alpha=False)
+    print(f"probes: {len(trials)} (RGB, {PROBE_SIZE}px)")
 
     # Compact client-side trial list (no absolute paths, no study internals).
     compact = [[t["slug"], t["gauge"], t["truth"], t["label"]] for t in trials]

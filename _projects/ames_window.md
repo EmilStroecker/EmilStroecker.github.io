@@ -287,30 +287,23 @@ Window in human participants. We compare these behavioural signatures against th
 state-of-the-art monocular depth estimation networks on the same stimuli.
 
 Participants see a single static frame of a tapered object and report the 3D orientation they perceive by rotating
-a probe gauge until it matches. Because a surface and its 180&deg; rotation project identically, responses are
-scored modulo 180&deg;. The stimuli are sampled from a Sobol sequence over the generating parameters (taper, depth
-slant, thickness, focal length, texture), so the space of shapes is covered quasi-uniformly rather than on a grid.
+a smaller probe gauge, superimposed at its centre, until the two match in depth. Because a surface and its
+180&deg; rotation project identically, responses are scored modulo 180&deg;. The stimuli are sampled from a Sobol
+sequence over the generating parameters (taper, depth slant, thickness, focal length, texture), so the space of
+shapes is covered quasi-uniformly rather than on a grid.
 
 ### Try the task
 
 <div class="amx" id="amxDemo" data-base="{{ '/assets/img/ames_demo' | relative_url }}">
-  <div class="amx__stage">
-    <figure class="amx__panel">
-      <div class="amx__imgwrap">
-        <img class="amx__img" id="amxProbe" alt="Stimulus whose 3D orientation you judge" draggable="false">
-      </div>
-      <figcaption class="amx__cap">Stimulus</figcaption>
-    </figure>
-
-    <figure class="amx__panel">
-      <div class="amx__imgwrap amx__imgwrap--gauge" id="amxGaugeWrap"
-           role="slider" tabindex="0" aria-valuemin="-90" aria-valuemax="90" aria-valuenow="0"
-           aria-label="Probe gauge orientation in degrees. Drag horizontally or use the left and right arrow keys.">
-        <img class="amx__img" id="amxGauge" alt="Probe gauge you rotate to match the stimulus" draggable="false">
-      </div>
-      <figcaption class="amx__cap" id="amxGaugeCap">Probe gauge &mdash; drag to rotate</figcaption>
-    </figure>
-  </div>
+  <figure class="amx__stage">
+    <div class="amx__scene" id="amxGaugeWrap"
+         role="slider" tabindex="0" aria-valuemin="-90" aria-valuemax="90" aria-valuenow="0"
+         aria-label="Probe gauge orientation in degrees. Drag horizontally or use the left and right arrow keys.">
+      <img class="amx__probe" id="amxProbe" alt="Stimulus whose 3D orientation you judge" draggable="false">
+      <img class="amx__gauge" id="amxGauge" alt="Probe gauge you rotate to match the stimulus" draggable="false">
+    </div>
+    <figcaption class="amx__cap" id="amxGaugeCap">Probe gauge &mdash; drag to rotate</figcaption>
+  </figure>
 
   <div class="amx__bar" id="amxBar" hidden><span class="amx__barfill" id="amxBarFill"></span></div>
 
@@ -338,44 +331,40 @@ slant, thickness, focal length, texture), so the space of shapes is covered quas
     max-width: 40rem;
   }
   .amx__stage {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    justify-content: center;
-  }
-  .amx__panel {
-    flex: 1 1 14rem;
-    min-width: 0;
     margin: 0;
   }
-  .amx__imgwrap {
+  /* The study superimposes the two: both are centred, and the gauge is drawn
+     at half the stimulus' size (refSize = probeSize / 2). */
+  .amx__scene {
     position: relative;
+    width: min(100%, 26rem);
+    margin: 0 auto;
     border-radius: 10px;
     overflow: hidden;
     background: #272727;
     aspect-ratio: 1 / 1;
-  }
-  /* aspect-ratio is well supported, but keep older engines from collapsing. */
-  @supports not (aspect-ratio: 1 / 1) {
-    .amx__imgwrap { height: 0; padding-bottom: 100%; }
-    .amx__imgwrap .amx__img { position: absolute; inset: 0; }
-  }
-  .amx__imgwrap--gauge {
     cursor: ew-resize;
     touch-action: pan-y;
     outline: none;
   }
-  .amx__imgwrap--gauge:focus-visible {
+  /* aspect-ratio is well supported, but keep older engines from collapsing. */
+  @supports not (aspect-ratio: 1 / 1) {
+    .amx__scene { height: 0; padding-bottom: 100%; }
+  }
+  .amx__scene:focus-visible {
     box-shadow: 0 0 0 3px var(--global-theme-color);
   }
-  .amx__img {
+  .amx__probe,
+  .amx__gauge {
+    position: absolute;
     display: block;
-    width: 100%;
-    height: 100%;
     object-fit: contain;
     user-select: none;
     -webkit-user-drag: none;
   }
+  .amx__probe { inset: 0; width: 100%; height: 100%; }
+  /* Concentric, half linear size. */
+  .amx__gauge { left: 25%; top: 25%; width: 50%; height: 50%; }
   .amx__bar {
     height: 3px;
     margin-top: 0.75rem;
