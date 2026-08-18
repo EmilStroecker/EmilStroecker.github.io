@@ -161,6 +161,29 @@
     }
   }
 
+  /* Home page news: a fixed-height box showing the ~3 most recent items, with
+     older ones reached by scrolling inside it. Scoped by the inline max-height
+     that the theme emits only for the scrollable (home page) instance, so the
+     full /news/ archive is left at its natural length. The !important is needed
+     to beat that inline style, whose 60vw never actually constrains on desktop. */
+  /* Fallback height for ~3 rows; the script below measures the real rows and
+     replaces this with an exact value, since row heights vary with wrapping. */
+  .news .table-responsive[style*="max-height"] {
+    max-height: 13.5rem !important;
+    overflow-y: auto;
+    border: 1px solid var(--global-divider-color);
+    border-radius: 8px;
+    padding: 0 0.9rem;
+  }
+  .news .table-responsive[style*="max-height"] .table {
+    margin-bottom: 0;
+  }
+  /* No rule above the first row: the box's own border is the top edge. */
+  .news .table-responsive[style*="max-height"] tr:first-child th,
+  .news .table-responsive[style*="max-height"] tr:first-child td {
+    border-top: 0;
+  }
+
   /* Publications: subsection heading colour, adapts to dark mode */
   .publications h2.bibliography {
     color: #2c2c2c !important;
@@ -178,7 +201,54 @@
   html[data-theme="dark"] .cv-score {
     color: #999999 !important;
   }
-</style> <link rel="stylesheet" href="/assets/css/tailwind.css?v=50c64c15cbb9fd1ce6056fdb8bcb4b62"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css" integrity="sha256-MVopmdyC2tYTiJ8wlktf0uh0v4NgT+vNdyVFepi7Q0c=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css" integrity="sha256-SzrCOBJbGVFMahewkgjwnApaV2+av1DwMAA+/QGLyZw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/scholar-icons@1.0.3/css/scholar-icons.css" integrity="sha256-VY3hHVj/hNX3fYG6wtbA6TcKJQl7+FthzGSyIB64klY=" crossorigin="anonymous"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Roboto+Slab:wght@300;400;500;700&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?v=591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%E2%9A%9B%EF%B8%8F&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?v=f0b101217084a90093badfe99ff9a7d1"> <link rel="canonical" href="https://emilstroecker.github.io/news/ccn2026-abstract/"> <script src="/assets/js/theme.js?v=7af685e2ba20b37fef545c97b8064050"></script> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?v=5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark"> <script>
+</style> <script>
+  // Size the home page news box to exactly its three most recent items, leaving
+  // the rest reachable by scrolling. Row heights depend on how each item wraps,
+  // so they are measured rather than assumed; the CSS above carries a static
+  // fallback for the no-JS case.
+  (function () {
+    var VISIBLE = 3;
+
+    function fit() {
+      var box = document.querySelector('.news .table-responsive[style*="max-height"]');
+      if (!box) return;
+      var rows = box.querySelectorAll('tr');
+      if (rows.length <= VISIBLE) {
+        // Nothing is hidden, so let the box take its natural height.
+        box.style.setProperty('max-height', 'none', 'important');
+        return;
+      }
+      var h = 0;
+      for (var i = 0; i < VISIBLE; i++) {
+        h += rows[i].getBoundingClientRect().height;
+      }
+      // box-sizing is border-box here, so max-height covers the borders too;
+      // add that chrome or the third row is clipped by a couple of pixels.
+      h += box.offsetHeight - box.clientHeight;
+      // Inline !important, to beat both the theme's inline max-height and the
+      // !important fallback rule.
+      box.style.setProperty('max-height', Math.ceil(h) + 'px', 'important');
+    }
+
+    var pending;
+    function refit() {
+      clearTimeout(pending);
+      pending = setTimeout(fit, 120);
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', fit);
+    } else {
+      fit();
+    }
+    // Re-measure once webfonts have settled and whenever wrapping can change.
+    window.addEventListener('load', fit);
+    window.addEventListener('resize', refit);
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(fit).catch(function () {});
+    }
+  })();
+</script> <link rel="stylesheet" href="/assets/css/tailwind.css?v=50c64c15cbb9fd1ce6056fdb8bcb4b62"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css" integrity="sha256-MVopmdyC2tYTiJ8wlktf0uh0v4NgT+vNdyVFepi7Q0c=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css" integrity="sha256-SzrCOBJbGVFMahewkgjwnApaV2+av1DwMAA+/QGLyZw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/scholar-icons@1.0.3/css/scholar-icons.css" integrity="sha256-VY3hHVj/hNX3fYG6wtbA6TcKJQl7+FthzGSyIB64klY=" crossorigin="anonymous"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Roboto+Slab:wght@300;400;500;700&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?v=591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%E2%9A%9B%EF%B8%8F&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?v=f0b101217084a90093badfe99ff9a7d1"> <link rel="canonical" href="https://emilstroecker.github.io/news/ccn2026-abstract/"> <script src="/assets/js/theme.js?v=7af685e2ba20b37fef545c97b8064050"></script> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?v=5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark"> <script>
     initTheme();
   </script> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> <span class="font-weight-bold">Emil</span> Stroecker </a> <button class="navbar-toggler collapsed navbar-toggler-main" type="button" data-nav-toggle="navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse navbar-collapse-main" id="navbarNav"> <ul class="navbar-nav navbar-menu-list flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">about </a> </li> <li class="nav-item "> <a class="nav-link" href="/cv/">CV </a> </li> <li class="nav-item "> <a class="nav-link" href="/publications/">publications </a> </li> <li class="nav-item "> <a class="nav-link" href="/projects/">projects </a> </li> <li class="nav-item "> <a class="nav-link" href="/repositories/">repositories </a> </li> <li class="nav-item"> <button id="search-toggle" type="button" title="Search" aria-label="Open search"> <span class="nav-link">ctrl k <i class="fa-solid fa-magnifying-glass"></i></span> </button> </li> <li class="toggle-container"> <button id="light-toggle" type="button" title="Change theme" aria-label="Change color theme"> <i class="fa-half-sun-moon" id="light-toggle-system"></i> <i class="fa-solid fa-moon" id="light-toggle-dark"></i> <i class="fa-solid fa-sun" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">Ccn2026 Abstract</h1> <p class="post-meta"> Created on May 28, 2026 </p> <p class="post-tags"> <i class="fa-solid fa-calendar fa-sm"></i> 2026 </p> </header> <article class="post-content"> <div id="markdown-content"> <p>Our extended abstract <em>Measuring Depth Inversion in the Ames Window Illusion</em> has been accepted to the <a href="https://2026.ccneuro.org/" rel="external nofollow noopener" target="_blank">9th Annual Conference on Cognitive Computational Neuroscience (CCN 2026)</a>, NYC.</p> </div> </article> </div> </div> <script>
   window.alFolio = {
@@ -235,8 +305,8 @@ ninja.data = [{
           section: "News",},{id: "news-new-article-out-on-brainmatters-beauty-and-the-brain-the-neuroscience-of-attractiveness",
           title: 'New article out on BrainMatters: Beauty and the Brain -- the neuroscience of...',
           description: "",
-          section: "News",},{id: "news-presented-measuring-depth-inversion-in-the-ames-window-illusion-at-the-9th-annual-conference-on-cognitive-computational-neuroscience-ccn-2026-in-nyc-poster",
-          title: 'Presented Measuring Depth Inversion in the Ames Window Illusion at the 9th Annual...',
+          section: "News",},{id: "news-presented-measuring-depth-inversion-in-the-ames-window-illusion-at-ccn-2026-in-nyc-link",
+          title: 'Presented Measuring Depth Inversion in the Ames Window Illusion at CCN 2026 in...',
           description: "",
           section: "News",},{id: "projects-illusory-depth-estimation",
           title: 'Illusory Depth Estimation',

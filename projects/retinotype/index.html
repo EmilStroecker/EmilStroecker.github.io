@@ -160,6 +160,29 @@
     }
   }
 
+  /* Home page news: a fixed-height box showing the ~3 most recent items, with
+     older ones reached by scrolling inside it. Scoped by the inline max-height
+     that the theme emits only for the scrollable (home page) instance, so the
+     full /news/ archive is left at its natural length. The !important is needed
+     to beat that inline style, whose 60vw never actually constrains on desktop. */
+  /* Fallback height for ~3 rows; the script below measures the real rows and
+     replaces this with an exact value, since row heights vary with wrapping. */
+  .news .table-responsive[style*="max-height"] {
+    max-height: 13.5rem !important;
+    overflow-y: auto;
+    border: 1px solid var(--global-divider-color);
+    border-radius: 8px;
+    padding: 0 0.9rem;
+  }
+  .news .table-responsive[style*="max-height"] .table {
+    margin-bottom: 0;
+  }
+  /* No rule above the first row: the box's own border is the top edge. */
+  .news .table-responsive[style*="max-height"] tr:first-child th,
+  .news .table-responsive[style*="max-height"] tr:first-child td {
+    border-top: 0;
+  }
+
   /* Publications: subsection heading colour, adapts to dark mode */
   .publications h2.bibliography {
     color: #2c2c2c !important;
@@ -177,7 +200,54 @@
   html[data-theme="dark"] .cv-score {
     color: #999999 !important;
   }
-</style> <link rel="stylesheet" href="/assets/css/tailwind.css?v=50c64c15cbb9fd1ce6056fdb8bcb4b62"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css" integrity="sha256-MVopmdyC2tYTiJ8wlktf0uh0v4NgT+vNdyVFepi7Q0c=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css" integrity="sha256-SzrCOBJbGVFMahewkgjwnApaV2+av1DwMAA+/QGLyZw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/scholar-icons@1.0.3/css/scholar-icons.css" integrity="sha256-VY3hHVj/hNX3fYG6wtbA6TcKJQl7+FthzGSyIB64klY=" crossorigin="anonymous"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Roboto+Slab:wght@300;400;500;700&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?v=591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%E2%9A%9B%EF%B8%8F&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?v=f0b101217084a90093badfe99ff9a7d1"> <link rel="canonical" href="https://emilstroecker.github.io/projects/retinotype/"> <script src="/assets/js/theme.js?v=7af685e2ba20b37fef545c97b8064050"></script> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?v=5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark"> <script>
+</style> <script>
+  // Size the home page news box to exactly its three most recent items, leaving
+  // the rest reachable by scrolling. Row heights depend on how each item wraps,
+  // so they are measured rather than assumed; the CSS above carries a static
+  // fallback for the no-JS case.
+  (function () {
+    var VISIBLE = 3;
+
+    function fit() {
+      var box = document.querySelector('.news .table-responsive[style*="max-height"]');
+      if (!box) return;
+      var rows = box.querySelectorAll('tr');
+      if (rows.length <= VISIBLE) {
+        // Nothing is hidden, so let the box take its natural height.
+        box.style.setProperty('max-height', 'none', 'important');
+        return;
+      }
+      var h = 0;
+      for (var i = 0; i < VISIBLE; i++) {
+        h += rows[i].getBoundingClientRect().height;
+      }
+      // box-sizing is border-box here, so max-height covers the borders too;
+      // add that chrome or the third row is clipped by a couple of pixels.
+      h += box.offsetHeight - box.clientHeight;
+      // Inline !important, to beat both the theme's inline max-height and the
+      // !important fallback rule.
+      box.style.setProperty('max-height', Math.ceil(h) + 'px', 'important');
+    }
+
+    var pending;
+    function refit() {
+      clearTimeout(pending);
+      pending = setTimeout(fit, 120);
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', fit);
+    } else {
+      fit();
+    }
+    // Re-measure once webfonts have settled and whenever wrapping can change.
+    window.addEventListener('load', fit);
+    window.addEventListener('resize', refit);
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(fit).catch(function () {});
+    }
+  })();
+</script> <link rel="stylesheet" href="/assets/css/tailwind.css?v=50c64c15cbb9fd1ce6056fdb8bcb4b62"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css" integrity="sha256-MVopmdyC2tYTiJ8wlktf0uh0v4NgT+vNdyVFepi7Q0c=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css" integrity="sha256-SzrCOBJbGVFMahewkgjwnApaV2+av1DwMAA+/QGLyZw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/scholar-icons@1.0.3/css/scholar-icons.css" integrity="sha256-VY3hHVj/hNX3fYG6wtbA6TcKJQl7+FthzGSyIB64klY=" crossorigin="anonymous"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Roboto+Slab:wght@300;400;500;700&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?v=591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%E2%9A%9B%EF%B8%8F&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?v=f0b101217084a90093badfe99ff9a7d1"> <link rel="canonical" href="https://emilstroecker.github.io/projects/retinotype/"> <script src="/assets/js/theme.js?v=7af685e2ba20b37fef545c97b8064050"></script> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?v=5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark"> <script>
     initTheme();
   </script> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> <span class="font-weight-bold">Emil</span> Stroecker </a> <button class="navbar-toggler collapsed navbar-toggler-main" type="button" data-nav-toggle="navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse navbar-collapse-main" id="navbarNav"> <ul class="navbar-nav navbar-menu-list flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">about </a> </li> <li class="nav-item "> <a class="nav-link" href="/cv/">CV </a> </li> <li class="nav-item "> <a class="nav-link" href="/publications/">publications </a> </li> <li class="nav-item active"> <a class="nav-link" href="/projects/">projects <span class="sr-only">(current)</span> </a> </li> <li class="nav-item "> <a class="nav-link" href="/repositories/">repositories </a> </li> <li class="nav-item"> <button id="search-toggle" type="button" title="Search" aria-label="Open search"> <span class="nav-link">ctrl k <i class="fa-solid fa-magnifying-glass"></i></span> </button> </li> <li class="toggle-container"> <button id="light-toggle" type="button" title="Change theme" aria-label="Change color theme"> <i class="fa-half-sun-moon" id="light-toggle-system"></i> <i class="fa-solid fa-moon" id="light-toggle-dark"></i> <i class="fa-solid fa-sun" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">RetinoType</h1> <p class="post-description">A population-receptive-field fMRI brain–computer interface for spelling with imagined letters</p> </header> <article> <h2 id="overview">Overview</h2> <p>When you <em>imagine</em> a letter, early visual cortex lights up in almost the same retinotopically-organised pattern as when you actually <em>see</em> it. Using ultra-high-field (7 T) fMRI, <a href="https://doi.org/10.1007/s00429-019-01828-6" rel="external nofollow noopener" target="_blank">Senden et al. (2019)</a> showed that an imagined letter can be reconstructed from the very same <a href="https://doi.org/10.1016/j.neuroimage.2007.09.034" rel="external nofollow noopener" target="_blank">population-receptive-field (pRF)</a> mapping of the visual field that describes perception.</p> <p><strong>RetinoType</strong> asks whether that correspondence can be turned into a <em>content-based</em> brain–computer interface: a speller in which you simply picture the letter you want, and it is read directly out of visual cortex — rather than mapping arbitrary, effortful mental tasks onto letters, as earlier fMRI spellers do.</p> <div style="text-align:center; margin: 1.5rem 0;"> <img src="/assets/img/retinotype_pipeline.png" alt="RetinoType pipeline: pRF encoding, alphabet simulation, perception-to-imagery transfer, decoding, and language-model correction" style="max-width:100%; border-radius:8px;"> </div> <h2 id="how-it-works">How it works</h2> <ol> <li> <p><strong>Extract each subject’s pRF map</strong> — the receptive-field location and size of every unit in early visual cortex (V1–V3).</p> </li> <li> <p><strong>Simulate the whole alphabet.</strong> The original experiment only presented four letters (H, T, S, C). But a subject’s pRF map lets us <em>predict</em> the cortical response to any letter that was never shown — encoding each of the 26 letters into a simulated brain response, then reconstructing the visual field back out of it (below).</p> </li> <li> <p><strong>Transfer perception → imagery.</strong> Imagined letters are far weaker and noisier than perceived ones. We estimate the signal-degradation profile that separates seeing a letter from imagining it — calibrated on the letters that <em>were</em> imagined in the scanner (H, T, S, C) — and extrapolate it to the remaining 22, producing as-authentic-as-possible simulated imagery responses.</p> </li> <li> <p><strong>Decode in conversational context.</strong> Because imagery signals are blurry and letters are easily confused, we don’t decode letters in isolation. We fold in a large language model that integrates conversational context and each subject’s letter-confusion matrix, collapsing the space of possibilities onto the most likely intended message.</p> </li> <li> <p><strong>Evaluate on conversations, not characters.</strong> The paradigm is scored not on isolated per-letter accuracy but on how reliably whole simulated questions and answers — spanning common and uncommon phrasings — are recovered.</p> </li> </ol> <h2 id="simulating-cortical-responses-to-every-letter">Simulating cortical responses to every letter</h2> <p>Each letter is rendered as a stimulus, encoded through the subject’s pRF model into a simulated early-visual-cortex response, and then reconstructed back into a visual-field image. Reconstruction requires a cortical-magnification correction — the fovea is vastly over-represented in cortex, so a naive read-out is geometrically distorted until that sampling bias is undone.</p> <div style="text-align:center; margin: 1.5rem 0;"> <img src="/assets/img/retinotype_alphabet_sim.png" alt="Per-letter simulation: stimulus, naive back-projection, and distortion-corrected reconstruction for A–Z" style="max-width:100%; border-radius:8px;"> </div> <p>The preview image for this project is made the same way — <em>RETINO / TYPE</em> spelled out entirely in reconstructed, brain-decoded letters.</p> <h2 id="why-it-matters">Why it matters</h2> <p>Conventional BCI spellers make you spell <em>indirectly</em>. Rather than reading out the letter you intend, they map arbitrary or effortful mental tasks onto letters (<a href="https://doi.org/10.1016/j.cub.2012.05.022" rel="external nofollow noopener" target="_blank">Sorger et al., 2012</a>) and narrow the alphabet down over several trials, each ruling out a fraction of the candidates. If every trial keeps, say, a third of the options, isolating one letter out of 26 takes</p> \[26 \cdot 3^{-n} = 1 \quad\Longrightarrow\quad n = \log_3 26 \approx 3\] <p>three trials — and each trial is slow: Sorger et al.’s fMRI speller needed at least <strong>50 seconds to encode a single letter</strong>. Between memorising a code and the trials-per-letter overhead, spelling this way is both effortful and slow.</p> <p>A pRF-based, <em>content-based</em> approach instead aims to produce a uniquely identifiable signal for the intended letter in a <em>single</em> trial — decoding the <em>shape</em> you actually picture. Paired with a language model that exploits conversational context, this promises communication that is both more intuitive and more time-efficient, for healthy and clinical populations alike.</p> <h2 id="toward-a-portable-device">Toward a portable device</h2> <p>fMRI is powerful but immobile and costly. Encouragingly, the same protocol transfers directly to portable optical imaging. Functional near-infrared spectroscopy (fNIRS) — in particular High-Density Diffuse Optical Tomography (HD-DOT; Frijia et al., 2020) and Time-Domain fNIRS (TD-fNIRS; Torricelli et al., 2013) — can now reach deeper cortex at comparatively high spatial resolution (Oveisi et al., 2024). Conceptually, an HD-DOT / TD-fNIRS variant runs the very same encode → reconstruct → decode pipeline. If it holds up, a content-based imagery speller could give people with locked-in syndrome or similar conditions a far more convenient and cost-effective way to communicate.</p> </article> </div> </div> <script>
   window.alFolio = {
@@ -234,8 +304,8 @@ ninja.data = [{
           section: "News",},{id: "news-new-article-out-on-brainmatters-beauty-and-the-brain-the-neuroscience-of-attractiveness",
           title: 'New article out on BrainMatters: Beauty and the Brain – the neuroscience of...',
           description: "",
-          section: "News",},{id: "news-presented-measuring-depth-inversion-in-the-ames-window-illusion-at-the-9th-annual-conference-on-cognitive-computational-neuroscience-ccn-2026-in-nyc-poster",
-          title: 'Presented Measuring Depth Inversion in the Ames Window Illusion at the 9th Annual...',
+          section: "News",},{id: "news-presented-measuring-depth-inversion-in-the-ames-window-illusion-at-ccn-2026-in-nyc-link",
+          title: 'Presented Measuring Depth Inversion in the Ames Window Illusion at CCN 2026 in...',
           description: "",
           section: "News",},{id: "projects-illusory-depth-estimation",
           title: 'Illusory Depth Estimation',
