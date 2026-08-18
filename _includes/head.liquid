@@ -153,6 +153,29 @@
     }
   }
 
+  /* Home page news: a fixed-height box showing the ~3 most recent items, with
+     older ones reached by scrolling inside it. Scoped by the inline max-height
+     that the theme emits only for the scrollable (home page) instance, so the
+     full /news/ archive is left at its natural length. The !important is needed
+     to beat that inline style, whose 60vw never actually constrains on desktop. */
+  /* Fallback height for ~3 rows; the script below measures the real rows and
+     replaces this with an exact value, since row heights vary with wrapping. */
+  .news .table-responsive[style*="max-height"] {
+    max-height: 13.5rem !important;
+    overflow-y: auto;
+    border: 1px solid var(--global-divider-color);
+    border-radius: 8px;
+    padding: 0 0.9rem;
+  }
+  .news .table-responsive[style*="max-height"] .table {
+    margin-bottom: 0;
+  }
+  /* No rule above the first row: the box's own border is the top edge. */
+  .news .table-responsive[style*="max-height"] tr:first-child th,
+  .news .table-responsive[style*="max-height"] tr:first-child td {
+    border-top: 0;
+  }
+
   /* Publications: subsection heading colour, adapts to dark mode */
   .publications h2.bibliography {
     color: #2c2c2c !important;
@@ -171,6 +194,55 @@
     color: #999999 !important;
   }
 </style>
+
+<script>
+  // Size the home page news box to exactly its three most recent items, leaving
+  // the rest reachable by scrolling. Row heights depend on how each item wraps,
+  // so they are measured rather than assumed; the CSS above carries a static
+  // fallback for the no-JS case.
+  (function () {
+    var VISIBLE = 3;
+
+    function fit() {
+      var box = document.querySelector('.news .table-responsive[style*="max-height"]');
+      if (!box) return;
+      var rows = box.querySelectorAll('tr');
+      if (rows.length <= VISIBLE) {
+        // Nothing is hidden, so let the box take its natural height.
+        box.style.setProperty('max-height', 'none', 'important');
+        return;
+      }
+      var h = 0;
+      for (var i = 0; i < VISIBLE; i++) {
+        h += rows[i].getBoundingClientRect().height;
+      }
+      // box-sizing is border-box here, so max-height covers the borders too;
+      // add that chrome or the third row is clipped by a couple of pixels.
+      h += box.offsetHeight - box.clientHeight;
+      // Inline !important, to beat both the theme's inline max-height and the
+      // !important fallback rule.
+      box.style.setProperty('max-height', Math.ceil(h) + 'px', 'important');
+    }
+
+    var pending;
+    function refit() {
+      clearTimeout(pending);
+      pending = setTimeout(fit, 120);
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', fit);
+    } else {
+      fit();
+    }
+    // Re-measure once webfonts have settled and whenever wrapping can change.
+    window.addEventListener('load', fit);
+    window.addEventListener('resize', refit);
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(fit).catch(function () {});
+    }
+  })();
+</script>
 
 <!-- Tailwind-first core styles -->
 <link rel="stylesheet" href="{{ '/assets/css/tailwind.css' | relative_url | bust_file_cache }}">

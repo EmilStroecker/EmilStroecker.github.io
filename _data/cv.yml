@@ -59,14 +59,15 @@ cv:
 
 
       - company: Maastricht University
-        position: Independent Research on fMRI Decoders
+        position: Independent Researcher — fMRI-BCI letter speller (RetinoType)
         location: Maastricht, Netherlands
         start_date: 2025-09
         end_date: 2026-08
         highlights:
+          - "Decoding retinotopic representations of imagined letters from 7 T fMRI, under Rainer Goebel ([project page](https://emilstroecker.github.io/projects/retinotype/))"
 
       - company: Maastricht University
-        position: Research Assistant @ Developmental Cognitive Neuroscience Group
+        position: Research Assistant @ [Developmental Cognitive Neuroscience Group](https://www.maastrichtuniversity.nl/fpn/dcn)
         location: Maastricht, Netherlands
         start_date: 2025-09
         end_date: 2025-11
