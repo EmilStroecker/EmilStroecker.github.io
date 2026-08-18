@@ -128,22 +128,28 @@ cv:
       - title: JASSO Scholarship — ¥400,000 (≈ $2,500 USD)
         date: 2023-10
         awarder: Japanese Student Services Organization
+        url: https://www.kyoto-u.ac.jp/en/education-campus/procedures/scholarships
 
       - title: Thesis Research Honours Programme (MaRBLe, top 20%)
         date: 2023-10
         awarder: Maastricht University
+        url: https://edlab.nl/excellence/marble/
 
       - title: Honours+ Programme — extracurricular research (top 5%)
         date: 2022-11
         awarder: Maastricht University
+        url: https://edlab.nl/excellence/honoursplus/
 
-      - title: FPN Honours Programme — extracurricular courswork (top 5%)
+      - title: FPN Honours Programme — extracurricular coursework (top 5%)
         date: 2022-09
         awarder: Maastricht University
+        url: https://www.maastrichtuniversity.nl/faculty-psychology-and-neuroscience
 
       - title: PREMIUM Honours Programme
         date: 2025-01
         awarder: Maastricht University
+        url: https://edlab.nl/excellence/premium/
+        summary: "Extracurricular business consultancy [project](https://edlab.nl/excellence/premium/about-premium/premium-projects-2024-2025/eviden-rws/) for Atos"
 
     Skills:
       - name: Programming
