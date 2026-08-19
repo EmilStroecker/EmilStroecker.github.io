@@ -166,6 +166,10 @@
     border: 1px solid var(--global-divider-color);
     border-radius: 8px;
     padding: 0 0.9rem;
+    /* The table's own 1rem bottom margin is zeroed below to keep the box's
+       inside edge tight, so carry that spacing on the box instead; otherwise
+       the next section's heading sits flush against the border. */
+    margin-bottom: 1rem;
   }
   .news .table-responsive[style*="max-height"] .table {
     margin-bottom: 0;

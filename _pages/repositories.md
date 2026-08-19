@@ -3,7 +3,11 @@ layout: page
 permalink: /repositories/
 title: repositories
 description: My open-source code and research repositories on GitHub.
-nav: true
+# Hidden from the navbar while _data/repositories.yml lists no github_repos:
+# the page would otherwise show only a profile card and no repositories.
+# Set back to true once github_repos has entries. The page stays reachable
+# at /repositories/ either way.
+nav: false
 nav_order: 5
 ---
 
