@@ -3,17 +3,17 @@ layout: about
 title: about
 permalink: /
 subtitle: >
-  <span class="subtitle-line"><span class="subtitle-role">Research Master Student in Cognitive Neuroscience</span> <span class="subtitle-at">@</span> <span class="subtitle-affil">Maastricht University</span></span>
-  <span class="subtitle-line"><span class="subtitle-role">Research Intern</span> <span class="subtitle-at">@</span> <span class="subtitle-affil"><a href="https://kriegeskortelab.zuckermaninstitute.columbia.edu/" target="_blank">Niko Kriegeskorte's Visual Inference Lab</a></span> <span class="subtitle-sep">&middot;</span> Columbia University, Zuckerman Institute</span>
+  <span class="subtitle-line"><span class="subtitle-role">Research Assistant</span> <span class="subtitle-at">@</span> <span class="subtitle-affil">Rainer Goebel's Vision Group</span> <span class="subtitle-sep">&middot;</span> Maastricht University</span>
+  <span class="subtitle-line"><span class="subtitle-role">MSc Cognitive Neuroscience</span> <span class="subtitle-sep">&middot;</span> Cum Laude</span>
 
 profile:
   align: right
   image: profile.jpg
   image_circular: false
   more_info: >
-    <p>Zuckerman Institute</p>
-    <p>Columbia University</p>
-    <p>New York City, NY, USA</p>
+    <p>Department of Cognitive Neuroscience</p>
+    <p>Maastricht University</p>
+    <p>Maastricht, The Netherlands</p>
 
 selected_papers: true
 social: true
@@ -28,10 +28,10 @@ latest_posts:
   limit: 3
 ---
 
-I am a research masters student in Cognitive Neuroscience at Maastricht University, currently completing my thesis as a research intern at [Niko Kriegeskorte's Visual Inference Lab](https://kriegeskortelab.zuckermaninstitute.columbia.edu/) of Columbia University's Zuckerman Institute.
+I recently completed the Research MSc in Cognitive Neuroscience at Maastricht University **Cum Laude** and joined Rainer Goebel's Vision Group as a Research Assistant.
 
-My current research focuses on **depth estimation in neural network models** -- specifically, their bias toward geometrical interpretations of depth cues as revealed by the [Ames Window Illusion](https://www.mos.org/video/optical-illusion-tricks-your-brain-ames-window). I compare contemporary depth estimation networks (Metric3D, DSINE, MoGe) while benchmarking on psychophysics data based on online experiments for large-scale data collection. I will present the project as first author via a 2-page extended abstract accepted to [CCN 2026](https://2026.ccneuro.org/).
+My current research focuses on **decoding imagined letters from 7 T fMRI**. In the [RetinoType project](/projects/retinotype/), I reconstruct the visual field with an imagery-pRF forward model and develop a proof-of-concept letter-speller BCI augmented by a probabilistic model and an LLM language prior.
 
-After finishing my Bachelor in Psychology at Maastricht University, I have been working on an fMRI decoding project in PyTorch together with Rainer Goebel involving letter imagery, which developed into a proof-of-concept BCI study that I am independently pursuing.
+For my MSc thesis at [Niko Kriegeskorte's Visual Inference Lab](https://kriegeskortelab.zuckermaninstitute.columbia.edu/) of Columbia University's Zuckerman Institute, I studied **depth estimation in neural network models** using the [Ames Window Illusion](https://www.mos.org/video/optical-illusion-tricks-your-brain-ames-window). I presented the work as first author at [CCN 2026](https://2026.ccneuro.org/poster/?id=Syn813Dnav).
 
-I also serve in the [Technical Program Committee of CCN 2026](https://2026.ccneuro.org/ccn-organizers/) and as a Research Mentor in Columbia's [BUMP Biology](https://www.bumpbiology.org/) programme. Beyond research, I write neuroscience articles for general audiences at [BrainMatters](https://brainmatters.nl) and serve as an Editorial Assistant at [In-Mind Magazine](https://in-mind.org).
+I serve on the [CCN 2027](https://2027.ccneuro.org/) Extended Abstracts Committee and as a Research Mentor in Columbia's [BUMP Biology](https://www.bumpbiology.org/) programme. Beyond research, I write neuroscience articles for general audiences at [BrainMatters](https://brainmatters.nl) and serve as an Editorial Assistant at [In-Mind Magazine](https://in-mind.org).

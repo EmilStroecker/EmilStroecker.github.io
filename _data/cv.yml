@@ -1,8 +1,7 @@
 cv:
   name: Emil Stroecker
-  degree: MSc, Cognitive Neuroscience
+  degree: MSc, Cognitive Neuroscience (Cum Laude)
   email: es4485@columbia.edu
-  location: New York City, NY, USA
   image: ""
 
   social_networks:
@@ -18,15 +17,15 @@ cv:
       - institution: Maastricht University
         location: Maastricht, Netherlands
         url: 
-        studyType: Master of Science in Cognitive Neuroscience
+        studyType: Research Master of Science in Cognitive Neuroscience
         start_date: 2024-09
         end_date: 2026-08
-        score: "8.8/10.0 (US: 4.0/4.0)"
+        score: "Cum Laude (8.87/10.0; US: 4.0/4.0)"
         highlights:
           - "Selective 2-year programme with research focus, featuring 10-month MSc thesis research"
-          - "Selected coursework: Statistics I–III, Applied Statistics I & II, Signal Analysis, MATLAB Advanced Programming,
-            Python Programming, Advanced fMRI, EEG & MEG, Brain Connectivity & Connectomics, Sensorimotor Processing,
-            Functional Neuroanatomy"
+          - "Selected coursework: Statistics I–III, Applied Statistics I–II, Basic Mathematical Methods, Signal Analysis,
+            MATLAB Advanced Programming, Python Programming, Quantificational Logic and Deductions, Advanced fMRI,
+            EEG & MEG, Brain Connectivity & Connectomics, Sensorimotor Processing, Functional Neuroanatomy"
 
       - institution: Kyoto University
         location: Kyoto, Japan
@@ -55,16 +54,19 @@ cv:
         start_date: 2025-11
         end_date: 2026-08
         highlights:
-          - "Monocular depth estimation during the Ames Window Illusion in humans and machines ([project page](https://emilstroecker.github.io/projects/ames_window/))"
+          - "Project lead: studied depth estimation during the Ames Window Illusion in humans and neural networks ([project page](https://emilstroecker.github.io/projects/ames_window/))"
+          - "First author of a 2-page extended abstract presented at CCN 2026"
+          - "Experiments contributed to the development of the AI psychophysics benchmark tool illugen"
 
 
       - company: Maastricht University
-        position: Independent Researcher — fMRI-BCI letter speller (RetinoType)
+        position: Research Assistant @ Rainer Goebel's Vision Group — fMRI-BCI letter speller (RetinoType)
         location: Maastricht, Netherlands
         start_date: 2025-09
-        end_date: 2026-08
         highlights:
-          - "Decoding retinotopic representations of imagined letters from 7 T fMRI, under Rainer Goebel ([project page](https://emilstroecker.github.io/projects/retinotype/))"
+          - "Project lead: decoding retinotopic representations of imagined letters in striate cortex from 7 T fMRI data ([project page](https://emilstroecker.github.io/projects/retinotype/))"
+          - "Reconstructing the visual field with an imagery-pRF forward model to simulate 26-letter imagery"
+          - "Developing a proof-of-concept letter-speller BCI augmented with a probabilistic model and LLM language prior"
 
       - company: Maastricht University
         position: Research Assistant @ [Developmental Cognitive Neuroscience Group](https://www.maastrichtuniversity.nl/fpn/dcn)
@@ -72,6 +74,7 @@ cv:
         start_date: 2025-09
         end_date: 2025-11
         highlights:
+          - "Refactored and debugged a PsychoPy experiment for EEG compatibility and improved the task paradigm"
 
       - company: Sokendai, National Institute for Physiological Sciences
         position: Research Intern @ [Ryo Sasaki's Multisensory Integration Systems Lab](https://www.nips.ac.jp/eng/research/group/post-67/)
@@ -89,6 +92,14 @@ cv:
         highlights:
           - "Fully self-directed project, graded outstanding (10/10)"
 
+      - company: Maastricht University
+        position: Interdisciplinary Research Project @ [Honours+](https://edlab.nl/excellence/honoursplus/)
+        location: Maastricht, Netherlands
+        start_date: 2022-11
+        end_date: 2023-05
+        highlights:
+          - "Led a five-student team in an empirical study of how TikTok content shapes perceptions of ADHD"
+
       - company: University Hospital Cologne
         position: Research Intern — TrainParC-Advanced
         location: Cologne, Germany
@@ -97,7 +108,21 @@ cv:
         highlights:
           - "Contributions acknowledged in resulting Springer Nature publication ([Trials, 2025](https://doi.org/10.1186/s13063-025-09330-7))"
 
+    Conference Abstracts:
+      - bullet: "Stroecker, E., Cheng, F., & Kriegeskorte, N. (2026, August 5). [*Measuring Depth Inversion in the Ames Window Illusion*](https://2026.ccneuro.org/poster/?id=Syn813Dnav) [Extended abstract]. 9th Annual Conference on Cognitive Computational Neuroscience, New York City, USA."
+
+    Science Communication:
+      - bullet: "Stroecker, E. (2026, June 22). [*Beauty and the Brain*](https://www.brainmatters.nl/en/beauty-and-the-brain/) [Popular science article]. BrainMatters."
+      - bullet: "Stroecker, E. (2025, October 18). [*fNIRS*](https://www.brainmatters.nl/en/database/fnirs-2/) [Popular science article]. BrainMatters."
+      - bullet: "Stroecker, E. (2025, September 30). [*The Revolutionary Finding that Changed the Meaning of Functional Magnetic Resonance Imaging Forever*](https://www.brainmatters.nl/en/the-revolutionary-finding-that-changed-the-meaning-of-functional-magnetic-resonance-imaging-forever/) [Popular science article]. BrainMatters."
+      - bullet: "Stroecker, E. (2025, May 29). [*How Brain Reading is Becoming Reality Through Real-Time fMRI*](https://www.brainmatters.nl/en/how-brain-reading-is-becoming-reality-through-real-time-fmri/) [Popular science article]. BrainMatters."
+
     Service:
+      - label: "Member, Extended Abstracts Committee @ [CCN 2027](https://2027.ccneuro.org/)"
+        start_date: 2026-10
+        end_date: 2027-08
+        details: "Committee chair: Harrison Ritz"
+
       - label: "Member, Technical Program Committee @ [CCN 2026](https://2026.ccneuro.org/ccn-organizers/)"
         start_date: 2025-10
         end_date: 2026-08
@@ -105,7 +130,7 @@ cv:
 
       - label: "Research Mentor @ Columbia, [BUMP Biology](https://www.bumpbiology.org/)"
         start_date: 2026-01
-        end_date: 2026-12
+        details: "Advising an undergraduate student on entering neuroscientific research and shaping academic goals"
 
       - label: "Editorial Assistant @ [In-Mind Magazine](https://www.in-mind.org/)"
         start_date: 2026-05
@@ -116,11 +141,21 @@ cv:
         details: Overview of articles [here](https://emilstroecker.github.io/publications/#brainmatters)
 
       - label: "Teaching Assistant @ Maastricht University"
-        start_date: 2024-09
-        end_date: 2025-06
+        start_date: 2024-11
+        end_date: 2025-07
         details: "Functional Neuroanatomy, Consciousness, Statistics, Psychodiagnostics; 60+ students"
 
     Honours & Awards:
+      - title: Cum Laude, MSc Cognitive Neuroscience
+        date: 2026-08
+        awarder: Maastricht University
+
+      - title: PREMIUM Honours Programme
+        date: 2025-01
+        awarder: Maastricht University
+        url: https://edlab.nl/excellence/premium/
+        summary: "Extracurricular business consultancy [project](https://edlab.nl/excellence/premium/about-premium/premium-projects-2024-2025/eviden-rws/) for Atos"
+
       - title: Summa Cum Laude, BSc Psychology — Top 1% of class
         date: 2024-08
         awarder: Maastricht University
@@ -145,12 +180,6 @@ cv:
         awarder: Maastricht University
         url: https://www.maastrichtuniversity.nl/faculty-psychology-and-neuroscience
 
-      - title: PREMIUM Honours Programme
-        date: 2025-01
-        awarder: Maastricht University
-        url: https://edlab.nl/excellence/premium/
-        summary: "Extracurricular business consultancy [project](https://edlab.nl/excellence/premium/about-premium/premium-projects-2024-2025/eviden-rws/) for Atos"
-
     Skills:
       - name: Programming
         level: 
@@ -165,12 +194,12 @@ cv:
       - name: Neuroscience Tools
         level: 
         icon: fa-solid fa-microscope
-        keywords: "PsychoPy, fMRI (real-time, neurofeedback), EEG, NIBS (TMS, tDCS), electrode recording, Blender, LaTeX"
+        keywords: "PsychoPy, BrainVoyager, fMRI (real-time, neurofeedback), EEG, NIBS (TMS, tDCS), electrode recording, Blender, LaTeX"
 
       - name: Other
         level: 
         icon: fa-solid fa-chart-bar
-        keywords: "Psychophysics, statistical inference, scientific writing, OpenReview"
+        keywords: "Psychophysics, experimental design, academic writing, science communication, GitHub, Slurm, MS Office, OpenReview, Prolific, Qualtrics"
 
     Languages:
       - name: German
@@ -192,4 +221,12 @@ cv:
 
       - name: Columbia University ZI fMRI Certification (Level 2)
         issuer: Columbia University, Zuckerman Institute
+        icon: fa-solid fa-certificate
+
+      - name: Brain Communications Editorial Observers Programme
+        issuer: Oxford University Press
+        icon: fa-solid fa-certificate
+
+      - name: UM Honours Professional & Personal Workshops (10+)
+        issuer: Maastricht University
         icon: fa-solid fa-certificate
