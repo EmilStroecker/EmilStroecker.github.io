@@ -20,7 +20,7 @@ cv:
         studyType: Research Master of Science in Cognitive Neuroscience
         start_date: 2024-09
         end_date: 2026-08
-        score: "Cum Laude (8.87/10.0; US: 4.0/4.0)"
+        score: "Cum Laude (8.87/10.0; US: 3.9/4.0)"
         highlights:
           - "Selective 2-year programme with research focus, featuring 10-month MSc thesis research"
           - "Selected coursework: Statistics I–III, Applied Statistics I–II, Basic Mathematical Methods, Signal Analysis,
@@ -42,7 +42,7 @@ cv:
         studyType: Bachelor of Science in Psychology
         start_date: 2021-09
         end_date: 2024-08
-        score: Summa Cum Laude, Top 1%
+        score: Summa Cum Laude, Top 1% 
         highlights:
           - "Empirical programme with focus on research methods, statistics, cognitive psychology, and neuroscience"
 
@@ -121,12 +121,12 @@ cv:
       - label: "Member, Extended Abstracts Committee @ [CCN 2027](https://2027.ccneuro.org/)"
         start_date: 2026-10
         end_date: 2027-08
-        details: "Committee chair: Harrison Ritz"
+        details: ""
 
       - label: "Member, Technical Program Committee @ [CCN 2026](https://2026.ccneuro.org/ccn-organizers/)"
         start_date: 2025-10
         end_date: 2026-08
-        details: "Managing 600+ submissions on OpenReview; documenting conference policies"
+        details: "Managed submission process of 600+ submissions across Proceedings and Extended Abstracts"
 
       - label: "Research Mentor @ Columbia, [BUMP Biology](https://www.bumpbiology.org/)"
         start_date: 2026-01
