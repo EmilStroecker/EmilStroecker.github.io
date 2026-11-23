@@ -43,6 +43,7 @@ This project asks: do modern neural networks trained for depth estimation exhibi
         </video>
       </figure>
     </div>
+
   </div>
 
   <div class="ames-controls">
@@ -676,5 +677,5 @@ Columbia University, Zuckerman Institute.
 
 ## Conference Abstract
 
-Stroecker, E., Cheng, F., &amp; Kriegeskorte, N. (2026, August). *Measuring Depth Inversion in the Ames Window
-Illusion* [Extended abstract, accepted]. 9th Annual Conference on Cognitive Computational Neuroscience, NYC, USA.
+Stroecker, E., Cheng, F., &amp; Kriegeskorte, N. (2026, August). _Measuring Depth Inversion in the Ames Window
+Illusion_ [Extended abstract, accepted]. 9th Annual Conference on Cognitive Computational Neuroscience, NYC, USA.

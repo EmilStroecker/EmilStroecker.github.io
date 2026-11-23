@@ -61,11 +61,12 @@ cv:
 
 
       - company: Maastricht University
-        position: "Research Assistant @ Rainer Goebel's Vision Group (PI: Rainer Goebel) — Motion × Depth interactions in human MT"
+        position: "Research Assistant @ Rainer Goebel's Vision Group (PI: Rainer Goebel)"
         location: Maastricht, Netherlands
         start_date: 2026-10
         highlights:
-          - "Responsible for analysing 7 T fMRI data from hMT to characterise motion- and stereoscopic-depth representations and identify potential columnar organisation"
+          - "Project: binocular disparity and axis-of-motion tuning in human area MT under 7 T fMRI"
+          - "Fully responsible for analysing experimental hMT responses to identify hypercolumns of motion and stereoscopic-depth representations"
           - "Preparing a first-author manuscript for journal publication"
 
       - company: Maastricht University

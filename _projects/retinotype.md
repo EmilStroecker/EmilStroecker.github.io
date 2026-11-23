@@ -9,15 +9,15 @@ published: false
 
 ## Overview
 
-When you *imagine* a letter, early visual cortex lights up in almost the same
-retinotopically-organised pattern as when you actually *see* it. Using
+When you _imagine_ a letter, early visual cortex lights up in almost the same
+retinotopically-organised pattern as when you actually _see_ it. Using
 ultra-high-field (7&nbsp;T) fMRI,
 [Senden et&nbsp;al. (2019)](https://doi.org/10.1007/s00429-019-01828-6) showed
 that an imagined letter can be reconstructed from the very same
 [population-receptive-field (pRF)](https://doi.org/10.1016/j.neuroimage.2007.09.034)
 mapping of the visual field that describes perception.
 
-**RetinoType** asks whether that correspondence can be turned into a *content-based*
+**RetinoType** asks whether that correspondence can be turned into a _content-based_
 brain–computer interface: a speller in which you simply picture the letter you
 want, and it is read directly out of visual cortex — rather than mapping
 arbitrary, effortful mental tasks onto letters, as earlier fMRI spellers do.
@@ -32,14 +32,14 @@ arbitrary, effortful mental tasks onto letters, as earlier fMRI spellers do.
    every unit in early visual cortex (V1–V3).
 
 2. **Simulate the whole alphabet.** The original experiment only presented four
-   letters (H, T, S, C). But a subject's pRF map lets us *predict* the cortical
+   letters (H, T, S, C). But a subject's pRF map lets us _predict_ the cortical
    response to any letter that was never shown — encoding each of the 26 letters
    into a simulated brain response, then reconstructing the visual field back
    out of it (below).
 
 3. **Transfer perception → imagery.** Imagined letters are far weaker and noisier
    than perceived ones. We estimate the signal-degradation profile that separates
-   seeing a letter from imagining it — calibrated on the letters that *were*
+   seeing a letter from imagining it — calibrated on the letters that _were_
    imagined in the scanner (H, T, S, C) — and extrapolate it to the remaining 22,
    producing as-authentic-as-possible simulated imagery responses.
 
@@ -65,12 +65,12 @@ geometrically distorted until that sampling bias is undone.
   <img src="/assets/img/retinotype_alphabet_sim.png" alt="Per-letter simulation: stimulus, naive back-projection, and distortion-corrected reconstruction for A–Z" style="max-width:100%; border-radius:8px;">
 </div>
 
-The preview image for this project is made the same way — *RETINO&nbsp;/&nbsp;TYPE*
+The preview image for this project is made the same way — _RETINO&nbsp;/&nbsp;TYPE_
 spelled out entirely in reconstructed, brain-decoded letters.
 
 ## Why it matters
 
-Conventional BCI spellers make you spell *indirectly*. Rather than reading out the
+Conventional BCI spellers make you spell _indirectly_. Rather than reading out the
 letter you intend, they map arbitrary or effortful mental tasks onto letters
 ([Sorger et&nbsp;al., 2012](https://doi.org/10.1016/j.cub.2012.05.022)) and narrow
 the alphabet down over several trials, each ruling out a fraction of the
@@ -85,9 +85,9 @@ three trials — and each trial is slow: Sorger et&nbsp;al.'s fMRI speller neede
 least **50&nbsp;seconds to encode a single letter**. Between memorising a code and
 the trials-per-letter overhead, spelling this way is both effortful and slow.
 
-A pRF-based, *content-based* approach instead aims to produce a uniquely
-identifiable signal for the intended letter in a *single* trial — decoding the
-*shape* you actually picture. Paired with a language model that exploits
+A pRF-based, _content-based_ approach instead aims to produce a uniquely
+identifiable signal for the intended letter in a _single_ trial — decoding the
+_shape_ you actually picture. Paired with a language model that exploits
 conversational context, this promises communication that is both more intuitive
 and more time-efficient, for healthy and clinical populations alike.
 

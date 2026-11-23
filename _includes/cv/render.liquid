@@ -110,7 +110,9 @@
               {% endif %}
               {% for sn in cv.social_networks %}
                 <tr>
-                  <td class="p-1 pr-2 font-weight-bold"><b>{{ sn.network }}</b></td>
+                  <td class="p-1 pr-2 font-weight-bold">
+                    <b>{{ sn.network }}</b>
+                  </td>
                   <td class="p-1 pl-2 font-weight-light">
                     {% if sn.network == 'GitHub' %}
                       <a href="https://github.com/{{ sn.username }}" target="_blank">{{ sn.username }}</a>

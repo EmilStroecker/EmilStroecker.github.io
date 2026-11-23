@@ -373,9 +373,11 @@
 {% endif %}
 {% if page.layout == 'cv' and site.plugins contains 'al_folio_cv' and site.al_folio.features.cv.enabled != false %}
   <link rel="stylesheet" href="{{ '/assets/css/al-folio-cv.css' | relative_url | bust_file_cache }}">
-  <!-- CV entries: keep the date range on one line with room to breathe; stack cleanly on mobile.
-       The theme's col-xs-* grid classes are Bootstrap 3 syntax and don't lay out here, so the
-       date column collapsed to the badge's min-width and clipped the range. Lay it out with flex. -->
+  <!--
+    CV entries: keep the date range on one line with room to breathe; stack cleanly on mobile.
+    The theme's col-xs-* grid classes are Bootstrap 3 syntax and don't lay out here, so the
+    date column collapsed to the badge's min-width and clipped the range. Lay it out with flex.
+  -->
   <style>
     .cv .list-group-item > .row {
       display: flex;

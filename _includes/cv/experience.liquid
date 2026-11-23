@@ -7,7 +7,7 @@
           {% capture raw_end %}{% if entry.end_date %}{{ entry.end_date }}{% elsif entry.endDate %}{{ entry.endDate }}{% endif %}{% endcapture %}
 
           {% assign raw_start = raw_start | strip %}
-          {% assign raw_end   = raw_end   | strip %}
+          {% assign raw_end = raw_end | strip %}
 
           {% if raw_start != '' %}
             {% assign sp = raw_start | split: '-' %}
@@ -28,7 +28,12 @@
             {% assign date = '' %}
           {% endif %}
 
-          <span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px; white-space: normal; font-size: 0.65rem; line-height: 1.5;">{{ date }}</span>
+          <span
+            class="badge font-weight-bold danger-color-dark text-uppercase align-middle"
+            style="min-width: 75px; white-space: normal; font-size: 0.65rem; line-height: 1.5;"
+          >
+            {{- date -}}
+          </span>
           {% capture location %}{% if entry.location %}{{ entry.location }}{% endif %}{% endcapture %}
           {% if location != '' %}
             <p class="location" style="margin-top: 0.4rem; margin-bottom: 0; text-align: right;">
@@ -46,7 +51,11 @@
           {% capture company_name %}{% if entry.name %}{{ entry.name }}{% elsif entry.company %}{{ entry.company }}{% elsif entry.organization %}{{ entry.organization }}{% endif %}{% endcapture %}
           {% if company_name != '' %}
             <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem">
-              {% if entry.url %}<a href="{{ entry.url }}">{{ company_name }}</a>{% else %}{{ company_name }}{% endif %}
+              {% if entry.url -%}
+                <a href="{{ entry.url }}">{{ company_name }}</a>
+              {%- else -%}
+                {{- company_name -}}
+              {%- endif %}
             </h6>
           {% endif %}
 
