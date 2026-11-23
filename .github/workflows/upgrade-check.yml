@@ -9,12 +9,15 @@ on:
     paths:
       - "_config.yml"
       - "_data/**"
+      - "_includes/**"
+      - "_layouts/**"
       - "_pages/**"
       - "_posts/**"
       - "_projects/**"
       - "assets/**"
       - "Gemfile"
       - "Gemfile.lock"
+      - ".al-folio-overrides.yml"
       - "test/integration_upgrade_cli.sh"
       - ".github/workflows/upgrade-check.yml"
   pull_request:
@@ -25,12 +28,15 @@ on:
     paths:
       - "_config.yml"
       - "_data/**"
+      - "_includes/**"
+      - "_layouts/**"
       - "_pages/**"
       - "_posts/**"
       - "_projects/**"
       - "assets/**"
       - "Gemfile"
       - "Gemfile.lock"
+      - ".al-folio-overrides.yml"
       - "test/integration_upgrade_cli.sh"
       - ".github/workflows/upgrade-check.yml"
 
@@ -39,12 +45,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Setup Ruby 💎
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: "3.3.5"
+          ruby-version: "3.3"
           bundler-cache: true
 
       - name: Run upgrade audit 🧪
@@ -52,7 +58,7 @@ jobs:
 
       - name: Upload upgrade report 📄
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: al-folio-upgrade-report
           path: al-folio-upgrade-report.md

@@ -128,7 +128,7 @@ lsi: false # produce an index for related posts
 
 # Pagination
 pagination:
-  enabled: true
+  enabled: false # enable when the blog is published
 
 related_blog_posts:
   enabled: true
@@ -137,7 +137,7 @@ related_blog_posts:
 # Giscus comments (RECOMMENDED)
 # Follow instructions on https://giscus.app/ to setup for your repo to fill out the information below.
 giscus:
-  repo: # <your-github-user-name>/<your-github-repo-name>
+  repo: EmilStroecker/EmilStroecker.github.io
   repo_id: # leave empty or specify your repo_id (see https://giscus.app/)
   category: Comments # name of the category under which discussions will be created
   category_id: # leave empty or specify your category_id (see https://giscus.app/)
@@ -206,7 +206,9 @@ kramdown:
 include: ["_pages"]
 exclude:
   - al-folio-upgrade-report.md
+  - AGENTS.md
   - bin/
+  - CLAUDE.md
   - CONTRIBUTING.md
   - CUSTOMIZE.md
   - Dockerfile
@@ -225,6 +227,14 @@ exclude:
   - purgecss.config.js
   - README.md
   - readme_preview/
+  - requirements.txt
+  - test/
+  - assets/audio/
+  - assets/json/
+  - assets/plotly/
+  - assets/rendercv/
+  - assets/video/
+  - assets/pdf/example_pdf.pdf
   - gems/
   - migrations/
   - vendor
@@ -321,8 +331,8 @@ jekyll-archives:
   books:
     enabled: [year, tags, categories] # enables year, tag and category archives (remove if you need to disable one of them).
 
-display_tags: ["formatting", "images", "links", "math", "code", "blockquotes"] # these tags will be displayed on the front page of your blog
-display_categories: ["external-services"] # these categories will be displayed on the front page of your blog
+display_tags: [] # add tags here when the blog is published
+display_categories: [] # add categories here when the blog is published
 
 # -----------------------------------------------------------------------------
 # Jekyll Scholar

@@ -333,15 +333,12 @@ Your CV can be created using one of two formats. Choose the format that works be
 
 ### RenderCV Format (Recommended)
 
-[`_data/cv.yml`](../_data/cv.yml) uses the [RenderCV](https://rendercv.com/) YAML format, which is human-readable and designed specifically for generating professional resumes. This format also enables optional automatic PDF generation via GitHub Actions.
+[`_data/cv.yml`](../_data/cv.yml) uses a human-readable, RenderCV-style YAML structure to generate the website's CV page.
 
 **If you choose this format:**
 
 1. Edit your CV data in [`_data/cv.yml`](../_data/cv.yml)
-2. Optionally customize how the PDF is styled by editing:
-   - [`assets/rendercv/design.yaml`](../assets/rendercv/design.yaml) — Design and styling
-   - [`assets/rendercv/locale.yaml`](../assets/rendercv/locale.yaml) — Localization and formatting
-   - [`assets/rendercv/settings.yaml`](../assets/rendercv/settings.yaml) — RenderCV settings
+2. Update the linked PDF at [`assets/pdf/Stroecker_Emil_CV.pdf`](../assets/pdf/Stroecker_Emil_CV.pdf) when needed
 3. To display only this format, delete [`assets/json/resume.json`](../assets/json/resume.json) (optional)
 
 ### JSONResume Format
@@ -366,27 +363,19 @@ cv_format: rendercv # options: rendercv or jsonresume
 
 Change `rendercv` to `jsonresume` to display the JSONResume format instead.
 
-### Automatic PDF Generation (RenderCV only)
+### CV PDF
 
-If you use the RenderCV format, a GitHub Actions workflow can automatically generate a PDF version of your CV whenever you push changes to [`_data/cv.yml`](../_data/cv.yml). The PDF is saved to `assets/rendercv/rendercv_output/`.
-
-**To link the auto-generated PDF to your CV page:**
-
-Set the `cv_pdf` variable in the frontmatter of [`_pages/cv.md`](../_pages/cv.md) to point to the generated PDF:
+This fork uses a manually maintained PDF rather than auto-generating one from the website data. Set the `cv_pdf` variable in the frontmatter of [`_pages/cv.md`](../_pages/cv.md) to point to that file:
 
 ```yaml
 ---
 layout: cv
-cv_pdf: /assets/rendercv/rendercv_output/CV.pdf
+cv_pdf: /assets/pdf/Stroecker_Emil_CV.pdf
 cv_format: rendercv
 ---
 ```
 
-This will add a download button on your CV page that links to the PDF. (The exact filename depends on your RenderCV settings—check the output directory after the first workflow run to see the generated PDF name.)
-
-**To disable automatic PDF generation:**
-
-Delete or comment out the [`.github/workflows/render-cv.yml`](../.github/workflows/render-cv.yml) workflow file.
+This adds a download button on the CV page. The [CV validation workflow](../.github/workflows/render-cv.yml) checks that the YAML data remains valid and that the linked file is a non-empty PDF.
 
 ## Modifying the user and repository information
 
