@@ -12,7 +12,7 @@ nav_order: 3
 
 <h2 class="bibliography">Manuscripts in Preparation</h2>
 
-{% bibliography --query @unpublished %}
+{% bibliography --query @unpublished --group_by none %}
 
 <h2 class="bibliography">Conference Abstracts</h2>
 
