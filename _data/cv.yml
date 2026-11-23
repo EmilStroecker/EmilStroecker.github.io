@@ -1,7 +1,7 @@
 cv:
   name: Emil Stroecker
   degree: MSc, Cognitive Neuroscience (Cum Laude)
-  email: es4485@columbia.edu
+  email: emil.strocker@maastrichtuniversity.nl
   image: ""
 
   social_networks:
@@ -48,49 +48,51 @@ cv:
 
     Experience:
       - company: Columbia University, Zuckerman Institute
-        position: Research Intern @ [Niko Kriegeskorte's Visual Inference Lab](https://kriegeskortelab.zuckermaninstitute.columbia.edu/)
+        position: "MSc Thesis Research Intern @ [Visual Inference Lab](https://kriegeskortelab.zuckermaninstitute.columbia.edu/) (Advisor: Niko Kriegeskorte)"
         location: New York City, USA
         url: 
         start_date: 2025-11
         end_date: 2026-08
         highlights:
-          - "Project lead: studied depth estimation during the Ames Window Illusion in humans and neural networks ([project page](https://emilstroecker.github.io/projects/ames_window/))"
-          - "First author of a 2-page extended abstract presented at CCN 2026"
+          - "Project lead: studied stimulus determinants of illusory depth inversion by evaluating contemporary depth-estimation networks and training DNNs on different datasets ([project page](https://emilstroecker.github.io/projects/ames_window/))"
+          - "Ran an online psychophysics experiment with Prolific and PsychoJS for human benchmarking"
+          - "Presented a first-author extended abstract at CCN 2026 and am preparing a first-author manuscript for journal publication"
           - "Experiments contributed to the development of the AI psychophysics benchmark tool illugen"
 
 
       - company: Maastricht University
-        position: Research Assistant @ Rainer Goebel's Vision Group — fMRI-BCI letter speller (RetinoType)
+        position: "Research Assistant @ Rainer Goebel's Vision Group (PI: Rainer Goebel) — Motion × Depth interactions in human MT"
         location: Maastricht, Netherlands
-        start_date: 2025-09
+        start_date: 2026-10
         highlights:
-          - "Project lead: decoding retinotopic representations of imagined letters in striate cortex from 7 T fMRI data ([project page](https://emilstroecker.github.io/projects/retinotype/))"
-          - "Reconstructing the visual field with an imagery-pRF forward model to simulate 26-letter imagery"
-          - "Developing a proof-of-concept letter-speller BCI augmented with a probabilistic model and LLM language prior"
+          - "Responsible for analysing 7 T fMRI data from hMT to characterise motion- and stereoscopic-depth representations and identify potential columnar organisation"
+          - "Preparing a first-author manuscript for journal publication"
 
       - company: Maastricht University
-        position: Research Assistant @ [Developmental Cognitive Neuroscience Group](https://www.maastrichtuniversity.nl/fpn/dcn)
+        position: "Research Assistant @ [Developmental Cognitive Neuroscience Group](https://www.maastrichtuniversity.nl/fpn/dcn) (PI: Matt Hilton)"
         location: Maastricht, Netherlands
         start_date: 2025-09
         end_date: 2025-11
         highlights:
-          - "Refactored and debugged a PsychoPy experiment for EEG compatibility and improved the task paradigm"
+          - "Refactored and debugged a PsychoPy experiment for EEG compatibility and improved the paradigm for a task administered to 40+ participants"
 
       - company: Sokendai, National Institute for Physiological Sciences
-        position: Research Intern @ [Ryo Sasaki's Multisensory Integration Systems Lab](https://www.nips.ac.jp/eng/research/group/post-67/)
+        position: "Research Intern @ [Multisensory Integration Systems Lab](https://www.nips.ac.jp/eng/research/group/post-67/) (PI: Ryo Sasaki)"
         location: Okazaki, Japan
         start_date: 2025-07
         end_date: 2025-07
         highlights:
           - "Comprehensive training on major practical aspects of macaque experiments"
+          - "Observed behavioural training and neural recordings for 2AFC saccade and spatial-navigation tasks"
 
       - company: Maastricht University
-        position: Honours Thesis Research ([MaRBLe](https://excellence-edlab.maastrichtuniversity.nl/marble))
+        position: "BSc Honours Thesis Research via [MaRBLe](https://excellence-edlab.maastrichtuniversity.nl/marble) (Advisor: Vincent van de Ven)"
         location: Maastricht, Netherlands
         start_date: 2023-11
         end_date: 2024-07
         highlights:
-          - "Fully self-directed project, graded outstanding (10/10)"
+          - "Led the experimental design, PsychoPy/PsychoJS implementation, recruitment of 40 participants, and analysis"
+          - "Studied predictive recall of structured tone sequences; project graded outstanding (10/10)"
 
       - company: Maastricht University
         position: Interdisciplinary Research Project @ [Honours+](https://edlab.nl/excellence/honoursplus/)
@@ -98,14 +100,16 @@ cv:
         start_date: 2022-11
         end_date: 2023-05
         highlights:
-          - "Led a five-student team in an empirical study of how TikTok content shapes perceptions of ADHD"
+          - "Led a five-student team in a qualitative analysis of TikTok content on ADHD, laying the groundwork for a 100+ participant quantitative study; findings presented to faculty"
 
       - company: University Hospital Cologne
-        position: Research Intern — TrainParC-Advanced
+        position: "Research Intern — TrainParC-Advanced (PI: Ann-Kristin Folkerts)"
         location: Cologne, Germany
         start_date: 2023-07
         end_date: 2023-09
         highlights:
+          - "Conducted neuropsychological and motor assessments with Parkinson's patients"
+          - "Developed an Excel-based digital data-entry workflow to replace paper records"
           - "Contributions acknowledged in resulting Springer Nature publication ([Trials, 2025](https://doi.org/10.1186/s13063-025-09330-7))"
 
     Conference Abstracts:
@@ -121,7 +125,7 @@ cv:
       - label: "Member, Extended Abstracts Committee @ [CCN 2027](https://2027.ccneuro.org/)"
         start_date: 2026-10
         end_date: 2027-08
-        details: ""
+        details: "Designing and managing the review and validation process; administering the OpenReview venue, reviewer matching, and quality assurance"
 
       - label: "Member, Technical Program Committee @ [CCN 2026](https://2026.ccneuro.org/ccn-organizers/)"
         start_date: 2025-10
@@ -157,7 +161,7 @@ cv:
         summary: "Extracurricular business consultancy [project](https://edlab.nl/excellence/premium/about-premium/premium-projects-2024-2025/eviden-rws/) for Atos"
 
       - title: Summa Cum Laude, BSc Psychology — Top 1% of class
-        date: 2024-08
+        date: 2024-07
         awarder: Maastricht University
 
       - title: JASSO Scholarship — ¥400,000 (≈ $2,500 USD)
@@ -215,6 +219,10 @@ cv:
         summary: "Elementary"
 
     Certificates:
+      - name: "GRE General: Verbal 167 | Quantitative 165 | AWA 5.0"
+        issuer: ETS
+        icon: fa-solid fa-certificate
+
       - name: TOEFL iBT 118/120 (CEFR C2)
         issuer: ETS
         icon: fa-solid fa-language

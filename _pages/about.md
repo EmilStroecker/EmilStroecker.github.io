@@ -30,6 +30,8 @@ latest_posts:
 
 I recently completed the Research MSc in Cognitive Neuroscience at Maastricht University **Cum Laude** and joined Rainer Goebel's Vision Group as a Research Assistant.
 
-For my MSc thesis at [Niko Kriegeskorte's Visual Inference Lab](https://kriegeskortelab.zuckermaninstitute.columbia.edu/) of Columbia University's Zuckerman Institute, I studied **depth estimation in neural network models** using the [Ames Window Illusion](https://www.mos.org/video/optical-illusion-tricks-your-brain-ames-window). I presented the work as first author at [CCN 2026](https://2026.ccneuro.org/poster/?id=Syn813Dnav).
+My current research examines how **motion and stereoscopic depth interact in human area MT**. I analyse 7 T fMRI data to characterise the organisation of motion- and disparity-selective responses and identify potential columnar structure in hMT.
+
+For my MSc thesis at [Niko Kriegeskorte's Visual Inference Lab](https://kriegeskortelab.zuckermaninstitute.columbia.edu/) of Columbia University's Zuckerman Institute, I studied **depth estimation in neural network models** using the [Ames Window Illusion](https://www.mos.org/video/optical-illusion-tricks-your-brain-ames-window). I presented the work as first author at [CCN 2026](https://2026.ccneuro.org/poster/?id=Syn813Dnav) and am preparing the project for journal publication.
 
 I serve on the [CCN 2027](https://2027.ccneuro.org/) Extended Abstracts Committee and as a Research Mentor in Columbia's [BUMP Biology](https://www.bumpbiology.org/) programme. Beyond research, I write neuroscience articles for general audiences at [BrainMatters](https://brainmatters.nl) and serve as an Editorial Assistant at [In-Mind Magazine](https://in-mind.org).

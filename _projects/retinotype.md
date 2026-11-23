@@ -4,6 +4,7 @@ title: RetinoType
 description: A population-receptive-field fMRI brain–computer interface for spelling with imagined letters
 img: /assets/img/retinotype_preview.webp
 importance: 1
+published: false
 ---
 
 ## Overview

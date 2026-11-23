@@ -7,13 +7,13 @@ first_name: Emil
 middle_name:
 last_name: Stroecker
 contact_note: >
-  Best reached by email at es4485@columbia.edu.
+  Best reached by email at emil.strocker@maastrichtuniversity.nl.
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
   Cognitive neuroscientist and Research Assistant in Rainer Goebel's Vision Group at Maastricht University.
 footer_text: >
   Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
   Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
-keywords: Emil Stroecker, cognitive neuroscience, visual perception, fMRI, brain-computer interface, RetinoType, depth estimation, neural networks, psychophysics, Ames window, Rainer Goebel, Kriegeskorte lab, Columbia University, Maastricht University
+keywords: Emil Stroecker, cognitive neuroscience, visual perception, fMRI, human MT, motion perception, stereoscopic depth, binocular disparity, depth estimation, neural networks, psychophysics, Ames window, Rainer Goebel, Kriegeskorte lab, Columbia University, Maastricht University
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
 icon: ⚛️ # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
 

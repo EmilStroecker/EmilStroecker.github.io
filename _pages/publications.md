@@ -10,6 +10,10 @@ nav_order: 3
 
 <div class="publications">
 
+<h2 class="bibliography">Manuscripts in Preparation</h2>
+
+{% bibliography --query @unpublished %}
+
 <h2 class="bibliography">Conference Abstracts</h2>
 
 {% bibliography --query @inproceedings %}
